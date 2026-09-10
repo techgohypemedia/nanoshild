@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Phone, Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 
 export default function Navbar() {
   const [pastVideo, setPastVideo] = useState(false);
@@ -29,10 +29,6 @@ export default function Navbar() {
     ? "text-zinc-900 hover:text-teal-600 transition-colors duration-200 font-semibold"
     : "text-white hover:text-teal-300 transition-colors duration-200 font-semibold drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]";
 
-  const phoneClass = pastVideo
-    ? "text-zinc-900 hover:text-teal-600 font-bold"
-    : "text-white hover:text-teal-300 font-bold drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]";
-
   const toggleBtnClass = pastVideo
     ? "text-zinc-900 hover:text-black"
     : "text-white hover:text-zinc-200 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]";
@@ -45,12 +41,16 @@ export default function Navbar() {
           : "bg-transparent border-transparent py-4 sm:py-5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Logo */}
-        <a href="#" className="flex items-center group">
-          <div className="relative h-12 w-48 sm:h-16 sm:w-64 md:h-18 md:w-72 transition-transform duration-200 group-hover:scale-105">
+      <div className="max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between gap-6">
+        {/* Brand Logo with Dynamic Theme Switching for perfect contrast */}
+        <a href="#" className="flex items-center group shrink-0">
+          <div className="relative h-10 w-44 sm:h-11 sm:w-52 lg:h-12 lg:w-56 transition-transform duration-200 group-hover:scale-105">
             <Image
-              src="/logo/NanoShield Logo - White Bg.png"
+              src={
+                pastVideo
+                  ? "/logo/NanoShield Logo - White Bg.png"
+                  : "/logo/NanoShield Logo - Dark Bg.png"
+              }
               alt="NanoShield HD Surface Protection"
               fill
               className="object-contain object-left"
@@ -59,47 +59,43 @@ export default function Navbar() {
           </div>
         </a>
 
-        {/* Desktop Navigation Links - White text over video, dark text past video */}
-        <nav className="hidden md:flex items-center gap-8 text-sm">
-          <a href="#" className={navLinkClass}>
+        {/* Desktop Navigation Links - Perfectly centered, strictly single-line whitespace-nowrap */}
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-9 text-sm xl:text-[15px] whitespace-nowrap">
+          <a href="#" className={`${navLinkClass} whitespace-nowrap py-1`}>
             Home
           </a>
-          <a href="#technology" className={navLinkClass}>
+          <a href="#technology" className={`${navLinkClass} whitespace-nowrap py-1`}>
             Technology
           </a>
-          <a href="#stone" className={navLinkClass}>
-            Marble & Stone
+          <a href="#marble-collections" className={`${navLinkClass} whitespace-nowrap py-1`}>
+            Collections
           </a>
-          <a href="#guarantee" className={navLinkClass}>
+          <a href="#our-showroom" className={`${navLinkClass} whitespace-nowrap py-1`}>
+            Our Showroom
+          </a>
+          <a href="#guarantee" className={`${navLinkClass} whitespace-nowrap py-1`}>
             10-Year Guarantee
           </a>
-          <a href="#pricing" className={navLinkClass}>
+          <a href="#pricing" className={`${navLinkClass} whitespace-nowrap py-1`}>
             Pricing
           </a>
         </nav>
 
-        {/* Action Button & Contact */}
-        <div className="hidden lg:flex items-center gap-6">
-          <a
-            href="tel:1300000000"
-            className={`flex items-center gap-2 text-xs uppercase tracking-wider transition-colors ${phoneClass}`}
-          >
-            <Phone className="w-4 h-4 text-teal-400" />
-            <span>1300 NANOSHIELD</span>
-          </a>
+        {/* Action CTA Button */}
+        <div className="hidden lg:flex items-center shrink-0">
           <a
             href="#quote"
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-500 hover:bg-teal-400 text-white shadow-md shadow-teal-500/25 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+            className="inline-flex items-center gap-2 px-6 py-2.5 xl:px-7 xl:py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-[#50b8ae] hover:bg-[#3ea399] text-white shadow-md shadow-[#50b8ae]/30 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap shrink-0 cursor-pointer"
           >
             <span>Get a Quote</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5 shrink-0" />
           </a>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
+        {/* Mobile / Tablet Hamburger Toggle */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className={`md:hidden p-2 rounded-lg transition-colors ${toggleBtnClass}`}
+          className={`lg:hidden p-2 rounded-lg transition-colors cursor-pointer ${toggleBtnClass}`}
           aria-label="Toggle navigation menu"
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -124,11 +120,18 @@ export default function Navbar() {
             Technology
           </a>
           <a
-            href="#stone"
+            href="#marble-collections"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-white hover:text-teal-400 text-base font-semibold py-2"
           >
-            Marble & Stone
+            Collections
+          </a>
+          <a
+            href="#our-showroom"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block text-white hover:text-teal-400 text-base font-semibold py-2"
+          >
+            Our Showroom
           </a>
           <a
             href="#guarantee"
@@ -145,18 +148,11 @@ export default function Navbar() {
             Pricing
           </a>
 
-          <div className="pt-4 border-t border-white/10 space-y-3">
-            <a
-              href="tel:1300000000"
-              className="flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-bold text-white py-2"
-            >
-              <Phone className="w-4 h-4 text-teal-400" />
-              <span>1300 NANOSHIELD</span>
-            </a>
+          <div className="pt-4 border-t border-white/10">
             <a
               href="#quote"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-500 text-white shadow-md shadow-teal-500/30"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-[#50b8ae] text-white shadow-md shadow-[#50b8ae]/30"
             >
               <span>Get a Quote</span>
               <ArrowRight className="w-4 h-4" />

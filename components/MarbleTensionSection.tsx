@@ -187,9 +187,9 @@ export default function MarbleTensionSection() {
               <button
                 ref={buttonRef}
                 type="button"
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg bg-[#20252e] hover:bg-[#12161c] text-white font-medium text-[15px] sm:text-[16px] shadow-md hover:shadow-lg transition-all duration-200 active:scale-[0.98] cursor-pointer"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg bg-[#50b8ae] hover:bg-[#3ea399] text-white font-medium text-[15px] sm:text-[16px] shadow-md shadow-[#50b8ae]/30 hover:shadow-lg transition-all duration-200 active:scale-[0.98] cursor-pointer"
               >
-                <Search className="w-4 h-4 text-stone-300 stroke-[2.5]" />
+                <Search className="w-4 h-4 text-white stroke-[2.5]" />
                 <span>Book Your Consultation Today</span>
               </button>
             </div>
@@ -201,7 +201,7 @@ export default function MarbleTensionSection() {
       <button
         type="button"
         onClick={scrollToTop}
-        className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-[#64748b] hover:bg-[#475569] text-white flex items-center justify-center shadow-lg transition-all duration-200 active:scale-95 cursor-pointer opacity-90 hover:opacity-100"
+        className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-[#50b8ae] hover:bg-[#3ea399] text-white flex items-center justify-center shadow-lg shadow-[#50b8ae]/30 transition-all duration-200 active:scale-95 cursor-pointer opacity-90 hover:opacity-100"
         title="Scroll to top"
       >
         <ChevronUp className="w-5 h-5" />

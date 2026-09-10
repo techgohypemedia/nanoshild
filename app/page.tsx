@@ -2,6 +2,11 @@ import Navbar from "@/components/Navbar";
 import HeroParallaxSequence from "@/components/HeroParallaxSequence";
 import StickyGridScroll from "@/components/StickyGridScroll";
 import WhatChangesSection from "@/components/WhatChangesSection";
+import MarbleCollectionsSection from "@/components/MarbleCollectionsSection";
+import OurShowroomSection from "@/components/OurShowroomSection";
+import Experience3DCarouselSection from "@/components/Experience3DCarouselSection";
+import ShowroomBentoGridSection from "@/components/ShowroomBentoGridSection";
+import ArchitecturalBannerSlider from "@/components/ArchitecturalBannerSlider";
 import FaqSection from "@/components/FaqSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -13,12 +18,18 @@ export default function Home() {
       <HeroParallaxSequence />
       <StickyGridScroll />
       <WhatChangesSection />
+      <MarbleCollectionsSection />
+      <OurShowroomSection />
+      <Experience3DCarouselSection />
+      <ArchitecturalBannerSlider />
+      <ShowroomBentoGridSection />
       <FaqSection />
       <ContactSection />
       <Footer />
     </main>
   );
 }
+
 
 
 

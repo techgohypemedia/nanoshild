@@ -38,11 +38,6 @@ export default function ContactSection() {
           {/* LEFT COLUMN: ARCHITECTURAL PHOTO & METADATA DETAILS          */}
           {/* ============================================================ */}
           <div className="lg:col-span-6 flex flex-col">
-            {/* Editorial Top Caption (Image 1 Style) */}
-            <div className="text-[11px] sm:text-xs text-stone-500 font-light tracking-wide mb-3">
-              Light, material, and use before intervention.
-            </div>
-
             {/* Framed Architectural Image */}
             <div className="relative w-full aspect-[4/3] sm:aspect-[1/1] lg:aspect-[4/3.8] overflow-hidden rounded-sm bg-stone-200 shadow-sm">
               <Image
@@ -115,11 +110,6 @@ export default function ContactSection() {
           {/* RIGHT COLUMN: LUXURY EDITORIAL CONTACT FORM                  */}
           {/* ============================================================ */}
           <div className="lg:col-span-6 flex flex-col justify-center lg:pl-4 xl:pl-8">
-            {/* Tag / Category */}
-            <div className="text-[11px] font-semibold tracking-[0.25em] text-stone-500 uppercase mb-3.5">
-              INVITATION
-            </div>
-
             {/* Editorial Headline (Image 1 Style + Image 2 "Contact Us") */}
             <h2 className="text-4xl sm:text-5xl lg:text-[54px] font-serif font-normal text-stone-900 tracking-tight leading-[1.08]">
               Contact Us
@@ -240,7 +230,7 @@ export default function ContactSection() {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="bg-[#1c1917] hover:bg-black text-stone-100 px-8 py-3.5 text-sm font-medium tracking-wide inline-flex items-center gap-2.5 transition-all duration-200 shadow-sm hover:shadow-md active:scale-98 group cursor-pointer"
+                    className="bg-[#50b8ae] hover:bg-[#3ea399] text-white px-8 py-3.5 text-sm font-semibold tracking-wide inline-flex items-center gap-2.5 transition-all duration-200 shadow-md shadow-[#50b8ae]/30 hover:shadow-lg active:scale-98 group cursor-pointer rounded-sm"
                   >
                     <span>Begin Enquiry</span>
                     <ArrowUpRight className="w-4 h-4 stroke-[2] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

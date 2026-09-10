@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 
-const TOTAL_FRAMES = 120;
+const TOTAL_FRAMES = 86;
 const FRAME_PATH = "/nanoshield_parallax_frames_web";
 
 function getFrameUrl(index: number) {

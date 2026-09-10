@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Plus, Minus, ArrowRight, ChevronUp, Check } from "lucide-react";
+import { Plus, Minus, ChevronUp } from "lucide-react";
 
 interface FaqItem {
   id: number;
@@ -107,8 +107,8 @@ const FAQ_ITEMS: FaqItem[] = [
 ];
 
 export default function FaqSection() {
-  // Question 1 open by default as in the reference design
-  const [openId, setOpenId] = useState<number | null>(1);
+  // All collapsed by default, clean light cards
+  const [openId, setOpenId] = useState<number | null>(null);
 
   const toggleItem = (id: number) => {
     setOpenId((prev) => (prev === id ? null : id));
@@ -121,296 +121,132 @@ export default function FaqSection() {
   return (
     <section
       id="faq-section"
-      className="relative w-full bg-[#f4f5f7] text-[#1f242e] py-16 sm:py-24 lg:py-28 px-6 sm:px-10 md:px-14 lg:px-20 border-t border-stone-200/80"
+      className="relative w-full text-[#1f242e] py-20 sm:py-28 lg:py-32 px-6 sm:px-10 md:px-14 lg:px-20 border-t border-stone-200/80 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start relative">
-          
-          {/* ============================================================ */}
-          {/* LEFT COLUMN: TITLE & BLUE GLOSSY SUPPORT CARD (5 COLS)       */}
-          {/* STICKY UNTIL FAQ ITEMS (RIGHT COLUMN) FINISH SCROLLING       */}
-          {/* ============================================================ */}
-          <div className="lg:col-span-5 lg:sticky lg:top-24 lg:self-start flex flex-col space-y-6 sm:space-y-7">
-            <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-[#1f242e] tracking-tight leading-[1.14]">
-                Frequently asked
-                <br />
-                questions
-              </h2>
-              <p className="text-stone-500 text-sm sm:text-base leading-relaxed mt-3 max-w-sm">
-                Find quick answers to common questions about our stone protection system, installation, warranty, and daily care.
-              </p>
-            </div>
+      {/* Luxury Calacatta Marble Architectural Background */}
+      <div className="absolute inset-0 z-0 select-none pointer-events-none">
+        <Image
+          src="/faq-marble-bg.jpg"
+          alt="Luxury Marble Architectural Background"
+          fill
+          priority
+          className="object-cover object-center opacity-90 brightness-[1.02] contrast-[1.05]"
+        />
+        {/* Soft Ambient White Vignette Overlay for Ultra Clean Readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/85 via-white/60 to-white/90 backdrop-blur-[1px]" />
+      </div>
 
-            {/* Vibrant Blue Glassy / Glossy "Still have questions?" Card */}
-            <div
-              className="group w-full max-w-sm rounded-[28px] text-white p-6 sm:p-7 relative overflow-hidden transition-all duration-300 hover:scale-[1.02] cursor-pointer"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.93) 45%, rgba(29, 78, 216, 0.97) 100%)",
-                boxShadow:
-                  "0 24px 48px -10px rgba(37, 99, 235, 0.45), 0 10px 24px -6px rgba(29, 78, 216, 0.35), inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.7), inset 0 -3px 8px 0 rgba(0, 0, 0, 0.25)",
-                border: "1px solid rgba(255, 255, 255, 0.4)",
-                borderTop: "1.5px solid rgba(255, 255, 255, 0.75)",
-                borderLeft: "1.5px solid rgba(255, 255, 255, 0.6)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-              }}
-            >
-              {/* Top Glass Specular Reflection (Diagonal Sheen) */}
+      <div className="relative z-10 max-w-4xl lg:max-w-5xl mx-auto">
+        {/* ============================================================ */}
+        {/* CENTERED TOP HEADER: TITLE                                   */}
+        {/* ============================================================ */}
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1f242e] tracking-tight leading-[1.15]">
+            Frequently Asked Questions
+          </h2>
+        </div>
+
+        {/* ============================================================ */}
+        {/* CENTERED FAQ ACCORDION LIST (Clean White Luxury Cards)       */}
+        {/* ============================================================ */}
+        <div className="space-y-3.5 sm:space-y-4">
+          {FAQ_ITEMS.map((item) => {
+            const isOpen = openId === item.id;
+
+            return (
               <div
-                className="absolute inset-0 pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                  background:
-                    "linear-gradient(125deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.12) 32%, rgba(255, 255, 255, 0) 60%)",
-                }}
-              />
+                key={item.id}
+                onClick={() => toggleItem(item.id)}
+                className={`group relative rounded-2xl cursor-pointer select-none transition-all duration-300 overflow-hidden bg-white/95 backdrop-blur-md border ${
+                  isOpen
+                    ? "p-6 sm:p-7 shadow-[0_12px_36px_rgba(0,0,0,0.08)] border-stone-300"
+                    : "p-5 sm:p-6 shadow-[0_3px_14px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.06)] border-stone-200/90 hover:-translate-y-0.5"
+                }`}
+              >
+                {/* Content Container */}
+                <div className="relative z-10">
+                  {/* Top Question Row */}
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="text-sm sm:text-base md:text-[17px] font-bold tracking-tight leading-snug text-[#1f242e] group-hover:text-black transition-colors">
+                      {item.question}
+                    </h3>
 
-              {/* Elliptical Top Glass Edge Highlight */}
-              <div
-                className="absolute -top-10 left-1/2 -translate-x-1/2 w-3/4 h-24 rounded-full pointer-events-none opacity-70"
-                style={{
-                  background:
-                    "radial-gradient(ellipse 100% 70% at 50% 30%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 75%)",
-                }}
-              />
-
-              {/* Bottom Ambient Glow Pool */}
-              <div
-                className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full pointer-events-none opacity-50 blur-xl"
-                style={{
-                  background: "radial-gradient(circle, rgba(147, 197, 253, 0.6) 0%, rgba(37, 99, 235, 0) 70%)",
-                }}
-              />
-
-              {/* Content Layer */}
-              <div className="relative z-10">
-                {/* Avatar Cluster with Real Photos + Frosted "+ You" Pill */}
-                <div className="flex items-center gap-2.5 mb-3.5">
-                  <div className="flex items-center -space-x-2.5">
-                    <div className="relative w-9 h-9 rounded-full ring-2 ring-white/90 overflow-hidden shadow-md shrink-0 bg-blue-400">
-                      <Image
-                        src="/avatars/avatar1.jpg"
-                        alt="NanoShield Specialist"
-                        fill
-                        sizes="36px"
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="relative w-9 h-9 rounded-full ring-2 ring-white/90 overflow-hidden shadow-md shrink-0 bg-blue-400">
-                      <Image
-                        src="/avatars/avatar2.jpg"
-                        alt="NanoShield Specialist"
-                        fill
-                        sizes="36px"
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="relative w-9 h-9 rounded-full ring-2 ring-white/90 overflow-hidden shadow-md shrink-0 bg-blue-400">
-                      <Image
-                        src="/avatars/avatar3.jpg"
-                        alt="NanoShield Specialist"
-                        fill
-                        sizes="36px"
-                        className="object-cover"
-                      />
+                    <div
+                      className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5 transition-all duration-300 ${
+                        isOpen
+                          ? "bg-[#50b8ae] text-white shadow-xs"
+                          : "bg-stone-100 text-stone-500 group-hover:bg-stone-200 group-hover:text-stone-800"
+                      }`}
+                    >
+                      {isOpen ? (
+                        <Minus className="w-4 h-4 stroke-[2.5] transition-transform duration-300" />
+                      ) : (
+                        <Plus className="w-4 h-4 stroke-[2.5] transition-transform duration-300" />
+                      )}
                     </div>
                   </div>
-                  <span
-                    className="text-xs font-bold px-3 py-1 rounded-full text-white shadow-xs inline-flex items-center"
-                    style={{
-                      background: "rgba(255, 255, 255, 0.22)",
-                      border: "1px solid rgba(255, 255, 255, 0.5)",
-                      boxShadow: "inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 2px 6px rgba(0, 0, 0, 0.1)",
-                      backdropFilter: "blur(12px)",
-                    }}
-                  >
-                    + You
-                  </span>
-                </div>
 
-                {/* Card Copy */}
-                <h3 className="text-xl font-bold text-white tracking-tight leading-snug mb-1 drop-shadow-xs">
-                  Still have questions?
-                </h3>
-                <p className="text-blue-100/90 text-xs sm:text-[13px] leading-relaxed mb-5 font-medium">
-                  Reach out, and our stone protection specialists will guide you.
-                </p>
-
-                {/* Glossy Pill Button */}
-                <div>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      const cta = document.getElementById("contact-section");
-                      cta?.scrollIntoView({ behavior: "smooth" });
-                    }}
-                    className="inline-flex items-center gap-3.5 pl-5 pr-2 py-2.5 rounded-full text-white text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-95 cursor-pointer"
-                    style={{
-                      background: "rgba(15, 20, 28, 0.88)",
-                      border: "1px solid rgba(255, 255, 255, 0.25)",
-                      boxShadow:
-                        "0 10px 24px -4px rgba(0, 0, 0, 0.35), inset 0 1px 1px 0 rgba(255, 255, 255, 0.3)",
-                      backdropFilter: "blur(10px)",
-                    }}
-                  >
-                    <span>Talk to our team</span>
-                    <span className="w-7 h-7 rounded-full bg-white text-black flex items-center justify-center shrink-0 shadow-sm transition-transform duration-200 group-hover:translate-x-0.5">
-                      <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* ============================================================ */}
-          {/* RIGHT COLUMN: 11 FLOATING ACCORDION CARDS (7 COLS)           */}
-          {/* ============================================================ */}
-          <div className="lg:col-span-7 space-y-3.5 sm:space-y-4">
-            {FAQ_ITEMS.map((item) => {
-              const isOpen = openId === item.id;
-
-              return (
-                <div
-                  key={item.id}
-                  onClick={() => toggleItem(item.id)}
-                  className={`group relative rounded-2xl cursor-pointer select-none transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden ${
-                    isOpen
-                      ? "p-6 sm:p-7 shadow-2xl"
-                      : "p-5 sm:p-6 shadow-[0_3px_14px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] hover:-translate-y-0.5"
-                  }`}
-                  style={
-                    isOpen
-                      ? {
-                          background:
-                            "linear-gradient(135deg, rgba(28, 33, 42, 0.94) 0%, rgba(18, 22, 28, 0.97) 60%, rgba(12, 15, 20, 0.99) 100%)",
-                          boxShadow:
-                            "0 20px 40px -10px rgba(0, 0, 0, 0.45), 0 8px 16px -4px rgba(0, 0, 0, 0.3), inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.3), inset 0 -2px 6px 0 rgba(0, 0, 0, 0.5)",
-                          border: "1px solid rgba(255, 255, 255, 0.12)",
-                          borderTop: "1.5px solid rgba(255, 255, 255, 0.45)",
-                          borderLeft: "1.5px solid rgba(255, 255, 255, 0.3)",
-                          backdropFilter: "blur(20px)",
-                          WebkitBackdropFilter: "blur(20px)",
-                        }
-                      : {
-                          background: "#ffffff",
-                          border: "1px solid rgba(229, 231, 235, 0.85)",
-                        }
-                  }
-                >
-                  {/* Glossy Diagonal Specular Sheen (Fades in on Black Glass state) */}
+                  {/* Smooth Grid-Template-Rows Expandable Answer Container */}
                   <div
-                    className={`absolute inset-0 pointer-events-none transition-opacity duration-700 ease-out ${
-                      isOpen ? "opacity-100" : "opacity-0"
+                    className={`grid transition-[grid-template-rows,opacity] duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                      isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                     }`}
-                    style={{
-                      background:
-                        "linear-gradient(125deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.03) 30%, rgba(255, 255, 255, 0) 65%)",
-                    }}
-                  />
+                  >
+                    <div className="overflow-hidden">
+                      <div className="mt-4 pt-4 border-t border-stone-100 space-y-3">
+                        {/* Lead sentence if present */}
+                        {item.lead && (
+                          <p className="text-xs sm:text-sm text-stone-700 leading-relaxed font-normal">
+                            {item.lead}
+                          </p>
+                        )}
 
-                  {/* Top Rim Glass Highlight Curve */}
-                  <div
-                    className={`absolute -top-8 left-1/2 -translate-x-1/2 w-3/4 h-16 rounded-full pointer-events-none transition-opacity duration-700 ${
-                      isOpen ? "opacity-40" : "opacity-0"
-                    }`}
-                    style={{
-                      background:
-                        "radial-gradient(ellipse 100% 70% at 50% 30%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 75%)",
-                    }}
-                  />
+                        {/* Sublead if present */}
+                        {item.sublead && (
+                          <p className="text-xs sm:text-[13px] font-semibold text-stone-900 tracking-wide uppercase">
+                            {item.sublead}
+                          </p>
+                        )}
 
-                  {/* Content Container */}
-                  <div className="relative z-10">
-                    {/* Top Question Row */}
-                    <div className="flex items-start justify-between gap-4">
-                      <h3
-                        className={`text-sm sm:text-base md:text-[17px] font-bold tracking-tight leading-snug transition-colors duration-500 ${
-                          isOpen ? "text-white" : "text-[#1f242e] group-hover:text-black"
-                        }`}
-                      >
-                        {item.question}
-                      </h3>
+                        {/* Bullets list if present */}
+                        {item.bullets && item.bullets.length > 0 && (
+                          <ul className="space-y-2 pl-1">
+                            {item.bullets.map((bullet, bIdx) => (
+                              <li
+                                key={bIdx}
+                                className="flex items-start gap-2.5 text-xs sm:text-sm text-stone-600 leading-relaxed"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#50b8ae] mt-2 shrink-0 shadow-xs shadow-[#50b8ae]" />
+                                <span>{bullet}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
 
-                      <div
-                        className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5 transition-all duration-500 ${
-                          isOpen
-                            ? "bg-white/10 text-white shadow-xs border border-white/20"
-                            : "bg-stone-100 text-stone-400 group-hover:bg-stone-200 group-hover:text-stone-700"
-                        }`}
-                      >
-                        {isOpen ? (
-                          <Minus className="w-4 h-4 stroke-[2.5] transition-transform duration-300" />
-                        ) : (
-                          <Plus className="w-4 h-4 stroke-[2.5] transition-transform duration-300" />
+                        {/* Paragraphs if present */}
+                        {item.paragraphs &&
+                          item.paragraphs.map((para, pIdx) => (
+                            <p
+                              key={pIdx}
+                              className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal"
+                            >
+                              {para}
+                            </p>
+                          ))}
+
+                        {/* Outro statement if present */}
+                        {item.outro && (
+                          <p className="text-xs sm:text-sm text-stone-800 font-medium pt-1">
+                            {item.outro}
+                          </p>
                         )}
                       </div>
                     </div>
-
-                    {/* Smooth Grid-Template-Rows Expandable Answer Container */}
-                    <div
-                      className={`grid transition-[grid-template-rows,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                        isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                      }`}
-                    >
-                      <div className="overflow-hidden">
-                        <div className="mt-3.5 pt-3.5 border-t border-white/15 space-y-3">
-                          {/* Lead sentence if present */}
-                          {item.lead && (
-                            <p className="text-xs sm:text-sm text-stone-200 leading-relaxed font-normal">
-                              {item.lead}
-                            </p>
-                          )}
-
-                          {/* Sublead if present */}
-                          {item.sublead && (
-                            <p className="text-xs sm:text-[13px] font-semibold text-stone-400 tracking-wide uppercase">
-                              {item.sublead}
-                            </p>
-                          )}
-
-                          {/* Bullets list if present */}
-                          {item.bullets && item.bullets.length > 0 && (
-                            <ul className="space-y-2 pl-1">
-                              {item.bullets.map((bullet, bIdx) => (
-                                <li
-                                  key={bIdx}
-                                  className="flex items-start gap-2.5 text-xs sm:text-sm text-stone-300 leading-relaxed"
-                                >
-                                  <span className="w-1.5 h-1.5 rounded-full bg-[#45aca5] mt-2 shrink-0 shadow-xs shadow-[#45aca5]" />
-                                  <span>{bullet}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-
-                          {/* Paragraphs if present */}
-                          {item.paragraphs &&
-                            item.paragraphs.map((para, pIdx) => (
-                              <p
-                                key={pIdx}
-                                className="text-xs sm:text-sm text-stone-300 leading-relaxed font-normal"
-                              >
-                                {para}
-                              </p>
-                            ))}
-
-                          {/* Outro statement if present */}
-                          {item.outro && (
-                            <p className="text-xs sm:text-sm text-stone-200 font-medium pt-1">
-                              {item.outro}
-                            </p>
-                          )}
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-
+              </div>
+            );
+          })}
         </div>
       </div>
 
@@ -418,7 +254,7 @@ export default function FaqSection() {
       <button
         type="button"
         onClick={scrollToTop}
-        className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-[#64748b] hover:bg-[#475569] text-white flex items-center justify-center shadow-lg transition-all duration-200 active:scale-95 cursor-pointer opacity-90 hover:opacity-100"
+        className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-[#50b8ae] hover:bg-[#3ea399] text-white flex items-center justify-center shadow-lg shadow-[#50b8ae]/30 transition-all duration-200 active:scale-95 cursor-pointer opacity-90 hover:opacity-100"
         title="Scroll to top"
       >
         <ChevronUp className="w-5 h-5" />
