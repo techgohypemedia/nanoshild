@@ -22,6 +22,8 @@ export default function Home() {
       <OurShowroomSection />
       <Experience3DCarouselSection />
       <ArchitecturalBannerSlider />
+      {/* Generous white background separation space between Banner and Showroom Bento Grid */}
+      <div className="w-full h-24 sm:h-36 lg:h-44 bg-white" />
       <ShowroomBentoGridSection />
       <FaqSection />
       <ContactSection />

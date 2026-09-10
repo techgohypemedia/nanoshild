@@ -52,13 +52,13 @@ export default function ArchitecturalBannerSlider() {
     setCurrentSlide((prev) => (prev - 1 + total) % total);
   }, [total]);
 
-  // Automatic slide to left every 2 seconds (2000ms)
+  // Automatic slide to left every 3 seconds (3000ms)
   useEffect(() => {
     if (isHovered) return;
 
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % total);
-    }, 2000);
+    }, 3000);
 
     return () => clearInterval(timer);
   }, [isHovered, total]);
@@ -89,22 +89,12 @@ export default function ArchitecturalBannerSlider() {
     >
       <div className="relative max-w-[1440px] mx-auto w-full">
         {/* ============================================================= */}
-        {/* SECTION HEADER: Luxury Framed Headline                        */}
+        {/* SECTION HEADER: Clean Centered Headline                       */}
         {/* ============================================================= */}
         <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
-          <div className="relative inline-block px-8 py-2.5 mb-2">
-            <div className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-[#50b8ae]" />
-            <div className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-[#50b8ae]" />
-            <span className="text-xs uppercase tracking-[0.3em] text-[#50b8ae] font-semibold block mb-1">
-              ARCHITECTURAL EXCELLENCE
-            </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-bold text-white tracking-tight">
-              Protected for Everyday Living
-            </h2>
-          </div>
-          <p className="text-stone-400 text-sm sm:text-base leading-relaxed max-w-xl mx-auto mt-2">
-            From monolithic chef kitchen islands to illuminated bar vanities — NanoShield preserves natural stone brilliance with zero maintenance anxiety.
-          </p>
+          <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-bold text-white tracking-tight">
+            Protected for Everyday Living
+          </h2>
         </div>
 
         {/* ============================================================= */}
@@ -115,11 +105,11 @@ export default function ArchitecturalBannerSlider() {
           onMouseLeave={() => setIsHovered(false)}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
-          className="group relative w-full aspect-[21/9] sm:aspect-[2.35/1] max-h-[580px] min-h-[300px] overflow-hidden rounded-xl sm:rounded-2xl shadow-2xl bg-black border border-stone-200/60"
+          className="group relative w-full aspect-[21/9] sm:aspect-[2.35/1] max-h-[580px] min-h-[300px] overflow-hidden rounded-none shadow-2xl bg-black border border-white/10"
         >
           {/* Slides Carousel Track */}
           <div
-            className="flex w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] will-change-transform"
+            className="flex w-full h-full transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] will-change-transform"
             style={{
               transform: `translateX(-${currentSlide * 100}%)`,
             }}
@@ -138,18 +128,7 @@ export default function ArchitecturalBannerSlider() {
                   priority={index === 0}
                 />
 
-                {/* Subtle Cinematic Vignette Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent pointer-events-none" />
-
-                {/* Optional Lower Caption Overlay */}
-                <div className="absolute bottom-16 sm:bottom-18 left-6 sm:left-10 z-10 max-w-lg text-white pointer-events-none drop-shadow-md">
-                  <h3 className="text-lg sm:text-2xl font-bold tracking-tight mb-1">
-                    {slide.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-stone-200 font-light hidden sm:block">
-                    {slide.subtitle}
-                  </p>
-                </div>
+                {/* Clean presentation matching screenshot */}
               </div>
             ))}
           </div>
