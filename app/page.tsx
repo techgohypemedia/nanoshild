@@ -10,6 +10,7 @@ import ArchitecturalBannerSlider from "@/components/ArchitecturalBannerSlider";
 import FaqSection from "@/components/FaqSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import ConsultationModal from "@/components/ConsultationModal";
 
 export default function Home() {
   return (
@@ -22,12 +23,11 @@ export default function Home() {
       <OurShowroomSection />
       <Experience3DCarouselSection />
       <ArchitecturalBannerSlider />
-      {/* Generous white background separation space between Banner and Showroom Bento Grid */}
-      <div className="w-full h-24 sm:h-36 lg:h-44 bg-white" />
       <ShowroomBentoGridSection />
       <FaqSection />
       <ContactSection />
       <Footer />
+      <ConsultationModal />
     </main>
   );
 }

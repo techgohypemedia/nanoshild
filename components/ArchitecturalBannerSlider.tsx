@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ShieldCheck } from "lucide-react";
 
 interface BannerSlide {
   id: string;
@@ -52,13 +52,13 @@ export default function ArchitecturalBannerSlider() {
     setCurrentSlide((prev) => (prev - 1 + total) % total);
   }, [total]);
 
-  // Automatic slide to left every 3 seconds (3000ms)
+  // Automatic slide to left every 3.5 seconds
   useEffect(() => {
     if (isHovered) return;
 
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % total);
-    }, 3000);
+    }, 3500);
 
     return () => clearInterval(timer);
   }, [isHovered, total]);
@@ -74,9 +74,9 @@ export default function ArchitecturalBannerSlider() {
     const diff = touchStartXRef.current - touchEndX;
 
     if (diff > 40) {
-      nextSlide(); // swipe left -> slide to left
+      nextSlide();
     } else if (diff < -40) {
-      prevSlide(); // swipe right
+      prevSlide();
     }
 
     touchStartXRef.current = null;
@@ -85,27 +85,37 @@ export default function ArchitecturalBannerSlider() {
   return (
     <section
       id="architectural-showcase"
-      className="relative z-10 w-full bg-[#050505] text-white py-14 sm:py-20 lg:py-24 px-4 sm:px-8 lg:px-12 xl:px-16 overflow-hidden border-t border-white/10 select-none"
+      className="relative z-10 w-full bg-[#faf8f5] text-[#1f242e] py-14 sm:py-18 lg:py-24 px-4 sm:px-8 lg:px-12 xl:px-16 overflow-hidden border-t border-stone-200/70 select-none"
     >
       <div className="relative max-w-[1440px] mx-auto w-full">
         {/* ============================================================= */}
-        {/* SECTION HEADER: Clean Centered Headline                       */}
+        {/* SECTION HEADER: Luxury Light Editorial Header                 */}
         {/* ============================================================= */}
         <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-bold text-white tracking-tight">
+          {/* Eyebrow Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#50b8ae]/12 border border-[#50b8ae]/25 text-[#1a6660] text-xs font-semibold uppercase tracking-wider mb-3.5 shadow-2xs">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#50b8ae]" />
+            <span>Architectural Showcase</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-[#1f242e] tracking-tight leading-tight">
             Protected for Everyday Living
           </h2>
+
+          <p className="text-stone-500 text-sm sm:text-base max-w-xl mx-auto mt-2.5 font-normal leading-relaxed">
+            Where timeless natural stone craftsmanship meets invisible, lasting protection.
+          </p>
         </div>
 
         {/* ============================================================= */}
-        {/* WIDE PANORAMIC BANNER SLIDER (Exact proportions as screenshot)*/}
+        {/* WIDE PANORAMIC BANNER SLIDER (Framed Luxury Visual)          */}
         {/* ============================================================= */}
         <div
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
-          className="group relative w-full aspect-[21/9] sm:aspect-[2.35/1] max-h-[580px] min-h-[300px] overflow-hidden rounded-none shadow-2xl bg-black border border-white/10"
+          className="group relative w-full aspect-[16/9] sm:aspect-[21/9] lg:aspect-[2.35/1] max-h-[580px] min-h-[340px] overflow-hidden rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.10)] border border-stone-200/90 bg-stone-100"
         >
           {/* Slides Carousel Track */}
           <div
@@ -117,7 +127,7 @@ export default function ArchitecturalBannerSlider() {
             {SLIDES.map((slide, index) => (
               <div
                 key={slide.id}
-                className="relative w-full h-full flex-shrink-0 bg-black"
+                className="relative w-full h-full flex-shrink-0 bg-stone-100"
               >
                 <Image
                   src={slide.image}
@@ -127,8 +137,6 @@ export default function ArchitecturalBannerSlider() {
                   className="object-cover object-center"
                   priority={index === 0}
                 />
-
-                {/* Clean presentation matching screenshot */}
               </div>
             ))}
           </div>
@@ -137,40 +145,19 @@ export default function ArchitecturalBannerSlider() {
           <button
             onClick={prevSlide}
             aria-label="Previous slide"
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-[#50b8ae] text-white backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer shadow-lg"
+            className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white/90 hover:bg-[#50b8ae] text-[#1f242e] hover:text-white backdrop-blur-xl border border-white/60 shadow-[0_8px_25px_rgba(0,0,0,0.15)] hover:shadow-[0_12px_30px_rgba(80,184,174,0.4)] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer group"
           >
-            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.5] transition-transform duration-200 group-hover:-translate-x-0.5" />
           </button>
 
           {/* Right Arrow Navigation Button */}
           <button
             onClick={nextSlide}
             aria-label="Next slide"
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-[#50b8ae] text-white backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer shadow-lg"
+            className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white/90 hover:bg-[#50b8ae] text-[#1f242e] hover:text-white backdrop-blur-xl border border-white/60 shadow-[0_8px_25px_rgba(0,0,0,0.15)] hover:shadow-[0_12px_30px_rgba(80,184,174,0.4)] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer group"
           >
-            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.5] transition-transform duration-200 group-hover:translate-x-0.5" />
           </button>
-
-          {/* =========================================================== */}
-          {/* BOTTOM CENTER INDICATOR DOTS (Matching Screenshot)         */}
-          {/* =========================================================== */}
-          <div className="absolute bottom-5 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2.5 px-4 py-2 rounded-full bg-black/45 backdrop-blur-md border border-white/20 shadow-lg">
-            {SLIDES.map((slide, idx) => {
-              const isActive = idx === currentSlide;
-              return (
-                <button
-                  key={`dot-${slide.id}`}
-                  onClick={() => setCurrentSlide(idx)}
-                  aria-label={`Jump to slide ${idx + 1}`}
-                  className={`rounded-full transition-all duration-300 cursor-pointer ${
-                    isActive
-                      ? "w-3 h-3 sm:w-3.5 sm:h-3.5 bg-[#50b8ae] shadow-md shadow-[#50b8ae]"
-                      : "w-2.5 h-2.5 sm:w-3 sm:h-3 bg-white/80 hover:bg-white hover:scale-110"
-                  }`}
-                />
-              );
-            })}
-          </div>
         </div>
       </div>
     </section>

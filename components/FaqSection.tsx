@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Plus, Minus, ChevronUp } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 
 interface FaqItem {
   id: number;
@@ -112,10 +112,6 @@ export default function FaqSection() {
 
   const toggleItem = (id: number) => {
     setOpenId((prev) => (prev === id ? null : id));
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -249,16 +245,6 @@ export default function FaqSection() {
           })}
         </div>
       </div>
-
-      {/* Floating Scroll-to-Top Button */}
-      <button
-        type="button"
-        onClick={scrollToTop}
-        className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-[#50b8ae] hover:bg-[#3ea399] text-white flex items-center justify-center shadow-lg shadow-[#50b8ae]/30 transition-all duration-200 active:scale-95 cursor-pointer opacity-90 hover:opacity-100"
-        title="Scroll to top"
-      >
-        <ChevronUp className="w-5 h-5" />
-      </button>
     </section>
   );
 }

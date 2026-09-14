@@ -7,67 +7,43 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 interface StoneCard {
   id: string;
   title: string;
-  brandText?: string;
-  brandSub?: string;
-  brandType: "ratna" | "white" | "fusion" | "quartzo" | "granito" | "embossed" | "onyx";
   image: string;
 }
 
 const CARDS: StoneCard[] = [
   {
     id: "white-statuario",
-    title: "Pure Statuario & Calacatta",
-    brandText: "white",
-    brandSub: "STATUARIO & CALACATTA",
-    brandType: "white",
+    title: "Wrapped Statuario & Calacatta",
     image: "/marble-calacatta-hd.jpg",
   },
   {
     id: "fusion-series",
-    title: "Fusion Series Luxury Slabs",
-    brandText: "Fusion",
-    brandSub: "SERIES",
-    brandType: "fusion",
+    title: "Wrapped Chef Benchtops",
     image: "/marble-kitchen-island.jpg",
   },
   {
-    id: "rmm-quartzo",
-    title: "RMM Quartzo Kitchen Islands",
-    brandText: "RMM Quartzo",
-    brandSub: "ENGINEERED SURFACES",
-    brandType: "quartzo",
+    id: "quartzo-islands",
+    title: "Wrapped Quartzite Islands",
     image: "/marble-travertine-texture.jpg",
   },
   {
-    id: "rmm-ratna",
-    title: "RMM Ratna Semi-Precious Slabs",
-    brandText: "RMM ratna",
-    brandSub: "EXOTIC GEMSTONES",
-    brandType: "ratna",
+    id: "ratna-gemstones",
+    title: "Wrapped Translucent Onyx",
     image: "/collections/onyx-2.jpg",
   },
   {
-    id: "rmm-granito",
-    title: "RMM Granito Enduring Quartzite",
-    brandText: "RMM Granito",
-    brandSub: "BLACK & EXOTIC QUARTZITE",
-    brandType: "granito",
+    id: "granito-quartzite",
+    title: "Wrapped Nero Marquina",
     image: "/collections/black-marquina-1.jpg",
   },
   {
     id: "embossed-series",
-    title: "Embossed 3D Fluted Marble",
-    brandText: "EMBOSSED",
-    brandSub: "FLUTED & HONED",
-    brandType: "embossed",
+    title: "Wrapped Fluted Marble",
     image: "/collections/calacatta-1.jpg",
   },
   {
     id: "onyx-lumina",
-    title: "Onyx Lumina Backlit Stone",
-    brandText: "ONYX LUMINA",
-    brandSub: "BACKLIT EXOTICS",
-    brandType: "onyx",
+    title: "Wrapped Backlit Onyx",
     image: "/collections/onyx-1.jpg",
   },
 ];
@@ -85,11 +61,11 @@ export default function Experience3DCarouselSection() {
     setActiveIndex((prev) => (prev - 1 + total) % total);
   }, [total]);
 
-  // Automatic Slide: Advances right-to-left every 2 seconds (2000ms)
+  // Automatic Slide: Advances right-to-left every 2.5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % total);
-    }, 2000);
+    }, 2500);
 
     return () => clearInterval(timer);
   }, [activeIndex, total]);
@@ -128,98 +104,6 @@ export default function Experience3DCarouselSection() {
     return diff;
   };
 
-  // Render card custom brand logo badge matching reference screenshot aesthetics
-  const renderCardLogo = (card: StoneCard) => {
-    switch (card.brandType) {
-      case "white":
-        return (
-          <div className="absolute top-4 left-6 z-20 pointer-events-none drop-shadow-md">
-            <span
-              className="text-3xl md:text-5xl text-[#2f4f38] font-serif italic tracking-wide select-none block"
-              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-            >
-              white
-            </span>
-          </div>
-        );
-      case "fusion":
-        return (
-          <div className="absolute top-4 right-6 text-right z-20 pointer-events-none drop-shadow-md">
-            <span className="text-xl md:text-2xl font-bold tracking-tight text-[#8c6d48] uppercase block leading-none font-sans">
-              Fusion
-            </span>
-            <span className="text-[10px] md:text-xs tracking-[0.35em] text-[#ab8f68] uppercase font-semibold block mt-0.5">
-              SERIES
-            </span>
-          </div>
-        );
-      case "quartzo":
-        return (
-          <div className="absolute top-5 left-5 z-20 pointer-events-none bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded shadow-md border border-stone-200/90 flex items-center gap-2">
-            <div className="w-5 h-5 bg-[#2d3748] text-white flex items-center justify-center font-bold text-[11px] rounded-sm">
-              Q
-            </div>
-            <div>
-              <span className="text-xs font-bold tracking-wider text-[#2d3748] uppercase block leading-none font-sans">
-                RMM Quartzo
-              </span>
-            </div>
-          </div>
-        );
-      case "ratna":
-        return (
-          <div className="absolute top-5 left-5 z-20 pointer-events-none drop-shadow-md">
-            <div className="flex flex-col">
-              <span className="text-2xl md:text-3xl font-serif text-[#c59a37] uppercase tracking-wider leading-none font-semibold">
-                RMM
-              </span>
-              <span
-                className="text-2xl md:text-3xl font-serif text-[#d4af37] lowercase tracking-wide leading-none"
-                style={{ fontFamily: "'Cinzel Decorative', Georgia, serif" }}
-              >
-                ratna
-              </span>
-            </div>
-          </div>
-        );
-      case "granito":
-        return (
-          <div className="absolute top-5 right-5 z-20 pointer-events-none text-right drop-shadow-md">
-            <span className="text-xs font-bold text-[#e2e8f0] tracking-widest block uppercase">
-              RMM
-            </span>
-            <span className="text-xl md:text-2xl font-black text-[#e53e3e] tracking-tight uppercase block leading-none">
-              Granito
-            </span>
-          </div>
-        );
-      case "embossed":
-        return (
-          <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 pointer-events-none text-center drop-shadow-md whitespace-nowrap">
-            <div className="flex items-center gap-1.5 justify-center">
-              <span className="text-lg md:text-xl font-serif tracking-[0.25em] text-[#1a202c] uppercase font-bold">
-                EMB
-              </span>
-              <span className="text-sm text-[#8c6d48]">✦</span>
-              <span className="text-lg md:text-xl font-serif tracking-[0.25em] text-[#1a202c] uppercase font-bold">
-                SSED
-              </span>
-            </div>
-          </div>
-        );
-      case "onyx":
-        return (
-          <div className="absolute top-4 left-5 z-20 pointer-events-none bg-black/50 backdrop-blur-md px-3.5 py-1.5 rounded-full text-white border border-amber-400/40 shadow-lg">
-            <span className="text-[11px] font-serif tracking-[0.25em] uppercase text-amber-300 font-medium">
-              LUMINA ONYX
-            </span>
-          </div>
-        );
-      default:
-        return null;
-    }
-  };
-
   return (
     <section
       className="relative w-full bg-[#ffffff] text-[#292524] py-14 md:py-20 overflow-hidden select-none"
@@ -243,14 +127,13 @@ export default function Experience3DCarouselSection() {
       {/* 3D Coverflow Perspective Stage with Flanked PREV & NEXT Buttons */}
       <div className="relative w-full max-w-[1540px] mx-auto px-3 sm:px-6 md:px-10 flex items-center justify-between gap-3 sm:gap-6 z-10">
         
-        {/* Left PREV Button (Flanked on the left, outside images) */}
+        {/* Left PREV Button - Modern Luxury Circular Arrow */}
         <button
           onClick={prevSlide}
-          className="group shrink-0 flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-bold tracking-[0.22em] text-white bg-[#50b8ae] hover:bg-[#3ea399] px-4 md:px-6 py-3 md:py-3.5 rounded-full uppercase transition-all duration-300 cursor-pointer shadow-lg shadow-[#50b8ae]/30 hover:shadow-xl hover:scale-105 active:scale-95 z-30"
+          className="group shrink-0 w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-full bg-[#50b8ae] hover:bg-[#3ea399] text-white flex items-center justify-center transition-all duration-300 cursor-pointer shadow-[0_8px_24px_rgba(80,184,174,0.32)] hover:shadow-[0_12px_32px_rgba(80,184,174,0.48)] hover:scale-110 active:scale-95 z-30 ring-4 ring-[#50b8ae]/15 hover:ring-[#50b8ae]/30"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:-translate-x-1 text-white" />
-          <span className="hidden sm:inline font-sans">PREV</span>
+          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.5] transition-transform duration-200 group-hover:-translate-x-0.5" />
         </button>
 
         {/* 3D Carousel Stage */}
@@ -336,7 +219,7 @@ export default function Experience3DCarouselSection() {
                       : "0 18px 36px -10px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.03)",
                   }}
                 >
-                  {/* Stone Imagery */}
+                  {/* Pure Stone Imagery without overlaid text */}
                   <div className="relative w-full h-full group">
                     <Image
                       src={card.image}
@@ -349,9 +232,6 @@ export default function Experience3DCarouselSection() {
 
                     {/* Specular sheen on top edge */}
                     <div className="absolute top-0 inset-x-0 h-1/3 bg-gradient-to-b from-white/20 via-transparent to-transparent pointer-events-none" />
-
-                    {/* Distinct Logo / Typography Badge for each collection */}
-                    {renderCardLogo(card)}
                   </div>
                 </div>
               );
@@ -359,14 +239,13 @@ export default function Experience3DCarouselSection() {
           </div>
         </div>
 
-        {/* Right NEXT Button (Flanked on the right, outside images) */}
+        {/* Right NEXT Button - Modern Luxury Circular Arrow */}
         <button
           onClick={nextSlide}
-          className="group shrink-0 flex items-center gap-1.5 md:gap-2 text-xs md:text-sm font-bold tracking-[0.22em] text-white bg-[#50b8ae] hover:bg-[#3ea399] px-4 md:px-6 py-3 md:py-3.5 rounded-full uppercase transition-all duration-300 cursor-pointer shadow-lg shadow-[#50b8ae]/30 hover:shadow-xl hover:scale-105 active:scale-95 z-30"
+          className="group shrink-0 w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-full bg-[#50b8ae] hover:bg-[#3ea399] text-white flex items-center justify-center transition-all duration-300 cursor-pointer shadow-[0_8px_24px_rgba(80,184,174,0.32)] hover:shadow-[0_12px_32px_rgba(80,184,174,0.48)] hover:scale-110 active:scale-95 z-30 ring-4 ring-[#50b8ae]/15 hover:ring-[#50b8ae]/30"
           aria-label="Next slide"
         >
-          <span className="hidden sm:inline font-sans">NEXT</span>
-          <ChevronRight className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-1 text-white" />
+          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.5] transition-transform duration-200 group-hover:translate-x-0.5" />
         </button>
       </div>
     </section>

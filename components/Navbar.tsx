@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Menu, X, ArrowRight } from "lucide-react";
+import { openConsultationModal } from "@/components/ConsultationModal";
 
 export default function Navbar() {
   const [pastVideo, setPastVideo] = useState(false);
@@ -68,7 +69,7 @@ export default function Navbar() {
             Technology
           </a>
           <a href="#marble-collections" className={`${navLinkClass} whitespace-nowrap py-1`}>
-            Collections
+            Protective Wrap
           </a>
           <a href="#our-showroom" className={`${navLinkClass} whitespace-nowrap py-1`}>
             Our Showroom
@@ -83,13 +84,19 @@ export default function Navbar() {
 
         {/* Action CTA Button */}
         <div className="hidden lg:flex items-center shrink-0">
-          <a
-            href="#quote"
+          <button
+            type="button"
+            onClick={() =>
+              openConsultationModal({
+                title: "Request a Custom Quote",
+                subtitle: "Speak directly with our certified NanoShield HD protection team.",
+              })
+            }
             className="inline-flex items-center gap-2 px-6 py-2.5 xl:px-7 xl:py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-[#50b8ae] hover:bg-[#3ea399] text-white shadow-md shadow-[#50b8ae]/30 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap shrink-0 cursor-pointer"
           >
             <span>Get a Quote</span>
             <ArrowRight className="w-3.5 h-3.5 shrink-0" />
-          </a>
+          </button>
         </div>
 
         {/* Mobile / Tablet Hamburger Toggle */}
@@ -124,7 +131,7 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(false)}
             className="block text-white hover:text-teal-400 text-base font-semibold py-2"
           >
-            Collections
+            Protective Wrap
           </a>
           <a
             href="#our-showroom"
@@ -149,14 +156,20 @@ export default function Navbar() {
           </a>
 
           <div className="pt-4 border-t border-white/10">
-            <a
-              href="#quote"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-[#50b8ae] text-white shadow-md shadow-[#50b8ae]/30"
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                openConsultationModal({
+                  title: "Request a Custom Quote",
+                  subtitle: "Speak directly with our certified NanoShield HD protection team.",
+                });
+              }}
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-[#50b8ae] text-white shadow-md shadow-[#50b8ae]/30 cursor-pointer"
             >
               <span>Get a Quote</span>
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </button>
           </div>
         </div>
       )}

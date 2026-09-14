@@ -1,89 +1,30 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Search, Check, ChevronUp, ArrowRight, ShieldCheck, Eye } from "lucide-react";
+import { Search, Check, ArrowRight, ShieldCheck, Eye } from "lucide-react";
+import { openConsultationModal } from "@/components/ConsultationModal";
 
 export default function WhatChangesSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const leftColRef = useRef<HTMLDivElement>(null);
-  const visuallyCardRef = useRef<HTMLDivElement>(null);
-  const functionallyCardRef = useRef<HTMLDivElement>(null);
+  const handleConsultationClick = () => {
+    openConsultationModal({
+      title: "Book a Consultation & Live Demo",
+      subtitle: "See NanoShield HD in action and discover how our invisible protection transforms your marble care.",
+    });
+  };
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    gsap.registerPlugin(ScrollTrigger);
-
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const ctx = gsap.context(() => {
-      // Staggered entrance animation when scrolling into section
-      gsap.fromTo(
-        leftColRef.current,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      gsap.fromTo(
-        visuallyCardRef.current,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
-          delay: 0.15,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      gsap.fromTo(
-        functionallyCardRef.current,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
-          delay: 0.28,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    }, section);
-
-    return () => ctx.revert();
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const scrollToQuote = () => {
+    const el = document.getElementById("quote");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.hash = "quote";
+    }
   };
 
   return (
     <section
-      ref={sectionRef}
       id="what-changes-section"
-      className="relative w-full bg-[#f8f9fa] text-[#1f242e] py-20 sm:py-28 md:py-32 px-6 sm:px-10 md:px-14 lg:px-20 border-t border-stone-200/90 overflow-hidden"
+      className="relative w-full bg-[#f8f9fa] text-[#1f242e] py-12 sm:py-16 lg:py-20 px-6 sm:px-10 md:px-14 lg:px-20 border-t border-stone-200/90 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
@@ -91,11 +32,8 @@ export default function WhatChangesSection() {
           {/* ============================================================ */}
           {/* COLUMN 1: EDITORIAL HEADLINE & CTA (4 COLS)                  */}
           {/* ============================================================ */}
-          <div
-            ref={leftColRef}
-            className="lg:col-span-4 flex flex-col justify-between space-y-8 pr-0 lg:pr-4"
-          >
-            <div className="space-y-6">
+          <div className="lg:col-span-4 flex flex-col justify-between space-y-6 sm:space-y-8 pr-0 lg:pr-4">
+            <div className="space-y-5 sm:space-y-6">
               {/* Brand Logo */}
               <div className="relative h-10 w-48 sm:h-11 sm:w-52">
                 <Image
@@ -108,14 +46,14 @@ export default function WhatChangesSection() {
               </div>
 
               {/* Main Headline */}
-              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-[#1f242e] tracking-tight leading-[1.12]">
+              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1f242e] tracking-tight leading-[1.12]">
                 What Changes
                 <br />
                 After Installation?
               </h2>
 
               {/* Narrative Statements */}
-              <div className="space-y-4 text-stone-600 text-sm sm:text-base leading-relaxed max-w-md">
+              <div className="space-y-3.5 sm:space-y-4 text-stone-600 text-sm sm:text-base leading-relaxed max-w-md">
                 <p className="text-stone-500">
                   At first glance, it may feel like nothing has changed.
                 </p>
@@ -129,7 +67,8 @@ export default function WhatChangesSection() {
             <div className="pt-2">
               <button
                 type="button"
-                className="group inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-[#50b8ae] hover:bg-[#3ea399] text-white font-semibold text-[15px] sm:text-[16px] shadow-lg shadow-[#50b8ae]/30 hover:shadow-xl hover:shadow-[#50b8ae]/40 transition-all duration-300 active:scale-[0.98] cursor-pointer"
+                onClick={handleConsultationClick}
+                className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:py-4 rounded-xl bg-[#50b8ae] hover:bg-[#3ea399] text-white font-semibold text-[15px] sm:text-[16px] shadow-lg shadow-[#50b8ae]/30 hover:shadow-xl hover:shadow-[#50b8ae]/40 transition-all duration-300 active:scale-[0.98] cursor-pointer"
               >
                 <Search className="w-4 h-4 text-white stroke-[2.5]" />
                 <span>Book a Consultation &amp; Demo</span>
@@ -141,10 +80,7 @@ export default function WhatChangesSection() {
           {/* ============================================================ */}
           {/* COLUMN 2: "VISUALLY" CARD (4 COLS)                           */}
           {/* ============================================================ */}
-          <div
-            ref={visuallyCardRef}
-            className="lg:col-span-4 bg-white rounded-2xl p-7 sm:p-8 md:p-9 border border-stone-200/90 shadow-[0_12px_36px_rgba(0,0,0,0.04)] hover:shadow-[0_18px_45px_rgba(0,0,0,0.07)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
-          >
+          <div className="lg:col-span-4 bg-white rounded-2xl p-6 sm:p-8 md:p-9 border border-stone-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between">
             <div>
               {/* Category Eyebrow */}
               <div className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wider text-stone-400 uppercase mb-3">
@@ -187,7 +123,7 @@ export default function WhatChangesSection() {
             </div>
 
             {/* Testimonial Quote Box */}
-            <div className="mt-8 pt-6 border-t border-stone-100 bg-stone-50/70 -mx-3 sm:-mx-4 -mb-3 sm:-mb-4 p-4 sm:p-5 rounded-xl">
+            <div className="mt-8 pt-5 border-t border-stone-100 bg-stone-50/70 -mx-3 sm:-mx-4 -mb-3 sm:-mb-4 p-4 sm:p-5 rounded-xl">
               <p className="text-xs font-medium text-stone-400 mb-1">
                 Most people say:
               </p>
@@ -203,10 +139,7 @@ export default function WhatChangesSection() {
           {/* ============================================================ */}
           {/* COLUMN 3: "FUNCTIONALLY" CARD (4 COLS) - Teal Hero Card      */}
           {/* ============================================================ */}
-          <div
-            ref={functionallyCardRef}
-            className="lg:col-span-4 bg-gradient-to-br from-[#50b8ae] via-[#3fa69c] to-[#258277] text-white rounded-2xl p-7 sm:p-8 md:p-9 border border-[#7de1d7]/40 shadow-[0_20px_45px_rgba(80,184,174,0.28)] hover:shadow-[0_25px_55px_rgba(80,184,174,0.4)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between relative overflow-hidden"
-          >
+          <div className="lg:col-span-4 bg-gradient-to-br from-[#50b8ae] via-[#3fa69c] to-[#258277] text-white rounded-2xl p-6 sm:p-8 md:p-9 border border-[#7de1d7]/40 shadow-[0_16px_40px_rgba(80,184,174,0.25)] hover:shadow-[0_22px_50px_rgba(80,184,174,0.35)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
             {/* Ambient Glass Highlight Sheen */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.35),transparent_70%)] pointer-events-none" />
 
@@ -236,7 +169,7 @@ export default function WhatChangesSection() {
               </p>
 
               {/* Bullets List */}
-              <ul className="space-y-3.5 text-white/95 text-sm sm:text-[15px] leading-normal font-normal">
+              <ul className="space-y-3 text-white/95 text-sm sm:text-[15px] leading-normal font-normal">
                 <li className="flex items-start gap-3">
                   <span className="w-5 h-5 rounded-full bg-white/20 border border-white/40 flex items-center justify-center shrink-0 mt-0.5 backdrop-blur-xs shadow-xs">
                     <Check className="w-3 h-3 text-white stroke-[3]" />
@@ -271,7 +204,7 @@ export default function WhatChangesSection() {
             </div>
 
             {/* Performance Peace of Mind Badge */}
-            <div className="relative z-10 mt-8 pt-5 border-t border-white/25 flex items-center gap-3">
+            <div className="relative z-10 mt-7 pt-5 border-t border-white/25 flex items-center gap-3">
               <span className="text-xs text-white/90 font-medium">
                 100% Acid, Wine &amp; Scratch Immune
               </span>
@@ -283,16 +216,6 @@ export default function WhatChangesSection() {
 
         </div>
       </div>
-
-      {/* Floating Scroll-to-Top Button */}
-      <button
-        type="button"
-        onClick={scrollToTop}
-        className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-[#50b8ae] hover:bg-[#3ea399] text-white flex items-center justify-center shadow-lg shadow-[#50b8ae]/30 transition-all duration-200 active:scale-95 cursor-pointer opacity-90 hover:opacity-100"
-        title="Scroll to top"
-      >
-        <ChevronUp className="w-5 h-5" />
-      </button>
     </section>
   );
 }

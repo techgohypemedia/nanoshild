@@ -2,236 +2,223 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ShieldCheck } from "lucide-react";
 
-interface MarbleItem {
+interface ProtectedStoneItem {
   id: string;
   title: string;
+  subtitle: string;
+  badge: string;
   image: string;
 }
 
-interface CategoryData {
+interface ProtectionCategory {
   id: string;
   name: string;
   line1: string;
   line2: string;
   description: string;
-  items: MarbleItem[];
+  items: ProtectedStoneItem[];
 }
 
-const CATEGORIES: CategoryData[] = [
+const PROTECTION_CATEGORIES: ProtectionCategory[] = [
   {
-    id: "popular",
-    name: "Popular Marble",
-    line1: "Popular",
-    line2: "Marble",
+    id: "capabilities",
+    name: "Film Protection",
+    line1: "Invisible",
+    line2: "Film Armor",
     description:
-      "Indulge in the glory of class-apart luxury marble surfaces protected with NanoShield HD. Our popular offerings range from a variety of Statuario Marble, Travertine Marble, Onyx Marble and Calacatta Gold. These pieces are versatile and luxurious, the key qualities you would find in all our marble.",
+      "Optical-grade 8-mil film applied directly over natural marble to permanently eliminate acid etching, wine stains, and knife scratches.",
     items: [
       {
-        id: "italian-travertine",
-        title: "Imported Italian Marble",
-        image: "/collections/travertine-1.jpg",
-      },
-      {
-        id: "onyx-1",
-        title: "Onyx Marble",
-        image: "/collections/onyx-1.jpg",
-      },
-      {
-        id: "statuario-1",
-        title: "Statuario Marble",
-        image: "/collections/statuario-1.jpg",
-      },
-      {
-        id: "calacatta-1",
-        title: "Calacatta Gold",
+        id: "acid-proof",
+        title: "Acid-Proof Barrier",
+        subtitle: "100% Citrus & Wine Proof",
+        badge: "Acid-Proof",
         image: "/collections/calacatta-1.jpg",
       },
       {
-        id: "marquina-1",
-        title: "Nero Marquina",
+        id: "self-healing",
+        title: "Self-Healing Film",
+        subtitle: "Scratches Vanish With Heat",
+        badge: "Self-Healing",
+        image: "/collections/statuario-1.jpg",
+      },
+      {
+        id: "stain-repulsion",
+        title: "Zero Staining",
+        subtitle: "Wipes Clean Instantly",
+        badge: "Stain-Proof",
         image: "/collections/black-marquina-1.jpg",
       },
       {
-        id: "onyx-2",
-        title: "Amber Onyx",
-        image: "/collections/onyx-2.jpg",
-      },
-      {
-        id: "statuario-2",
-        title: "Italian Statuario",
-        image: "/collections/statuario-2.jpg",
-      },
-      {
-        id: "travertine-2",
-        title: "Fluted Travertine",
-        image: "/collections/travertine-2.jpg",
-      },
-      {
-        id: "calacatta-2",
-        title: "Calacatta Luxe",
+        id: "optical-clarity",
+        title: "Invisible 8-Mil",
+        subtitle: "Natural Stone Depth & Clarity",
+        badge: "Optical Clarity",
         image: "/collections/calacatta-2.jpg",
       },
       {
-        id: "marquina-2",
-        title: "Obsidian Marquina",
+        id: "anti-yellowing",
+        title: "Anti-Yellowing",
+        subtitle: "10-Year UV Guarantee",
+        badge: "10-Yr Guarantee",
+        image: "/collections/statuario-2.jpg",
+      },
+      {
+        id: "residue-free",
+        title: "Residue-Free",
+        subtitle: "Replaces Without Stone Harm",
+        badge: "Zero Residue",
         image: "/collections/black-marquina-2.jpg",
       },
     ],
   },
   {
-    id: "colours",
-    name: "Marble by Colours",
-    line1: "Colour",
-    line2: "Palettes",
+    id: "finishes",
+    name: "Finishes & Edges",
+    line1: "Precision",
+    line2: "Edge Wrap",
     description:
-      "Explore stone curated across exquisite colour spectra — from radiant crystal whites and warm golden honey tones to deep dramatic obsidians and glowing azure veins. NanoShield HD preserves the natural luminescence and depth of every hue without optical distortion.",
+      "Precision heat-formed around flat benchtops, mitered waterfall drops, and undermount sink cutouts for a seamless finish.",
     items: [
       {
-        id: "col-emerald-green",
-        title: "Verde Alpi Emerald Green",
-        image: "/collections/color-emerald-green.jpg",
+        id: "gloss-wrap",
+        title: "Ultra-Gloss Wrap",
+        subtitle: "Polished Stone Mirror Shine",
+        badge: "Ultra-Gloss",
+        image: "/collections/onyx-1.jpg",
       },
       {
-        id: "col-royal-blue",
-        title: "Sodalite Royal Cobalt Blue",
-        image: "/collections/color-royal-blue.jpg",
-      },
-      {
-        id: "col-rose-pink",
-        title: "Rosa Portugues Blush Pink",
-        image: "/collections/color-rose-pink.jpg",
-      },
-      {
-        id: "col-rosso-burgundy",
-        title: "Rosso Levanto Burgundy Red",
-        image: "/collections/color-rosso-burgundy.jpg",
-      },
-      {
-        id: "col-golden-honey",
-        title: "Giallo Siena Golden Honey",
-        image: "/collections/color-golden-honey.jpg",
-      },
-      {
-        id: "col-smoky-silver",
-        title: "Grigio Orobico Silver Grey",
-        image: "/collections/color-smoky-silver.jpg",
-      },
-      {
-        id: "col-pure-white",
-        title: "Statuario Extra Pure White",
-        image: "/collections/statuario-1.jpg",
-      },
-      {
-        id: "col-obsidian-black",
-        title: "Nero Marquina Velvet Black",
-        image: "/collections/black-marquina-1.jpg",
-      },
-      {
-        id: "col-roman-beige",
-        title: "Roman Classico Warm Beige",
+        id: "honed-wrap",
+        title: "Velvet Matte Wrap",
+        subtitle: "Honed & Brushed Stone Anti-Glare",
+        badge: "Velvet Matte",
         image: "/collections/travertine-1.jpg",
       },
       {
-        id: "col-golden-calacatta",
-        title: "Calacatta Oro Luminous Gold",
-        image: "/collections/calacatta-1.jpg",
+        id: "waterfall-edge",
+        title: "Waterfall Wrap",
+        subtitle: "Continuous Drop-Edge Coverage",
+        badge: "Waterfall Edge",
+        image: "/collections/travertine-2.jpg",
+      },
+      {
+        id: "undermount-sink",
+        title: "Undermount Sinks",
+        subtitle: "Moisture-Tight Seamless Cutout",
+        badge: "Moisture Seal",
+        image: "/collections/onyx-2.jpg",
+      },
+      {
+        id: "curved-profiles",
+        title: "Beveled Edges",
+        subtitle: "Custom Contour Protection",
+        badge: "Edge Profile",
+        image: "/collections/color-emerald-green.jpg",
+      },
+      {
+        id: "backsplash-armor",
+        title: "Backsplash Film",
+        subtitle: "Cooking Grease & Oil Defense",
+        badge: "Backsplash",
+        image: "/collections/color-royal-blue.jpg",
       },
     ],
   },
   {
-    id: "spaces",
-    name: "Marble by Spaces",
-    line1: "Curated",
-    line2: "Spaces",
+    id: "surfaces",
+    name: "Wrapped Spaces",
+    line1: "Live",
+    line2: "Freely",
     description:
-      "From high-traffic chef kitchen islands and luxury primary bathrooms to grand architectural fireplaces and bespoke bar vanities. Experience carefree entertaining and daily living across every room in your residence.",
+      "Cook, entertain, and enjoy real marble every day without anxiety, coasters, or fear of accidental spills.",
     items: [
       {
         id: "space-kitchen-island",
-        title: "Chef Kitchen Islands",
+        title: "Kitchen Islands",
+        subtitle: "Everyday Cooking & Food Prep",
+        badge: "Chef Island",
         image: "/collections/space-kitchen-island.jpg",
       },
       {
         id: "space-master-bath",
-        title: "Primary Bathroom Ensuites",
+        title: "Bathroom Vanities",
+        subtitle: "Immune to Perfumes & Acids",
+        badge: "Vanity",
         image: "/collections/space-master-bathroom.jpg",
       },
       {
         id: "space-luminous-bar",
-        title: "Illuminated Cocktail Bars",
+        title: "Entertaining Bars",
+        subtitle: "Citrus & Wine Spills Wipe Clean",
+        badge: "Cocktail Bar",
         image: "/collections/space-luminous-bar.jpg",
       },
       {
+        id: "space-dining-island",
+        title: "Dining Tables",
+        subtitle: "Family Feasts Without Placemats",
+        badge: "Dining Table",
+        image: "/collections/space-dining-island.jpg",
+      },
+      {
         id: "space-fireplace",
-        title: "Architectural Fireplace Walls",
+        title: "Fireplace Hearths",
+        subtitle: "Heat, Soot & Ash Defense",
+        badge: "Fireplace",
         image: "/collections/space-fireplace-wall.jpg",
       },
       {
         id: "space-grand-foyer",
-        title: "Grand Residence Foyers",
+        title: "Foyer Consoles",
+        subtitle: "High-Traffic Impact Defense",
+        badge: "Foyer Console",
         image: "/collections/space-grand-foyer.jpg",
-      },
-      {
-        id: "space-dining-island",
-        title: "Bespoke Dining Islands",
-        image: "/collections/space-dining-island.jpg",
-      },
-      {
-        id: "space-suite-vanity",
-        title: "Penthouse Suite Vanities",
-        image: "/collections/calacatta-2.jpg",
-      },
-      {
-        id: "space-spa-bath",
-        title: "Wellness Spa Bathrooms",
-        image: "/collections/travertine-2.jpg",
-      },
-      {
-        id: "space-feature-wall",
-        title: "Monolithic Feature Walls",
-        image: "/collections/black-marquina-2.jpg",
-      },
-      {
-        id: "space-backlit-powder",
-        title: "Backlit Powder Rooms",
-        image: "/collections/onyx-2.jpg",
       },
     ],
   },
 ];
 
-// Single Marble Card matching reference formatting exactly (left-aligned title, clean rectangular image)
-function MarbleCard({
+// Single Protected Stone Card with clean typography and luxury presentation
+function ProtectedStoneCard({
   item,
   index,
 }: {
-  item: MarbleItem;
+  item: ProtectedStoneItem;
   index: number;
 }) {
   return (
     <div className="flex flex-col flex-shrink-0 w-[280px] sm:w-[320px] lg:w-[calc((100%-48px)/3)] min-w-[280px] sm:min-w-[320px] lg:min-w-[calc((100%-48px)/3)] select-none group">
-      {/* Title above image - Left Aligned exactly as in screenshot */}
+      {/* Title & Short Subtitle above image */}
       <div className="mb-3 text-left transition-transform duration-300 group-hover:-translate-y-0.5">
-        <h4 className="text-xl sm:text-2xl lg:text-[24px] font-normal text-stone-900 tracking-tight leading-tight min-h-[3.2rem] flex items-end">
+        <h4 className="text-xl sm:text-2xl lg:text-[23px] font-medium text-stone-900 tracking-tight leading-tight">
           {item.title}
         </h4>
+        <div className="flex items-center gap-1.5 mt-1 text-xs text-[#20837a] font-semibold tracking-wide">
+          <ShieldCheck className="w-3.5 h-3.5 shrink-0 text-[#20837a]" />
+          <span>{item.subtitle}</span>
+        </div>
       </div>
 
-      {/* Clean Rectangular Image Container (Exact proportions & sharp/subtle styling) */}
-      <div className="relative aspect-[4/4.9] w-full overflow-hidden cursor-pointer bg-stone-100 shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.025] group-hover:-translate-y-2 group-hover:shadow-[0_20px_45px_rgba(0,0,0,0.18)]">
+      {/* Clean Rectangular Image Container */}
+      <div className="relative aspect-[4/4.9] w-full overflow-hidden rounded-xl cursor-pointer bg-stone-100 shadow-[0_8px_24px_rgba(0,0,0,0.08)] border border-stone-200/80 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.02] group-hover:-translate-y-1.5 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.14)]">
         <Image
           src={item.image}
-          alt={item.title}
+          alt={`NanoShield HD Protection on ${item.title}`}
           fill
           sizes="(max-width: 768px) 320px, 440px"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           priority={index < 3}
         />
 
+        {/* Minimal clean badge top-left */}
+        <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[11px] font-semibold tracking-wider uppercase shadow-sm">
+          {item.badge}
+        </div>
+
         {/* Subtle sheen on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-25 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-30 group-hover:opacity-15 transition-opacity duration-500 pointer-events-none" />
       </div>
     </div>
   );
@@ -242,16 +229,16 @@ export default function MarbleCollectionsSection() {
   const [scrollIndex, setScrollIndex] = useState(0);
   const [isCarouselHovered, setIsCarouselHovered] = useState(false);
 
-  const currentCategory = CATEGORIES[activeCategoryIndex];
+  const currentCategory = PROTECTION_CATEGORIES[activeCategoryIndex];
   const maxScroll = Math.max(0, currentCategory.items.length - 3);
 
-  // Automatic slide from right to left every 2.4 seconds (pauses on hover)
+  // Automatic slide from right to left every 2.8 seconds (pauses on hover)
   useEffect(() => {
     if (isCarouselHovered) return;
 
     const timer = setInterval(() => {
       setScrollIndex((prev) => (prev >= maxScroll ? 0 : prev + 1));
-    }, 2400);
+    }, 2800);
 
     return () => clearInterval(timer);
   }, [isCarouselHovered, maxScroll]);
@@ -272,38 +259,34 @@ export default function MarbleCollectionsSection() {
   return (
     <section
       id="marble-collections"
-      className="relative z-10 w-full bg-white text-[#1f242b] min-h-[110vh] py-20 sm:py-28 lg:py-32 px-4 sm:px-8 lg:px-12 xl:px-16 flex flex-col justify-center overflow-hidden border-t border-stone-200/60"
+      className="relative z-10 w-full bg-white text-[#1f242b] min-h-[105vh] py-20 sm:py-28 lg:py-32 px-4 sm:px-8 lg:px-12 xl:px-16 flex flex-col justify-center overflow-hidden border-t border-stone-200/60"
     >
-      {/* ------------------------------------------------------------- */}
-      {/* Luxury White Marble Texture Background                        */}
-      {/* ------------------------------------------------------------- */}
+      {/* Subtle Marble Texture Background */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
         <Image
           src="/marble-bg-texture.jpg"
-          alt="Luxury Marble Surface Background"
+          alt="Natural Marble Protection Surface"
           fill
           priority
-          className="object-cover object-center opacity-100 contrast-[1.12]"
+          className="object-cover object-center opacity-90 contrast-[1.08]"
         />
       </div>
 
       <div className="relative max-w-[1440px] mx-auto z-10 w-full my-auto">
-        {/* ============================================================= */}
-        {/* HEADER: Corner Bracket "Marble Collections" + Category Tabs    */}
-        {/* ============================================================= */}
+        {/* Header: Brand-Accented Corner Brackets Title + Category Tabs */}
         <div className="flex flex-col items-center text-center mb-10 sm:mb-14">
-          {/* Framed Corner Brackets Title */}
+          {/* Framed Corner Brackets Title in NanoShield Teal */}
           <div className="relative inline-block px-8 py-2.5 mb-5">
-            <div className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-[#e11d48]" />
-            <div className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-[#e11d48]" />
+            <div className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-[#50b8ae]" />
+            <div className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-[#50b8ae]" />
             <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-bold text-[#1f242e] tracking-tight">
-              Marble Collections
+              The NanoShield Protective Wrap
             </h2>
           </div>
 
-          {/* Sub Navigation Category Tabs */}
+          {/* Category Tabs */}
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-sm sm:text-base font-medium text-stone-700">
-            {CATEGORIES.map((cat, idx) => {
+            {PROTECTION_CATEGORIES.map((cat, idx) => {
               const isActive = idx === activeCategoryIndex;
               return (
                 <div key={cat.id} className="flex items-center gap-4 sm:gap-8">
@@ -312,17 +295,17 @@ export default function MarbleCollectionsSection() {
                     onClick={() => handleTabChange(idx)}
                     className={`relative py-1 cursor-pointer transition-colors duration-200 ${
                       isActive
-                        ? "text-[#e11d48] font-bold"
-                        : "text-stone-700 hover:text-stone-950 font-medium"
+                        ? "text-[#1a6660] font-bold"
+                        : "text-stone-600 hover:text-stone-950 font-medium"
                     }`}
                   >
                     {cat.name}
                     {isActive && (
-                      <span className="absolute left-0 bottom-0 w-full h-[2.5px] bg-[#e11d48] rounded-full" />
+                      <span className="absolute left-0 bottom-0 w-full h-[2.5px] bg-[#50b8ae] rounded-full" />
                     )}
                   </button>
-                  {idx < CATEGORIES.length - 1 && (
-                    <span className="text-stone-400 select-none hidden sm:inline">|</span>
+                  {idx < PROTECTION_CATEGORIES.length - 1 && (
+                    <span className="text-stone-300 select-none hidden sm:inline">|</span>
                   )}
                 </div>
               );
@@ -330,33 +313,31 @@ export default function MarbleCollectionsSection() {
           </div>
         </div>
 
-        {/* ============================================================= */}
-        {/* MAIN LAYOUT: Left Narrative + Right Horizontal Carousel Track */}
-        {/* ============================================================= */}
+        {/* Main Layout: Left Editorial Narrative + Right Carousel Track */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-12 items-start">
-          {/* Left Column: Two-line Title in Red, Description, and Naked Arrow Buttons */}
-          <div className="lg:col-span-3 xl:col-span-3 flex flex-col justify-between h-full min-h-[420px] text-left pr-2">
+          {/* Left Column: Two-line Title, Clean Short Copy, and Arrow Navigation */}
+          <div className="lg:col-span-3 xl:col-span-3 flex flex-col justify-between h-full min-h-[400px] text-left pr-2">
             <div>
-              {/* Category Title in 2 lines with red text */}
-              <h3 className="text-4xl sm:text-5xl lg:text-[46px] font-light text-[#e11d48] tracking-tight leading-[1.12] mb-6">
+              {/* Category Title in Brand Teal */}
+              <h3 className="text-4xl sm:text-5xl lg:text-[46px] font-light text-[#1a6660] tracking-tight leading-[1.12] mb-5">
                 {currentCategory.line1}
                 <br />
                 {currentCategory.line2}
               </h3>
 
-              {/* Description text matching screenshot formatting */}
-              <p className="text-stone-800 text-[13.5px] sm:text-[14px] lg:text-[14.5px] leading-[1.68] font-normal max-w-[280px]">
+              {/* Protection Description - Concise & Punchy */}
+              <p className="text-stone-700 text-[14px] lg:text-[15px] leading-[1.7] font-normal max-w-[280px]">
                 {currentCategory.description}
               </p>
             </div>
 
-            {/* Naked Arrow Navigation Buttons (← →) without circles as in screenshot */}
+            {/* Arrow Navigation Buttons (← →) with Brand Hover */}
             <div className="flex items-center gap-8 mt-10 lg:mt-auto pt-4">
               <button
                 type="button"
                 onClick={handlePrev}
-                aria-label="Previous marble"
-                className="text-stone-900 hover:text-[#e11d48] transition-all duration-200 cursor-pointer p-1 -ml-1 group"
+                aria-label="Previous protected surface"
+                className="text-stone-800 hover:text-[#50b8ae] transition-all duration-200 cursor-pointer p-1 -ml-1 group"
               >
                 <ArrowLeft className="w-8 h-8 stroke-[1.5] transition-transform duration-200 group-hover:-translate-x-1" />
               </button>
@@ -364,15 +345,15 @@ export default function MarbleCollectionsSection() {
               <button
                 type="button"
                 onClick={handleNext}
-                aria-label="Next marble"
-                className="text-stone-900 hover:text-[#e11d48] transition-all duration-200 cursor-pointer p-1 group"
+                aria-label="Next protected surface"
+                className="text-stone-800 hover:text-[#50b8ae] transition-all duration-200 cursor-pointer p-1 group"
               >
                 <ArrowRight className="w-8 h-8 stroke-[1.5] transition-transform duration-200 group-hover:translate-x-1" />
               </button>
             </div>
           </div>
 
-          {/* Right Column: Carousel Track with EXACTLY 3 Cards visible at a time on desktop */}
+          {/* Right Column: Carousel Track with 3 Cards visible at a time on desktop */}
           <div
             onMouseEnter={() => setIsCarouselHovered(true)}
             onMouseLeave={() => setIsCarouselHovered(false)}
@@ -385,7 +366,7 @@ export default function MarbleCollectionsSection() {
               }}
             >
               {currentCategory.items.map((item, idx) => (
-                <MarbleCard
+                <ProtectedStoneCard
                   key={`${currentCategory.id}-${item.id}`}
                   item={item}
                   index={idx}
@@ -398,5 +379,3 @@ export default function MarbleCollectionsSection() {
     </section>
   );
 }
-
-

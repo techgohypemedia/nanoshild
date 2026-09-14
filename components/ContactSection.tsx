@@ -28,9 +28,10 @@ export default function ContactSection() {
 
   return (
     <section
-      id="contact-section"
+      id="quote"
       className="relative w-full bg-[#fbf9f5] text-[#1c1917] py-20 sm:py-28 lg:py-32 px-6 sm:px-10 md:px-14 lg:px-20 border-t border-stone-200/80"
     >
+      <div id="contact-section" />
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           

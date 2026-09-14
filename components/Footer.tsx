@@ -3,16 +3,10 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, ChevronDown, ChevronUp, Phone } from "lucide-react";
+import { Mail, ChevronDown, Phone } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-
-  const scrollToTop = () => {
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
 
   return (
     <footer className="w-full relative select-none font-sans">
@@ -130,7 +124,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#marble-collections" className="hover:text-white transition-colors">
-                  Collections
+                  Protective Wrap
                 </a>
               </li>
               <li>
@@ -158,7 +152,7 @@ export default function Footer() {
                   href="#marble-collections"
                   className="inline-flex items-center gap-1 hover:text-white transition-colors text-stone-300 font-light pt-1"
                 >
-                  <span>Our Range</span>
+                  <span>Protective Wrap</span>
                   <ChevronDown className="w-3.5 h-3.5" />
                 </a>
               </li>
@@ -254,15 +248,6 @@ export default function Footer() {
             >
               Terms and conditions
             </a>
-
-            {/* Scroll-to-Top Button */}
-            <button
-              onClick={scrollToTop}
-              aria-label="Scroll to top"
-              className="w-9 h-9 rounded-full bg-[#50b8ae] text-white hover:bg-[#3ea399] shadow-md shadow-[#50b8ae]/30 flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
-            >
-              <ChevronUp className="w-4 h-4" />
-            </button>
           </div>
 
         </div>
