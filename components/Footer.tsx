@@ -113,43 +113,43 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 text-xs sm:text-sm text-stone-300 font-light">
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a href="/" className="hover:text-white transition-colors">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#technology" className="hover:text-white transition-colors">
+                <a href="/technology" className="hover:text-white transition-colors">
                   Technology
                 </a>
               </li>
               <li>
-                <a href="#marble-collections" className="hover:text-white transition-colors">
+                <a href="/protective-wrap" className="hover:text-white transition-colors">
                   Protective Wrap
                 </a>
               </li>
               <li>
-                <a href="#our-showroom" className="hover:text-white transition-colors">
+                <a href="/our-showroom" className="hover:text-white transition-colors">
                   Our Showroom
                 </a>
               </li>
               <li>
-                <a href="#guarantee" className="hover:text-white transition-colors">
+                <a href="/guarantee" className="hover:text-white transition-colors">
                   10-Year Guarantee
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="hover:text-white transition-colors">
+                <a href="/pricing" className="hover:text-white transition-colors">
                   Pricing
                 </a>
               </li>
               <li>
-                <a href="#quote" className="hover:text-white transition-colors">
+                <a href="/#quote" className="hover:text-white transition-colors">
                   Get a Quote
                 </a>
               </li>
               <li>
                 <a
-                  href="#marble-collections"
+                  href="/protective-wrap"
                   className="inline-flex items-center gap-1 hover:text-white transition-colors text-stone-300 font-light pt-1"
                 >
                   <span>Protective Wrap</span>
@@ -176,7 +176,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#our-showroom" className="hover:text-white transition-colors">
+                <a href="/our-showroom" className="hover:text-white transition-colors">
                   Project Gallery
                 </a>
               </li>
@@ -186,7 +186,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-white transition-colors">
+                <a href="/#quote" className="hover:text-white transition-colors">
                   Contact Us
                 </a>
               </li>

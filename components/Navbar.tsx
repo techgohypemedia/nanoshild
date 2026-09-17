@@ -2,16 +2,19 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { openConsultationModal } from "@/components/ConsultationModal";
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [pastVideo, setPastVideo] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroEl = document.getElementById("hero-track");
+      const heroEl = document.getElementById("hero-track") ?? document.getElementById("page-hero");
       if (heroEl) {
         const rect = heroEl.getBoundingClientRect();
         // Navbar remains transparent and in video-mode until the user scrolls past the video track
@@ -23,7 +26,7 @@ export default function Navbar() {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   // Text color based on whether we are over the video or past it
   const navLinkClass = pastVideo
@@ -44,7 +47,7 @@ export default function Navbar() {
     >
       <div className="max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between gap-6">
         {/* Brand Logo with Dynamic Theme Switching for perfect contrast */}
-        <a href="#" className="flex items-center group shrink-0">
+        <Link href="/" aria-current={pathname === "/" ? "page" : undefined} className="flex items-center group shrink-0">
           <div className="relative h-10 w-44 sm:h-11 sm:w-52 lg:h-12 lg:w-56 transition-transform duration-200 group-hover:scale-105">
             <Image
               src={
@@ -58,28 +61,28 @@ export default function Navbar() {
               priority
             />
           </div>
-        </a>
+        </Link>
 
         {/* Desktop Navigation Links - Perfectly centered, strictly single-line whitespace-nowrap */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-9 text-sm xl:text-[15px] whitespace-nowrap">
-          <a href="#" className={`${navLinkClass} whitespace-nowrap py-1`}>
+          <Link href="/" aria-current={pathname === "/" ? "page" : undefined} className={`${navLinkClass} whitespace-nowrap py-1 aria-[current=page]:underline underline-offset-8 decoration-[#50b8ae] decoration-2`}>
             Home
-          </a>
-          <a href="#technology" className={`${navLinkClass} whitespace-nowrap py-1`}>
+          </Link>
+          <Link href="/technology" aria-current={pathname === "/technology" ? "page" : undefined} className={`${navLinkClass} whitespace-nowrap py-1 aria-[current=page]:underline underline-offset-8 decoration-[#50b8ae] decoration-2`}>
             Technology
-          </a>
-          <a href="#marble-collections" className={`${navLinkClass} whitespace-nowrap py-1`}>
+          </Link>
+          <Link href="/protective-wrap" aria-current={pathname === "/protective-wrap" ? "page" : undefined} className={`${navLinkClass} whitespace-nowrap py-1 aria-[current=page]:underline underline-offset-8 decoration-[#50b8ae] decoration-2`}>
             Protective Wrap
-          </a>
-          <a href="#our-showroom" className={`${navLinkClass} whitespace-nowrap py-1`}>
+          </Link>
+          <Link href="/our-showroom" aria-current={pathname === "/our-showroom" ? "page" : undefined} className={`${navLinkClass} whitespace-nowrap py-1 aria-[current=page]:underline underline-offset-8 decoration-[#50b8ae] decoration-2`}>
             Our Showroom
-          </a>
-          <a href="#guarantee" className={`${navLinkClass} whitespace-nowrap py-1`}>
+          </Link>
+          <Link href="/guarantee" aria-current={pathname === "/guarantee" ? "page" : undefined} className={`${navLinkClass} whitespace-nowrap py-1 aria-[current=page]:underline underline-offset-8 decoration-[#50b8ae] decoration-2`}>
             10-Year Guarantee
-          </a>
-          <a href="#pricing" className={`${navLinkClass} whitespace-nowrap py-1`}>
+          </Link>
+          <Link href="/pricing" aria-current={pathname === "/pricing" ? "page" : undefined} className={`${navLinkClass} whitespace-nowrap py-1 aria-[current=page]:underline underline-offset-8 decoration-[#50b8ae] decoration-2`}>
             Pricing
-          </a>
+          </Link>
         </nav>
 
         {/* Action CTA Button */}
@@ -104,6 +107,8 @@ export default function Navbar() {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className={`lg:hidden p-2 rounded-lg transition-colors cursor-pointer ${toggleBtnClass}`}
           aria-label="Toggle navigation menu"
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-navigation"
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -111,49 +116,49 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-zinc-950/95 backdrop-blur-2xl border-b border-white/10 px-6 py-6 space-y-4 text-center animate-in fade-in slide-in-from-top-2 duration-200 shadow-2xl">
-          <a
-            href="#"
+        <div id="mobile-navigation" className="lg:hidden bg-zinc-950/95 backdrop-blur-2xl border-b border-white/10 px-6 py-6 space-y-4 text-center animate-in fade-in slide-in-from-top-2 duration-200 shadow-2xl">
+          <Link
+            href="/" aria-current={pathname === "/" ? "page" : undefined}
             onClick={() => setMobileMenuOpen(false)}
             className="block text-white hover:text-teal-400 text-base font-semibold py-2"
           >
             Home
-          </a>
-          <a
-            href="#technology"
+          </Link>
+          <Link
+            href="/technology" aria-current={pathname === "/technology" ? "page" : undefined}
             onClick={() => setMobileMenuOpen(false)}
             className="block text-white hover:text-teal-400 text-base font-semibold py-2"
           >
             Technology
-          </a>
-          <a
-            href="#marble-collections"
+          </Link>
+          <Link
+            href="/protective-wrap" aria-current={pathname === "/protective-wrap" ? "page" : undefined}
             onClick={() => setMobileMenuOpen(false)}
             className="block text-white hover:text-teal-400 text-base font-semibold py-2"
           >
             Protective Wrap
-          </a>
-          <a
-            href="#our-showroom"
+          </Link>
+          <Link
+            href="/our-showroom" aria-current={pathname === "/our-showroom" ? "page" : undefined}
             onClick={() => setMobileMenuOpen(false)}
             className="block text-white hover:text-teal-400 text-base font-semibold py-2"
           >
             Our Showroom
-          </a>
-          <a
-            href="#guarantee"
+          </Link>
+          <Link
+            href="/guarantee" aria-current={pathname === "/guarantee" ? "page" : undefined}
             onClick={() => setMobileMenuOpen(false)}
             className="block text-white hover:text-teal-400 text-base font-semibold py-2"
           >
             10-Year Guarantee
-          </a>
-          <a
-            href="#pricing"
+          </Link>
+          <Link
+            href="/pricing" aria-current={pathname === "/pricing" ? "page" : undefined}
             onClick={() => setMobileMenuOpen(false)}
             className="block text-white hover:text-teal-400 text-base font-semibold py-2"
           >
             Pricing
-          </a>
+          </Link>
 
           <div className="pt-4 border-t border-white/10">
             <button
