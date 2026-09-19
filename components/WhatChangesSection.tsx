@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { Search, Check, ArrowRight, ShieldCheck, Eye } from "lucide-react";
+import { ArrowRight, Eye, ShieldCheck } from "lucide-react";
+import { motion } from "framer-motion";
 import { openConsultationModal } from "@/components/ConsultationModal";
 
 export default function WhatChangesSection() {
@@ -12,208 +13,155 @@ export default function WhatChangesSection() {
     });
   };
 
-  const scrollToQuote = () => {
-    const el = document.getElementById("quote");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    } else {
-      window.location.hash = "quote";
-    }
-  };
-
   return (
     <section
       id="what-changes-section"
-      className="relative w-full bg-[#f8f9fa] text-[#1f242e] py-12 sm:py-16 lg:py-20 px-6 sm:px-10 md:px-14 lg:px-20 border-t border-stone-200/90 overflow-hidden"
+      className="w-full overflow-hidden bg-[#f8f9fa] text-[#1f242e] py-16 sm:py-24 lg:py-28 xl:py-32 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28 border-t border-stone-200/90"
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-          
-          {/* ============================================================ */}
-          {/* COLUMN 1: EDITORIAL HEADLINE & CTA (4 COLS)                  */}
-          {/* ============================================================ */}
-          <div className="lg:col-span-4 flex flex-col justify-between space-y-6 sm:space-y-8 pr-0 lg:pr-4">
-            <div className="space-y-5 sm:space-y-6">
-              {/* Brand Logo */}
-              <div className="relative h-10 w-48 sm:h-11 sm:w-52">
-                <Image
-                  src="/logo/NanoShield Logo - White Bg.png"
-                  alt="NanoShield HD"
-                  fill
-                  className="object-contain object-left"
-                  priority
-                />
-              </div>
-
-              {/* Main Headline */}
-              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-[#1f242e] tracking-tight leading-[1.12]">
-                What Changes
-                <br />
-                After Installation?
-              </h2>
-
-              {/* Narrative Statements */}
-              <div className="space-y-3.5 sm:space-y-4 text-stone-600 text-sm sm:text-base leading-relaxed max-w-md">
-                <p className="text-stone-500">
-                  At first glance, it may feel like nothing has changed.
+      <div className="w-full grid items-center gap-12 lg:gap-16 xl:gap-24 lg:grid-cols-2">
+        {/* Left Column: Macro Marble Visual with rounded-3xl frame */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="relative w-full aspect-[4/3] xl:aspect-[16/11] overflow-hidden rounded-3xl bg-stone-100 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-stone-200/80 group"
+        >
+          <Image
+            src="/marble-calacatta-hd.jpg"
+            alt="Protected Calacatta Marble Surface Detail"
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-105"
+            priority
+          />
+          {/* Subtle floating glass badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="absolute bottom-5 left-5 right-5 sm:right-auto sm:max-w-md inline-flex items-center gap-3.5 rounded-2xl bg-white/95 backdrop-blur-md px-4 py-3 shadow-[0_12px_32px_rgba(0,0,0,0.08)] border border-stone-200/90 transition-transform duration-300 group-hover:-translate-y-1"
+          >
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#31847b]/10 text-[#31847b]">
+              <ShieldCheck className="h-5 w-5 stroke-[2.2]" />
+            </div>
+            <div className="min-w-0 pr-1">
+              <div className="flex items-center gap-2">
+                <p className="text-xs sm:text-sm font-semibold tracking-tight text-[#1f242e]">
+                  NanoShield HD™ Applied
                 </p>
-                <p className="text-[#1f242e] font-semibold text-base sm:text-[17px] leading-snug">
-                  But the difference shows up in how the space supports everyday life.
-                </p>
+                <span className="inline-flex items-center gap-1 rounded-full bg-[#31847b]/10 px-2 py-0.5 text-[10px] font-semibold text-[#31847b]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#31847b]" />
+                  Undetectable
+                </span>
               </div>
+              <p className="text-[11px] sm:text-xs text-stone-500 font-medium mt-0.5">
+                100% Optical Clarity · 10-Year Warranty
+              </p>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Right Column: Editorial Narrative with Visually vs Functionally Breakdown */}
+        <div className="w-full flex items-center justify-start">
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-xl xl:max-w-2xl w-full"
+          >
+            <div className="inline-flex items-center gap-2 mb-4">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#31847b]" />
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#31847b]">
+                The NanoShield Difference
+              </p>
             </div>
 
-            {/* Signature CTA Button */}
-            <div className="pt-2">
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-semibold leading-[1.12] tracking-tight text-[#1f242e]">
+              What changes after installation?
+            </h2>
+
+            <p className="mt-5 text-base sm:text-lg leading-relaxed text-stone-600 font-normal">
+              At first glance, it feels like nothing has changed at all. The marble looks and feels identical. The true difference shows up in how effortlessly you live.
+            </p>
+
+            {/* Dual Comparison Blocks */}
+            <div className="mt-8 space-y-4">
+              {/* Block 1: Appearance */}
+              <motion.div
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+                className="p-5 sm:p-6 rounded-2xl bg-white border border-stone-200/90 shadow-sm"
+              >
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-600">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-stone-100 text-stone-600">
+                      <Eye className="w-3.5 h-3.5" />
+                    </span>
+                    <span>Visually: Nothing</span>
+                  </div>
+                  <span className="text-[11px] font-semibold text-stone-500 bg-stone-100 px-2.5 py-0.5 rounded-full">
+                    Zero Distortion
+                  </span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold text-[#1f242e] mb-1.5">
+                  Your stone remains 100% authentic.
+                </h3>
+                <p className="text-stone-600 text-sm leading-relaxed">
+                  Zero haze, zero cloudiness, and no artificial plastic sheen. Light reflects naturally across every vein, preserving the true soul of your stone.
+                </p>
+              </motion.div>
+
+              {/* Block 2: Performance */}
+              <motion.div
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.25 }}
+                className="p-5 sm:p-6 rounded-2xl bg-[#eaf3f1] border border-[#31847b]/30 shadow-sm"
+              >
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#31847b]">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#31847b]/15 text-[#31847b]">
+                      <ShieldCheck className="w-3.5 h-3.5" />
+                    </span>
+                    <span>Functionally: Everything</span>
+                  </div>
+                  <span className="text-[11px] font-semibold text-[#31847b] bg-white/80 px-2.5 py-0.5 rounded-full border border-[#31847b]/20">
+                    Total Protection
+                  </span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold text-[#1f242e] mb-1.5">
+                  Total immunity from stains and acid etching.
+                </h3>
+                <p className="text-stone-700 text-sm leading-relaxed">
+                  Lemons, wine, coffee, and cooking oils cannot touch the marble. Prep food, place hot cups, host freely, and wipe clean in seconds.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="mt-9"
+            >
               <button
                 type="button"
                 onClick={handleConsultationClick}
-                className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:py-4 rounded-xl bg-[#50b8ae] hover:bg-[#3ea399] text-white font-semibold text-[15px] sm:text-[16px] shadow-lg shadow-[#50b8ae]/30 hover:shadow-xl hover:shadow-[#50b8ae]/40 transition-all duration-300 active:scale-[0.98] cursor-pointer"
+                className="group inline-flex cursor-pointer items-center justify-center gap-3 rounded-xl bg-[#31847b] px-8 py-4 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:bg-[#256a63] hover:scale-[1.02] active:scale-[0.98] shadow-sm hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#31847b]"
               >
-                <Search className="w-4 h-4 text-white stroke-[2.5]" />
-                <span>Book a Consultation &amp; Demo</span>
-                <ArrowRight className="w-4 h-4 text-white/80 group-hover:translate-x-0.5 transition-transform duration-200" />
+                <span>Book a Consultation &amp; Live Demo</span>
+                <ArrowRight size={17} className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
               </button>
-            </div>
-          </div>
-
-          {/* ============================================================ */}
-          {/* COLUMN 2: "VISUALLY" CARD (4 COLS)                           */}
-          {/* ============================================================ */}
-          <div className="lg:col-span-4 bg-white rounded-2xl p-6 sm:p-8 md:p-9 border border-stone-200/90 shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between">
-            <div>
-              {/* Category Eyebrow */}
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wider text-stone-400 uppercase mb-3">
-                <Eye className="w-3.5 h-3.5 text-stone-400" />
-                <span>Appearance</span>
-              </div>
-
-              {/* Title & Punchline */}
-              <h3 className="text-2xl sm:text-3xl font-bold text-[#1f242e] tracking-tight">
-                Visually
-              </h3>
-              <p className="text-xl sm:text-2xl font-bold text-stone-900 mt-1 mb-5 tracking-tight">
-                Nothing.
-              </p>
-
-              {/* Lead-in */}
-              <p className="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-3">
-                Your benchtop:
-              </p>
-
-              {/* Bullets List */}
-              <ul className="space-y-3 text-stone-600 text-sm sm:text-[15px] leading-normal">
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-stone-400 mt-2 shrink-0" />
-                  <span>Looks exactly the same</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-stone-400 mt-2 shrink-0" />
-                  <span>Has no haze, cloudiness or plastic finish</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-stone-400 mt-2 shrink-0" />
-                  <span>Reflects light naturally</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-stone-400 mt-2 shrink-0" />
-                  <span>Shows no visible edges or seams</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Testimonial Quote Box */}
-            <div className="mt-8 pt-5 border-t border-stone-100 bg-stone-50/70 -mx-3 sm:-mx-4 -mb-3 sm:-mb-4 p-4 sm:p-5 rounded-xl">
-              <p className="text-xs font-medium text-stone-400 mb-1">
-                Most people say:
-              </p>
-              <p className="text-base sm:text-[17px] font-semibold italic text-[#1f242e] tracking-tight">
-                &ldquo;It still looks like marble&rdquo;
-              </p>
-              <p className="text-xs sm:text-sm font-bold text-[#50b8ae] mt-1">
-                Because it does.
-              </p>
-            </div>
-          </div>
-
-          {/* ============================================================ */}
-          {/* COLUMN 3: "FUNCTIONALLY" CARD (4 COLS) - Teal Hero Card      */}
-          {/* ============================================================ */}
-          <div className="lg:col-span-4 bg-gradient-to-br from-[#50b8ae] via-[#3fa69c] to-[#258277] text-white rounded-2xl p-6 sm:p-8 md:p-9 border border-[#7de1d7]/40 shadow-[0_16px_40px_rgba(80,184,174,0.25)] hover:shadow-[0_22px_50px_rgba(80,184,174,0.35)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
-            {/* Ambient Glass Highlight Sheen */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.35),transparent_70%)] pointer-events-none" />
-
-            {/* Subtle floating glow accent */}
-            <div
-              className="absolute -bottom-20 -right-20 w-44 h-44 rounded-full pointer-events-none opacity-30 blur-2xl bg-white"
-            />
-
-            <div className="relative z-10">
-              {/* Category Eyebrow Pill */}
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wider text-white uppercase mb-3 bg-white/20 border border-white/35 px-3 py-1 rounded-full backdrop-blur-sm shadow-xs">
-                <ShieldCheck className="w-3.5 h-3.5 text-white stroke-[2.5]" />
-                <span>Performance</span>
-              </div>
-
-              {/* Title & Punchline */}
-              <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                Functionally
-              </h3>
-              <p className="text-xl sm:text-2xl font-bold text-white mt-1 mb-5 tracking-tight drop-shadow-xs">
-                Everything.
-              </p>
-
-              {/* Lead-in */}
-              <p className="text-xs font-semibold text-white/80 uppercase tracking-wider mb-3">
-                You:
-              </p>
-
-              {/* Bullets List */}
-              <ul className="space-y-3 text-white/95 text-sm sm:text-[15px] leading-normal font-normal">
-                <li className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full bg-white/20 border border-white/40 flex items-center justify-center shrink-0 mt-0.5 backdrop-blur-xs shadow-xs">
-                    <Check className="w-3 h-3 text-white stroke-[3]" />
-                  </span>
-                  <span>Place cups down without hesitation</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full bg-white/20 border border-white/40 flex items-center justify-center shrink-0 mt-0.5 backdrop-blur-xs shadow-xs">
-                    <Check className="w-3 h-3 text-white stroke-[3]" />
-                  </span>
-                  <span>Prep food directly on the bench</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full bg-white/20 border border-white/40 flex items-center justify-center shrink-0 mt-0.5 backdrop-blur-xs shadow-xs">
-                    <Check className="w-3 h-3 text-white stroke-[3]" />
-                  </span>
-                  <span>Wipe spills and move on</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full bg-white/20 border border-white/40 flex items-center justify-center shrink-0 mt-0.5 backdrop-blur-xs shadow-xs">
-                    <Check className="w-3 h-3 text-white stroke-[3]" />
-                  </span>
-                  <span>Stop policing kids and guests</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-5 h-5 rounded-full bg-white/20 border border-white/40 flex items-center justify-center shrink-0 mt-0.5 backdrop-blur-xs shadow-xs">
-                    <Check className="w-3 h-3 text-white stroke-[3]" />
-                  </span>
-                  <span className="text-white font-semibold">You don&apos;t manage your benchtop anymore.</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Performance Peace of Mind Badge */}
-            <div className="relative z-10 mt-7 pt-5 border-t border-white/25 flex items-center gap-3">
-              <span className="text-xs text-white/90 font-medium">
-                100% Acid, Wine &amp; Scratch Immune
-              </span>
-              <span className="h-1.5 flex-1 bg-black/20 rounded-full overflow-hidden">
-                <span className="block h-full bg-white w-full rounded-full shadow-xs" />
-              </span>
-            </div>
-          </div>
-
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

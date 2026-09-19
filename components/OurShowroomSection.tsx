@@ -1,90 +1,65 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 export default function OurShowroomSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const videoWrapperRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+  // Track scroll progress as section enters viewport
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "center center"],
+  });
 
-    const section = sectionRef.current;
-    const video = videoWrapperRef.current;
-    if (!section || !video) return;
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 90,
+    damping: 25,
+    restDelta: 0.001,
+  });
 
-    const ctx = gsap.context(() => {
-      // Smoothly scale up the video as the user scrolls into the section
-      gsap.fromTo(
-        video,
-        {
-          scale: 0.84,
-          boxShadow: "0 15px 35px -10px rgba(0,0,0,0.12)",
-        },
-        {
-          scale: 1.08,
-          boxShadow: "0 35px 85px -15px rgba(0,0,0,0.26)",
-          ease: "power1.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 85%",
-            end: "center 45%",
-            scrub: 1.2,
-          },
-        }
-      );
-    }, section);
-
-    return () => ctx.revert();
-  }, []);
+  // Smoothly expands video to full expansive theater on scroll
+  const scale = useTransform(smoothProgress, [0, 1], [0.88, 1.04]);
+  const opacity = useTransform(smoothProgress, [0, 0.4], [0.65, 1]);
 
   return (
     <section
       ref={sectionRef}
       id="our-showroom"
-      className="relative z-10 w-full py-16 sm:py-24 lg:py-28 px-4 sm:px-8 lg:px-14 overflow-hidden border-t border-stone-200/60"
+      className="relative z-10 w-full bg-[#f8f9fa] text-[#1f242e] py-16 sm:py-24 lg:py-28 px-4 sm:px-8 lg:px-12 xl:px-16 overflow-hidden border-t border-stone-200/90"
     >
-      {/* User-Selected Luxury Marble Surface Background */}
-      <div className="absolute inset-0 z-0 select-none pointer-events-none">
-        <Image
-          src="/video-marble-bg.jpg"
-          alt="Luxury Marble Surface Background"
-          fill
-          priority
-          className="object-cover object-center opacity-100 contrast-[1.05] brightness-[1.0]"
-        />
-      </div>
-
-      <div className="relative max-w-[1060px] mx-auto z-10 w-full">
-        {/* ============================================================= */}
-        {/* SECTION HEADER: Video-Relevant Title                          */}
-        {/* ============================================================= */}
-        <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
-          <div className="relative inline-block px-8 py-2.5 mb-1">
-            <div className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-[#50b8ae]" />
-            <div className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2 border-[#50b8ae]" />
-            <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-bold text-[#1f242e] tracking-tight">
-              Luxury Marble in Action
-            </h2>
+      <div className="max-w-6xl mx-auto w-full">
+        {/* Simple, Clean Centered Header (No AI logo, No clutter) */}
+        <div className="flex flex-col items-center text-center mb-10 sm:mb-14 px-4">
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#31847b]" />
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#31847b]">
+              Real-World Demonstration
+            </p>
           </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-[#1f242e] tracking-tight leading-tight">
+            Luxury Marble in Action
+          </h2>
+
+          <p className="mt-3 text-base sm:text-lg text-stone-600 max-w-xl mx-auto font-normal leading-relaxed">
+            Watch live citrus etching tests, red wine spills, and everyday culinary resilience on protected natural stone.
+          </p>
         </div>
 
-        {/* YOUTUBE VIDEO (Smoothly increases in size as you scroll, Zero Black Bars) */}
-        <div
-          ref={videoWrapperRef}
-          className="relative w-full aspect-video rounded-2xl sm:rounded-3xl overflow-hidden border border-stone-200/80 bg-stone-100 will-change-transform origin-center"
+        {/* Full Video Theater: Smoothly Expands on Scroll */}
+        <motion.div
+          style={{ scale, opacity }}
+          className="relative w-full aspect-video rounded-2xl sm:rounded-3xl overflow-hidden border border-stone-200/90 bg-stone-900 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.18)] will-change-transform origin-center"
         >
           <iframe
             src="https://www.youtube.com/embed/ruvn13xDR2g?autoplay=1&mute=1&loop=1&playlist=ruvn13xDR2g&playsinline=1&controls=1&rel=0&modestbranding=1"
             title="NanoShield Surface Protection Demonstration"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
-            className="absolute inset-0 w-full h-full border-0 rounded-2xl sm:rounded-3xl scale-[1.03] origin-center"
+            className="absolute inset-0 w-full h-full border-0 rounded-2xl sm:rounded-3xl scale-[1.02] origin-center"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

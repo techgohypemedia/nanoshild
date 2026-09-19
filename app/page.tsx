@@ -4,8 +4,6 @@ import StickyGridScroll from "@/components/StickyGridScroll";
 import WhatChangesSection from "@/components/WhatChangesSection";
 import MarbleCollectionsSection from "@/components/MarbleCollectionsSection";
 import OurShowroomSection from "@/components/OurShowroomSection";
-import Experience3DCarouselSection from "@/components/Experience3DCarouselSection";
-import ShowroomBentoGridSection from "@/components/ShowroomBentoGridSection";
 import ArchitecturalBannerSlider from "@/components/ArchitecturalBannerSlider";
 import FaqSection from "@/components/FaqSection";
 import ContactSection from "@/components/ContactSection";
@@ -21,9 +19,7 @@ export default function Home() {
       <WhatChangesSection />
       <MarbleCollectionsSection />
       <OurShowroomSection />
-      <Experience3DCarouselSection />
       <ArchitecturalBannerSlider />
-      <ShowroomBentoGridSection />
       <FaqSection />
       <ContactSection />
       <Footer />
