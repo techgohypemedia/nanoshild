@@ -25,6 +25,19 @@ export const sitePages = {
     ],
     cta: "Discuss your surfaces", next: "our-showroom",
   },
+  "protective-wrap": {
+    label: "Protective Film", title: "Your marble.\nReady for real life.",
+    description: "A clear protective film for the surfaces you use every day. Enjoy the stone you love with less worry about what lands on it.",
+    image: "/marble-family-freedom.jpg", imageAlt: "Marble surfaces in a welcoming home",
+    eyebrow: "Made for everyday living", heading: "Keep the beauty. Enjoy the surface.",
+    intro: "From a morning coffee to a shared family meal, natural stone should be part of your home. NanoShield HD protects against staining, acid etching and everyday wear without hiding the marble beneath.",
+    details: [
+      ["Kitchen benchtops", "Protect the busiest surface in your home from everyday food and drink spills."],
+      ["Tables and vanities", "Bring the same considered protection to the stone surfaces throughout your space. Ask our team about suitability."],
+      ["Professionally installed", "Our team assesses your stone and its edges, seams and cut-outs to plan the installation around your surface."],
+    ],
+    cta: "Discuss your surfaces", next: "our-showroom",
+  },
   "our-showroom": {
     label: "Our Showroom", title: "See the stone.\nFeel the difference.",
     description: "Get a closer look at NanoShield HD and explore how protected marble fits into your home.",

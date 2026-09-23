@@ -50,6 +50,27 @@ export const pageDetails: Record<SitePageSlug, PageDetails> = {
       ["Is it suitable for hospitality or commercial spaces?", "The system is also intended for spaces such as cafés, bars and hotels. Discuss traffic, cleaning routines and intended use so the team can confirm suitability and the applicable terms."],
     ],
   },
+  "protective-wrap": {
+    feature: {
+      eyebrow: "Spaces that get used", title: "For everything that happens around the kitchen.",
+      text: "Coffee on the island. Food preparation at the bench. Friends around the table. A protective layer helps make natural stone a practical part of the spaces you spend the most time in.",
+      image: "/marble-kitchen-island.jpg", alt: "Marble kitchen island ready for everyday use",
+      points: ["Protection against food and drink staining", "A barrier against etching from acidic ingredients", "A replaceable surface that takes everyday wear"],
+    },
+    processTitle: "Plan your installation with confidence.",
+    steps: [
+      ["Show us your space", "Share clear photographs of the full surface, along with close-ups of corners, edges, joins and existing marks."],
+      ["Confirm suitability", "Discuss the stone type, finish and intended use. Include any surfaces beyond the kitchen so they can be assessed individually."],
+      ["Plan the installation", "Agree the scope and timing with the team. Ask about access, preparation and when your particular surface will be ready to use."],
+      ["Settle into daily use", "Keep the supplied care instructions handy and contact the team if the film needs assessment or replacement over time."],
+    ],
+    faqs: [
+      ["Can it be installed on stone I already own?", "Share the type and condition of your existing stone with the team. They can assess suitability and discuss whether any preparation or restoration is needed before protection."],
+      ["Does it repair existing stains or etching?", "Protective film is intended to separate the stone from future contact. Existing stains, etching or other damage should be discussed during assessment so any preparation can be planned."],
+      ["How long does installation take?", "The site’s installation guidance describes a typical installation within a day, with the benchtop usable the following morning. Confirm the timing for your project with the installer."],
+      ["Is it suitable for hospitality or commercial spaces?", "The system is also intended for spaces such as cafés, bars and hotels. Discuss traffic, cleaning routines and intended use so the team can confirm suitability and the applicable terms."],
+    ],
+  },
   "our-showroom": {
     feature: {
       eyebrow: "Make your visit useful", title: "Bring your ideas. Leave with a clearer plan.",

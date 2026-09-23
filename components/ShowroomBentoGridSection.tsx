@@ -185,7 +185,7 @@ export default function ShowroomBentoGridSection() {
                 Protects Any Stone
               </h3>
               <p className="text-xs sm:text-sm text-stone-200 font-medium tracking-wide mt-1.5 drop-shadow-md">
-                Custom-installed over marble, quartzite, onyx &amp; travertine.
+                Precision applied over marble, quartzite, onyx &amp; travertine.
               </p>
             </div>
           </div>
