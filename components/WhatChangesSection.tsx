@@ -35,31 +35,6 @@ export default function WhatChangesSection() {
             className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-105"
             priority
           />
-          {/* Subtle floating glass badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="absolute bottom-5 left-5 right-5 sm:right-auto sm:max-w-md inline-flex items-center gap-3.5 rounded-2xl bg-white/95 backdrop-blur-md px-4 py-3 shadow-[0_12px_32px_rgba(0,0,0,0.08)] border border-stone-200/90 transition-transform duration-300 group-hover:-translate-y-1"
-          >
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#31847b]/10 text-[#31847b]">
-              <ShieldCheck className="h-5 w-5 stroke-[2.2]" />
-            </div>
-            <div className="min-w-0 pr-1">
-              <div className="flex items-center gap-2">
-                <p className="text-xs sm:text-sm font-semibold tracking-tight text-[#1f242e]">
-                  NanoShield HD™ Applied
-                </p>
-                <span className="inline-flex items-center gap-1 rounded-full bg-[#31847b]/10 px-2.5 py-0.5 text-[10px] font-semibold text-[#31847b]">
-                  Undetectable
-                </span>
-              </div>
-              <p className="text-[11px] sm:text-xs text-stone-500 font-medium mt-0.5">
-                100% Optical Clarity · 10-Year Warranty
-              </p>
-            </div>
-          </motion.div>
         </motion.div>
 
         {/* Right Column: Editorial Narrative with Visually vs Functionally Breakdown */}
