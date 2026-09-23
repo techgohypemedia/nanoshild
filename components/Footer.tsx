@@ -110,8 +110,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/protective-wrap" className="hover:text-white transition-colors">
-                  Protective Wrap
+                <Link href="/protective-film" className="hover:text-white transition-colors">
+                  Protective Film
                 </Link>
               </li>
               <li>

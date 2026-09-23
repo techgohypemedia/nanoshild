@@ -7,7 +7,7 @@ export default function HeroParallaxSequence() {
   const handleQuoteClick = () => {
     openConsultationModal({
       title: "Request a Free Quote & Assessment",
-      subtitle: "Protect your stone with our certified 8mil optical film. Guaranteed for 10 years.",
+      subtitle: "Protect your stone with our optical grade certified stone film. Guaranteed for 10 years.",
     });
   };
 
@@ -45,7 +45,7 @@ export default function HeroParallaxSequence() {
 
         {/* Simple, Clean Subtitle */}
         <p className="mx-auto max-w-xl text-sm sm:text-base md:text-lg text-white/90 font-light leading-relaxed text-balance [text-shadow:0_1px_8px_rgba(0,0,0,0.8)] mb-8 sm:mb-9">
-          Invisible 8mil optical-grade protective film engineered specifically for luxury marble, quartzite &amp; natural stone. Complete defense against acid etching, wine stains, and daily wear.
+          Invisible optical grade certified stone film engineered specifically for luxury marble, quartzite &amp; natural stone. Complete defense against acid etching, wine stains, and daily wear.
         </p>
 
         {/* Minimalist, Clean CTAs */}

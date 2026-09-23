@@ -56,13 +56,6 @@ export default function StickyGridScroll() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="max-w-xl xl:max-w-2xl w-full"
             >
-              <div className="inline-flex items-center gap-2 mb-4">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#31847b]" />
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#31847b]">
-                  The Reality of Natural Stone
-                </p>
-              </div>
-
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-semibold leading-[1.12] tracking-tight text-[#1f242e]">
                 You didn’t choose marble to tiptoe around it.
               </h2>
@@ -75,7 +68,7 @@ export default function StickyGridScroll() {
               <ul className="mt-8 space-y-4 border-t border-stone-200/90 pt-7">
                 {[
                   "Total physical separation from lemon, wine, coffee & acidic oils",
-                  "Optically clear 8mil film preserves 100% of authentic stone veining",
+                  "Optical grade certified stone film preserves 100% of authentic stone veining",
                   "Guaranteed not to yellow, peel, or bubble for up to 10 years",
                 ].map((point, idx) => (
                   <motion.li
@@ -130,13 +123,6 @@ export default function StickyGridScroll() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="max-w-xl xl:max-w-2xl w-full"
             >
-              <div className="inline-flex items-center gap-2 mb-4">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#31847b]" />
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#31847b]">
-                  Carefree Living
-                </p>
-              </div>
-
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-semibold leading-[1.12] tracking-tight text-[#1f242e]">
                 Imagine not thinking about your benchtop anymore.
               </h2>

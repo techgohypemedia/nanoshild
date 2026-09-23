@@ -29,7 +29,7 @@ export const pageDetails: Record<SitePageSlug, PageDetails> = {
       ["Does protection mean I can stop caring for the surface?", "Continue to follow the installer’s care guidance. Protection is designed for everyday use; reasonable care with extremely hot cookware remains important."],
     ],
   },
-  "protective-wrap": {
+  "protective-film": {
     feature: {
       eyebrow: "Spaces that get used", title: "For everything that happens around the kitchen.",
       text: "Coffee on the island. Food preparation at the bench. Friends around the table. A protective layer helps make natural stone a practical part of the spaces you spend the most time in.",

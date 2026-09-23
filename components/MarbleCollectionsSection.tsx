@@ -36,7 +36,7 @@ const PROTECTION_ITEMS: ProtectedStoneItem[] = [
   },
   {
     id: "optical-clarity",
-    title: "Invisible 8-Mil",
+    title: "Optical Grade Film",
     subtitle: "Natural Stone Depth & Clarity",
     badge: "Optical Clarity",
     image: "/collections/calacatta-2.jpg",
@@ -56,22 +56,22 @@ const PROTECTION_ITEMS: ProtectedStoneItem[] = [
     image: "/collections/black-marquina-2.jpg",
   },
   {
-    id: "gloss-wrap",
-    title: "Ultra-Gloss Wrap",
+    id: "gloss-film",
+    title: "Ultra-Gloss Film",
     subtitle: "Polished Stone Mirror Shine",
     badge: "Ultra-Gloss",
     image: "/collections/onyx-1.jpg",
   },
   {
-    id: "honed-wrap",
-    title: "Velvet Matte Wrap",
+    id: "honed-film",
+    title: "Velvet Matte Film",
     subtitle: "Honed & Brushed Anti-Glare",
     badge: "Velvet Matte",
     image: "/collections/travertine-1.jpg",
   },
   {
     id: "waterfall-edge",
-    title: "Waterfall Wrap",
+    title: "Waterfall Film",
     subtitle: "Continuous Drop-Edge Coverage",
     badge: "Waterfall Edge",
     image: "/collections/travertine-2.jpg",
@@ -117,19 +117,12 @@ export default function MarbleCollectionsSection() {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center text-center mb-10 sm:mb-14 px-6 sm:px-10"
         >
-          <div className="inline-flex items-center gap-2 mb-3">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#31847b]" />
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#31847b]">
-              Applied Surface Defense
-            </p>
-          </div>
-
           <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold text-[#1f242e] tracking-tight leading-tight">
-            The NanoShield Protective Wrap
+            The NanoShield Protective Film
           </h2>
 
           <p className="mt-3 text-base sm:text-lg text-stone-600 max-w-xl mx-auto font-normal leading-relaxed">
-            Optical-grade 8-mil film applied directly over natural marble to permanently eliminate acid etching, wine stains, and knife scratches.
+            Optical grade certified stone film applied directly over natural marble to permanently eliminate acid etching, wine stains, and knife scratches.
           </p>
         </motion.div>
 

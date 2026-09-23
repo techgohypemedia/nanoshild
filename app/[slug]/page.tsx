@@ -38,7 +38,6 @@ export default async function DetailPage({ params }: { params: Promise<{ slug: s
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/80 via-black/55 to-black/20" />
           <div className="absolute inset-x-0 top-0 -z-10 h-40 bg-gradient-to-b from-black/50 to-transparent" />
           <div className="mx-auto w-full max-w-7xl px-6 sm:px-10">
-            <p className="mb-7 text-xs font-semibold uppercase tracking-[0.24em] text-[#8edbd2]">NanoShield HD / {page.label}</p>
             <h1 className="max-w-4xl whitespace-pre-line text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-6xl lg:text-7xl">{page.title}</h1>
             <p className="mb-8 mt-7 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">{page.description}</p>
             <PageConsultationButton label={page.cta} />

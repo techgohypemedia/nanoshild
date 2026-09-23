@@ -10,11 +10,11 @@ export const sitePages = {
       ["A physical barrier", "Spilt food, drinks and acidic ingredients meet the protective surface before they reach your marble."],
       ["Made to be replaced", "A specialised primer supports adhesion during use and clean removal when the film needs replacing."],
     ],
-    cta: "See the technology in action", next: "protective-wrap",
+    cta: "See the technology in action", next: "protective-film",
   },
-  "protective-wrap": {
-    label: "Protective Wrap", title: "Your marble.\nReady for real life.",
-    description: "A clear protective wrap for the surfaces you use every day. Enjoy the stone you love with less worry about what lands on it.",
+  "protective-film": {
+    label: "Protective Film", title: "Your marble.\nReady for real life.",
+    description: "A clear protective film for the surfaces you use every day. Enjoy the stone you love with less worry about what lands on it.",
     image: "/marble-family-freedom.jpg", imageAlt: "Marble surfaces in a welcoming home",
     eyebrow: "Made for everyday living", heading: "Keep the beauty. Enjoy the surface.",
     intro: "From a morning coffee to a shared family meal, natural stone should be part of your home. NanoShield HD protects against staining, acid etching and everyday wear without hiding the marble beneath.",

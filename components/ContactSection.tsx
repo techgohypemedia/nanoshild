@@ -103,14 +103,6 @@ export default function ContactSection() {
           {/* RIGHT COLUMN: REFINED EDITORIAL CONTACT FORM                 */}
           {/* ============================================================ */}
           <div className="lg:col-span-6 flex flex-col justify-center lg:pl-4 xl:pl-8">
-            {/* Kicker */}
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#31847b]" />
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#31847b]">
-                Get in Touch
-              </p>
-            </div>
-
             {/* Headline */}
             <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-[#1f242e] tracking-tight leading-tight">
               Contact Us

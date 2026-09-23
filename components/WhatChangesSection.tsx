@@ -51,8 +51,7 @@ export default function WhatChangesSection() {
                 <p className="text-xs sm:text-sm font-semibold tracking-tight text-[#1f242e]">
                   NanoShield HD™ Applied
                 </p>
-                <span className="inline-flex items-center gap-1 rounded-full bg-[#31847b]/10 px-2 py-0.5 text-[10px] font-semibold text-[#31847b]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#31847b]" />
+                <span className="inline-flex items-center gap-1 rounded-full bg-[#31847b]/10 px-2.5 py-0.5 text-[10px] font-semibold text-[#31847b]">
                   Undetectable
                 </span>
               </div>
@@ -72,13 +71,6 @@ export default function WhatChangesSection() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-xl xl:max-w-2xl w-full"
           >
-            <div className="inline-flex items-center gap-2 mb-4">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#31847b]" />
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#31847b]">
-                The NanoShield Difference
-              </p>
-            </div>
-
             <h2 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-semibold leading-[1.12] tracking-tight text-[#1f242e]">
               What changes after installation?
             </h2>

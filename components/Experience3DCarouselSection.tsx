@@ -13,37 +13,37 @@ interface StoneCard {
 const CARDS: StoneCard[] = [
   {
     id: "white-statuario",
-    title: "Wrapped Statuario & Calacatta",
+    title: "Protected Statuario & Calacatta",
     image: "/marble-calacatta-hd.jpg",
   },
   {
     id: "fusion-series",
-    title: "Wrapped Chef Benchtops",
+    title: "Protected Chef Benchtops",
     image: "/marble-kitchen-island.jpg",
   },
   {
     id: "quartzo-islands",
-    title: "Wrapped Quartzite Islands",
+    title: "Protected Quartzite Islands",
     image: "/marble-travertine-texture.jpg",
   },
   {
     id: "ratna-gemstones",
-    title: "Wrapped Translucent Onyx",
+    title: "Protected Translucent Onyx",
     image: "/collections/onyx-2.jpg",
   },
   {
     id: "granito-quartzite",
-    title: "Wrapped Nero Marquina",
+    title: "Protected Nero Marquina",
     image: "/collections/black-marquina-1.jpg",
   },
   {
     id: "embossed-series",
-    title: "Wrapped Fluted Marble",
+    title: "Protected Fluted Marble",
     image: "/collections/calacatta-1.jpg",
   },
   {
     id: "onyx-lumina",
-    title: "Wrapped Backlit Onyx",
+    title: "Protected Backlit Onyx",
     image: "/collections/onyx-1.jpg",
   },
 ];

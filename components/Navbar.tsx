@@ -71,8 +71,8 @@ export default function Navbar() {
           <Link href="/technology" aria-current={pathname === "/technology" ? "page" : undefined} className={`${navLinkClass} whitespace-nowrap py-1 aria-[current=page]:underline underline-offset-8 decoration-[#50b8ae] decoration-2`}>
             Technology
           </Link>
-          <Link href="/protective-wrap" aria-current={pathname === "/protective-wrap" ? "page" : undefined} className={`${navLinkClass} whitespace-nowrap py-1 aria-[current=page]:underline underline-offset-8 decoration-[#50b8ae] decoration-2`}>
-            Protective Wrap
+          <Link href="/protective-film" aria-current={pathname === "/protective-film" ? "page" : undefined} className={`${navLinkClass} whitespace-nowrap py-1 aria-[current=page]:underline underline-offset-8 decoration-[#50b8ae] decoration-2`}>
+            Protective Film
           </Link>
           <Link href="/our-showroom" aria-current={pathname === "/our-showroom" ? "page" : undefined} className={`${navLinkClass} whitespace-nowrap py-1 aria-[current=page]:underline underline-offset-8 decoration-[#50b8ae] decoration-2`}>
             Our Showroom
@@ -132,11 +132,11 @@ export default function Navbar() {
             Technology
           </Link>
           <Link
-            href="/protective-wrap" aria-current={pathname === "/protective-wrap" ? "page" : undefined}
+            href="/protective-film" aria-current={pathname === "/protective-film" ? "page" : undefined}
             onClick={() => setMobileMenuOpen(false)}
             className="block text-white hover:text-teal-400 text-base font-semibold py-2"
           >
-            Protective Wrap
+            Protective Film
           </Link>
           <Link
             href="/our-showroom" aria-current={pathname === "/our-showroom" ? "page" : undefined}

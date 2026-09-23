@@ -9,7 +9,7 @@ export default function ShowroomBentoGridSection() {
   const handleDemoClick = () => {
     openConsultationModal({
       title: "Book a Live Film Demo",
-      subtitle: "See wine, lemon, and acid tested live on wrapped marble samples in your kitchen.",
+      subtitle: "See wine, lemon, and acid tested live on protected marble samples in your kitchen.",
     });
   };
 
@@ -39,7 +39,7 @@ export default function ShowroomBentoGridSection() {
           {/* Live Video Indicator Badge */}
           <div className="absolute top-4 left-4 z-10 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[11px] font-semibold tracking-wider uppercase flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#50b8ae] animate-pulse" />
-            <span>Live Wrap Demonstration</span>
+            <span>Live Film Demonstration</span>
           </div>
         </div>
 
@@ -48,7 +48,7 @@ export default function ShowroomBentoGridSection() {
         {/* ========================================================= */}
         <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-1 w-full h-full">
           
-          {/* ----------------- TILE 1: BRAND IDENTITY & WRAP INSTALLATION ----------------- */}
+          {/* ----------------- TILE 1: BRAND IDENTITY & FILM INSTALLATION ----------------- */}
           <div className="relative w-full h-[240px] sm:h-[260px] md:h-[280px] lg:h-[328px] xl:h-[358px] bg-[#222a35] p-6 sm:p-8 flex flex-col justify-between overflow-hidden rounded-none text-white">
             {/* Architectural Stone Interior Background */}
             <div className="absolute inset-0 z-0 rounded-none">
@@ -79,7 +79,7 @@ export default function ShowroomBentoGridSection() {
                 NANOSHIELD HD™
               </h4>
               <p className="text-[11px] sm:text-xs tracking-[0.2em] text-[#72d4ca] uppercase font-semibold mt-1">
-                THE INVISIBLE MARBLE WRAP
+                THE INVISIBLE MARBLE FILM
               </p>
               <p className="text-[11px] sm:text-xs text-stone-300/90 mt-1 font-light">
                 Certified Film Applicators Across Australia
@@ -146,12 +146,12 @@ export default function ShowroomBentoGridSection() {
                 Live In-Home Demo
               </h4>
               <p className="text-xs sm:text-sm text-white/90 leading-snug max-w-[230px] font-normal">
-                See wine, lemon, and acid tested live on wrapped marble samples in your kitchen.
+                See wine, lemon, and acid tested live on protected marble samples in your kitchen.
               </p>
             </div>
           </div>
 
-          {/* ----------------- TILE 4: UNIVERSAL STONE WRAP COMPATIBILITY ----------------- */}
+          {/* ----------------- TILE 4: UNIVERSAL STONE FILM COMPATIBILITY ----------------- */}
           <div className="relative w-full h-[240px] sm:h-[260px] md:h-[280px] lg:h-[328px] xl:h-[358px] bg-stone-900 p-6 sm:p-8 flex flex-col justify-end overflow-hidden rounded-none text-white">
             {/* Multi-Colored Vertical Slabs */}
             <div className="absolute inset-0 z-0 flex rounded-none">
@@ -185,7 +185,7 @@ export default function ShowroomBentoGridSection() {
                 Protects Any Stone
               </h3>
               <p className="text-xs sm:text-sm text-stone-200 font-medium tracking-wide mt-1.5 drop-shadow-md">
-                Custom-wrapped over marble, quartzite, onyx &amp; travertine.
+                Custom-installed over marble, quartzite, onyx &amp; travertine.
               </p>
             </div>
           </div>

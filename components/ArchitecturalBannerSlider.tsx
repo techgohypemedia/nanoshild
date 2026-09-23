@@ -91,13 +91,6 @@ export default function ArchitecturalBannerSlider() {
       {/* SECTION HEADER: Clean Luxury Editorial Header                 */}
       {/* ============================================================= */}
       <div className="flex flex-col items-center text-center mb-8 sm:mb-12 px-4 sm:px-6 max-w-4xl mx-auto">
-        <div className="inline-flex items-center gap-2 mb-3">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#31847b]" />
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#31847b]">
-            Architectural Showcase
-          </p>
-        </div>
-
         <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-[#1f242e] tracking-tight leading-tight">
           Protected for Everyday Living
         </h2>

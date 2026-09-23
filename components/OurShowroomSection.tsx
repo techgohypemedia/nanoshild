@@ -31,13 +31,6 @@ export default function OurShowroomSection() {
       <div className="max-w-6xl mx-auto w-full">
         {/* Simple, Clean Centered Header (No AI logo, No clutter) */}
         <div className="flex flex-col items-center text-center mb-10 sm:mb-14 px-4">
-          <div className="inline-flex items-center gap-2 mb-3">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#31847b]" />
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#31847b]">
-              Real-World Demonstration
-            </p>
-          </div>
-
           <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-[#1f242e] tracking-tight leading-tight">
             Luxury Marble in Action
           </h2>
