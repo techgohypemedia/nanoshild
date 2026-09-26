@@ -35,11 +35,11 @@ export default function OurShowroomSection() {
         {/* Simple, Clean Centered Header */}
         <div className="flex flex-col items-center text-center mb-10 sm:mb-14 px-4">
           <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-[#1f242e] tracking-tight leading-tight">
-            Luxury Marble in Action
+            Watch us put NanoShield HD to the test
           </h2>
 
-          <p className="mt-3 text-base sm:text-lg text-stone-600 max-w-xl mx-auto font-normal leading-relaxed">
-            Watch live citrus etching tests, red wine spills, and everyday culinary resilience on protected natural stone.
+          <p className="mt-4 text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-normal leading-relaxed">
+            Watch us put NanoShield HD to the test with freshly brewed espresso, cab merlot poured straight from the bottle and a freshly cut lemon squeezed straight onto the surface.
           </p>
         </div>
 

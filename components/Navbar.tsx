@@ -234,8 +234,8 @@ export default function Navbar() {
               </button>
 
               <div className="flex items-center justify-between text-xs text-stone-500 pt-1">
-                <a href="tel:1300626674" className="text-zinc-800 font-medium hover:text-[#50b8ae] transition-colors">
-                  📞 1300 NANOSHIELD
+                <a href="tel:1300375030" className="text-zinc-800 font-medium hover:text-[#50b8ae] transition-colors">
+                  📞 1300 375 030
                 </a>
                 <span>Sydney · Melbourne · Brisbane</span>
               </div>

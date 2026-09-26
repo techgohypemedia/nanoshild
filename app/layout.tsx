@@ -23,9 +23,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NanoShield HD™ | Luxury Stone & Marble Protection",
+  title: "Australia’s Leading Marble Protection Film | NanoShield HD",
   description:
-    "Enjoy your marble without rules, stress or regret. Guaranteed not to crack, peel, bubble, stain, etch or discolour for up to 10 years. Fully installed from $300m².",
+    "Protect your natural stone with NanoShield HD marble protection film. Installation in Melbourne, Sydney and Brisbane. Get your benchtop protection quote.",
+  openGraph: {
+    title: "Australia’s Leading Marble Protection Film | NanoShield HD",
+    description:
+      "Protect your natural stone with NanoShield HD marble protection film. Installation in Melbourne, Sydney and Brisbane. Get your benchtop protection quote.",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -33,7 +38,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={cn(
-        "h-full",
         "antialiased",
         geistSans.variable,
         geistMono.variable,
@@ -42,7 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         inter.variable
       )}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-screen flex flex-col bg-black text-white">
         <SmoothScroll />
         {children}
       </body>

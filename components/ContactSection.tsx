@@ -105,13 +105,26 @@ export default function ContactSection() {
           <div className="lg:col-span-6 flex flex-col justify-center lg:pl-4 xl:pl-8">
             {/* Headline */}
             <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-[#1f242e] tracking-tight leading-tight">
-              Contact Us
+              Give Your Stone a Place in Everyday Life
             </h2>
 
-            {/* Subtext */}
-            <p className="text-stone-600 text-sm sm:text-base leading-relaxed mt-3 max-w-xl font-normal">
-              To ensure consistent performance and stone-safe results, NanoShield HD is installed exclusively by licensed professionals. Contact us to find an authorised installer near you.
-            </p>
+            {/* Narrative Paragraphs */}
+            <div className="mt-4 space-y-3 text-stone-600 text-sm sm:text-base leading-relaxed font-normal">
+              <p>
+                You have chosen a natural material that makes your home feel like yours. Take the next step towards protecting it.
+              </p>
+              <p>
+                Tell us about your benchtop, kitchen island or other stone surface. We will help you understand what is suitable, what it will cost and how to book your NanoShield HD installation.
+              </p>
+            </div>
+
+            {/* Response Time & Urgent Phone Callout */}
+            <div className="mt-5 p-4 rounded-2xl bg-[#eaf3f1] border border-[#31847b]/25 text-[#102c29] text-xs sm:text-sm font-medium leading-relaxed">
+              Complete our form and our friendly team will be in touch within 24 hours. For urgent enquiries, call us on{" "}
+              <a href="tel:1300375030" className="font-bold text-[#31847b] hover:underline">
+                1300 375 030
+              </a>.
+            </div>
 
             {/* Form Section */}
             {isSubmitted ? (

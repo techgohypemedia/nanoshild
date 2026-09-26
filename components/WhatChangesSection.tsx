@@ -1,15 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, Eye, ShieldCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { openConsultationModal } from "@/components/ConsultationModal";
 
 export default function WhatChangesSection() {
   const handleConsultationClick = () => {
     openConsultationModal({
-      title: "Book a Consultation & Live Demo",
-      subtitle: "See NanoShield HD in action and discover how our invisible protection transforms your marble care.",
+      title: "Request a Free Quote & Assessment",
+      subtitle: "Protect your stone with our optical grade certified stone film. Guaranteed for 10 years.",
     });
   };
 
@@ -37,7 +37,7 @@ export default function WhatChangesSection() {
           />
         </motion.div>
 
-        {/* Right Column: Editorial Narrative with Visually vs Functionally Breakdown */}
+        {/* Right Column: Editorial Narrative with 3 Protection Features */}
         <div className="w-full flex items-center justify-start">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
@@ -47,68 +47,67 @@ export default function WhatChangesSection() {
             className="max-w-xl xl:max-w-2xl w-full"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-semibold leading-[1.12] tracking-tight text-[#1f242e]">
-              What changes after installation?
+              Enjoy 10 Years Protection Against Everyday Spills, Stains, Etching &amp; Damage to Your Stone
             </h2>
 
             <p className="mt-5 text-base sm:text-lg leading-relaxed text-stone-600 font-normal">
-              At first glance, it feels like nothing has changed at all. The marble looks and feels identical. The true difference shows up in how effortlessly you live.
+              NanoShield HD covers the stone with a thin, transparent, stone safe film that helps protect against:
             </p>
 
-            {/* Dual Comparison Blocks */}
-            <div className="mt-8 space-y-4">
-              {/* Block 1: Appearance */}
+            {/* 3 Detailed Protection Feature Cards */}
+            <div className="mt-7 space-y-4">
+              {/* Feature 1 */}
               <motion.div
                 initial={{ opacity: 0, x: -16 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.15 }}
-                className="p-5 sm:p-6 rounded-2xl bg-white border border-stone-200/90 shadow-sm"
+                className="p-5 sm:p-6 rounded-2xl bg-white border border-stone-200/90 shadow-2xs"
               >
-                <div className="flex items-center justify-between gap-2 mb-2">
-                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-600">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-stone-100 text-stone-600">
-                      <Eye className="w-3.5 h-3.5" />
-                    </span>
-                    <span>Visually: Nothing</span>
-                  </div>
-                  <span className="text-[11px] font-semibold text-stone-500 bg-stone-100 px-2.5 py-0.5 rounded-full">
-                    Zero Distortion
-                  </span>
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-[#1f242e] mb-1.5">
-                  Your stone remains 100% authentic.
+                <h3 className="text-base sm:text-lg font-semibold text-[#1f242e] mb-1">
+                  Stains from food and drinks
                 </h3>
                 <p className="text-stone-600 text-sm leading-relaxed">
-                  Zero haze, zero cloudiness, and no artificial plastic sheen. Light reflects naturally across every vein, preserving the true soul of your stone.
+                  Including coffee, red wine, cooking oils and strongly coloured ingredients.
                 </p>
               </motion.div>
 
-              {/* Block 2: Performance */}
+              {/* Feature 2 */}
               <motion.div
                 initial={{ opacity: 0, x: -16 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.25 }}
-                className="p-5 sm:p-6 rounded-2xl bg-[#eaf3f1] border border-[#31847b]/30 shadow-sm"
+                className="p-5 sm:p-6 rounded-2xl bg-[#eaf3f1] border border-[#31847b]/30 shadow-2xs"
               >
-                <div className="flex items-center justify-between gap-2 mb-2">
-                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#31847b]">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#31847b]/15 text-[#31847b]">
-                      <ShieldCheck className="w-3.5 h-3.5" />
-                    </span>
-                    <span>Functionally: Everything</span>
-                  </div>
-                  <span className="text-[11px] font-semibold text-[#31847b] bg-white/80 px-2.5 py-0.5 rounded-full border border-[#31847b]/20">
-                    Total Protection
-                  </span>
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold text-[#1f242e] mb-1.5">
-                  Total immunity from stains and acid etching.
+                <h3 className="text-base sm:text-lg font-semibold text-[#1f242e] mb-1">
+                  Acid etching
                 </h3>
                 <p className="text-stone-700 text-sm leading-relaxed">
-                  Lemons, wine, coffee, and cooking oils cannot touch the marble. Prep food, place hot cups, host freely, and wipe clean in seconds.
+                  The dull marks that lemon juice, vinegar and other acidic spills can leave on sensitive stone.
                 </p>
               </motion.div>
+
+              {/* Feature 3 */}
+              <motion.div
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.35 }}
+                className="p-5 sm:p-6 rounded-2xl bg-white border border-stone-200/90 shadow-2xs"
+              >
+                <h3 className="text-base sm:text-lg font-semibold text-[#1f242e] mb-1">
+                  Light scratches and scuffs
+                </h3>
+                <p className="text-stone-600 text-sm leading-relaxed">
+                  From everyday contact with items around the home.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Honed / Polished Finish Note */}
+            <div className="mt-6 p-4 rounded-xl bg-stone-100/80 border border-stone-200 text-stone-700 text-xs sm:text-sm font-medium leading-relaxed">
+              Your stone&apos;s natural detail remains visible beneath the clear film. Choose from a honed or polished finish to suit the look of your surface.
             </div>
 
             {/* CTA Button */}
@@ -116,15 +115,15 @@ export default function WhatChangesSection() {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.35 }}
-              className="mt-9"
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-8"
             >
               <button
                 type="button"
                 onClick={handleConsultationClick}
-                className="group inline-flex cursor-pointer items-center justify-center gap-3 rounded-xl bg-[#31847b] px-8 py-4 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:bg-[#256a63] hover:scale-[1.02] active:scale-[0.98] shadow-sm hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#31847b]"
+                className="group inline-flex cursor-pointer items-center justify-center gap-3 rounded-full bg-[#31847b] px-8 py-4 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:bg-[#256a63] hover:scale-[1.02] active:scale-[0.98] shadow-sm hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#31847b]"
               >
-                <span>Book a Consultation &amp; Live Demo</span>
+                <span>Request a Quote</span>
                 <ArrowRight size={17} className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
               </button>
             </motion.div>

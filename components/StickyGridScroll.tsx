@@ -6,14 +6,6 @@ import { motion } from "framer-motion";
 import { openConsultationModal } from "@/components/ConsultationModal";
 
 export default function StickyGridScroll() {
-  const handleConsultationClick = () => {
-    openConsultationModal({
-      title: "Book Your Stone Consultation",
-      subtitle: "Experience authentic NanoShield HD protection for your marble and natural stone surfaces.",
-      stoneType: "Calacatta / Carrara Marble",
-    });
-  };
-
   const handleQuoteClick = () => {
     openConsultationModal({
       title: "Request a Free Custom Quote",
@@ -24,12 +16,11 @@ export default function StickyGridScroll() {
   return (
     <div id="narrative-story" className="w-full overflow-hidden bg-[#f8f9fa] text-[#1f242e]">
       {/* ------------------------------------------------------------- */}
-      {/* SECTION 1: THE DILEMMA                                        */}
-      {/* End-to-end full width with generous gaps and rounded frames   */}
+      {/* SECTION 1: KITCHEN CONFIDENCE (With Luxury Marble Photo)       */}
       {/* ------------------------------------------------------------- */}
       <section className="w-full py-16 sm:py-24 lg:py-28 xl:py-32 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28">
         <div className="w-full grid items-center gap-12 lg:gap-16 xl:gap-24 lg:grid-cols-2">
-          {/* Left: Rounded Luxury Marble Visual with Gap */}
+          {/* Left: Rounded Luxury Marble Visual */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -57,19 +48,28 @@ export default function StickyGridScroll() {
               className="max-w-xl xl:max-w-2xl w-full"
             >
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-semibold leading-[1.12] tracking-tight text-[#1f242e]">
-                You didn’t choose marble to tiptoe around it.
+                Enjoy your kitchen. Feel confident about your stone.
               </h2>
 
-              <p className="mt-5 text-base sm:text-lg leading-relaxed text-stone-600 font-normal">
-                You fell in love with its organic depth, delicate veining, and timeless presence. But somewhere between installation day and everyday life, that joy quietly turned into tension—watching guests, warning kids, and bracing for spills.
-              </p>
+              <div className="mt-5 space-y-3.5 text-base sm:text-lg leading-relaxed text-stone-600 font-normal">
+                <p>
+                  You chose your stone for its character, its colour and the way it brings your home together. Give it the protection it deserves.
+                </p>
+                <p>
+                  NanoShield HD is a clear marble protection film that helps protect natural stone from stains, acid etching and everyday surface scratches.
+                </p>
+                <p className="text-stone-700 font-medium">
+                  Developed through 10 years of stone care experience, it gives you greater confidence to cook, entertain and enjoy the surfaces you have invested in.
+                </p>
+              </div>
 
-              {/* Checklist items with staggered animation */}
-              <ul className="mt-8 space-y-4 border-t border-stone-200/90 pt-7">
+              {/* Checklist items */}
+              <ul className="mt-8 space-y-3.5 border-t border-stone-200/90 pt-7">
                 {[
-                  "Total physical separation from lemon, wine, coffee & acidic oils",
-                  "Optical grade certified stone film preserves 100% of authentic stone veining",
-                  "Guaranteed not to yellow, peel, or bubble for up to 10 years",
+                  "Premium film engineered for natural stone",
+                  "Supplied and installed from $300m²",
+                  "More cost effective than restoration with less downtime",
+                  "Backed by our 10 year guarantee*",
                 ].map((point, idx) => (
                   <motion.li
                     key={point}
@@ -87,19 +87,23 @@ export default function StickyGridScroll() {
                 ))}
               </ul>
 
+              <p className="mt-6 text-xs sm:text-sm font-medium text-stone-500 italic">
+                For marble, travertine, quartzite, granite and other suitable natural stone.
+              </p>
+
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="mt-9"
+                className="mt-8"
               >
                 <button
                   type="button"
-                  onClick={handleConsultationClick}
+                  onClick={handleQuoteClick}
                   className="group inline-flex cursor-pointer items-center justify-center gap-3 rounded-full bg-[#50b8ae] px-8 py-4 text-sm sm:text-base font-semibold text-[#102c29] transition-all duration-300 hover:bg-[#79cec5] hover:scale-[1.02] active:scale-[0.98] shadow-sm hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#50b8ae]"
                 >
-                  <span>Book Your Consultation</span>
+                  <span>Request a Quote</span>
                   <ArrowRight size={17} className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
                 </button>
               </motion.div>
@@ -109,8 +113,7 @@ export default function StickyGridScroll() {
       </section>
 
       {/* ------------------------------------------------------------- */}
-      {/* SECTION 2: THE FREEDOM                                        */}
-      {/* Clean complementary tone with generous gaps and balance       */}
+      {/* SECTION 2: BENCHTOP LIVING (With Family Marble Photo)          */}
       {/* ------------------------------------------------------------- */}
       <section className="w-full py-16 sm:py-24 lg:py-28 xl:py-32 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28 bg-white border-t border-stone-200/80">
         <div className="w-full grid items-center gap-12 lg:gap-16 xl:gap-24 lg:grid-cols-2">
@@ -124,49 +127,41 @@ export default function StickyGridScroll() {
               className="max-w-xl xl:max-w-2xl w-full"
             >
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-semibold leading-[1.12] tracking-tight text-[#1f242e]">
-                Imagine not thinking about your benchtop anymore.
+                A Beautiful Benchtop Should Be a Pleasure to Live With
               </h2>
 
-              <p className="mt-5 text-base sm:text-lg leading-relaxed text-stone-600 font-normal">
-                No hovering when someone sets a glass down. No racing for cloth when oil splashes. Settle into the kitchen you designed for living, hosting, and cooking without anxiety.
-              </p>
+              <div className="mt-5 space-y-3.5 text-base sm:text-lg leading-relaxed text-stone-600 font-normal">
+                <p>
+                  Morning coffee at the island. Dinner preparation with the family. Friends gathered around the kitchen with a glass of wine.
+                </p>
+                <p>
+                  These are the moments you imagined when you chose your stone.
+                </p>
+                <p className="text-stone-700 font-medium">
+                  If you find yourself watching every glass or worrying about each splash, NanoShield HD adds a layer of protection between your stone and daily life.
+                </p>
+              </div>
 
-              {/* Checklist items */}
-              <ul className="mt-8 space-y-4 border-t border-stone-200/90 pt-7">
-                {[
-                  "Place coffee mugs and prep meals directly on the stone",
-                  "Wipe spills effortlessly with standard gentle stone cleansers",
-                  "The stone looks and feels completely natural—the tension is gone",
-                ].map((point, idx) => (
-                  <motion.li
-                    key={point}
-                    initial={{ opacity: 0, x: -16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.15 + idx * 0.1 }}
-                    className="flex items-start gap-3.5 text-sm sm:text-base font-medium leading-relaxed text-[#1f242e]"
-                  >
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#31847b]/10 text-[#31847b] mt-0.5">
-                      <Check size={14} className="stroke-[2.5]" aria-hidden="true" />
-                    </span>
-                    <span>{point}</span>
-                  </motion.li>
-                ))}
-              </ul>
+              {/* Assessment Callout Card */}
+              <div className="mt-7 p-5 rounded-2xl bg-[#f4f8f7] border border-[#31847b]/25 shadow-2xs">
+                <p className="text-sm sm:text-base font-medium leading-relaxed text-[#102c29]">
+                  Whether your kitchen is newly finished or your marble has been part of the home for years, we can assess the surface and help you plan its protection.
+                </p>
+              </div>
 
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="mt-9"
+                className="mt-8"
               >
                 <button
                   type="button"
                   onClick={handleQuoteClick}
                   className="group inline-flex cursor-pointer items-center justify-center gap-3 rounded-full bg-[#182526] px-8 py-4 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:bg-[#2c3e40] hover:scale-[1.02] active:scale-[0.98] shadow-sm hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#182526]"
                 >
-                  <span>Get a Free Quote</span>
+                  <span>Request a Quote</span>
                   <ArrowRight size={17} className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
                 </button>
               </motion.div>

@@ -174,11 +174,11 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs sm:text-sm text-stone-400 font-normal">
               <li>
                 <a
-                  href="tel:1300000000"
+                  href="tel:1300375030"
                   className="hover:text-white transition-colors inline-flex items-center gap-2 text-stone-300"
                 >
                   <Phone className="w-3.5 h-3.5 text-[#31847b]" />
-                  <span>1300 NANOSHIELD</span>
+                  <span>1300 375 030</span>
                 </a>
               </li>
               <li>
