@@ -148,23 +148,6 @@ export default function StickyGridScroll() {
                   Whether your kitchen is newly finished or your marble has been part of the home for years, we can assess the surface and help you plan its protection.
                 </p>
               </div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="mt-8"
-              >
-                <button
-                  type="button"
-                  onClick={handleQuoteClick}
-                  className="group inline-flex cursor-pointer items-center justify-center gap-3 rounded-full bg-[#182526] px-8 py-4 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:bg-[#2c3e40] hover:scale-[1.02] active:scale-[0.98] shadow-sm hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#182526]"
-                >
-                  <span>Request a Quote</span>
-                  <ArrowRight size={17} className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
-                </button>
-              </motion.div>
             </motion.div>
           </div>
 
