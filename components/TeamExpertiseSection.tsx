@@ -1,18 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, ShieldCheck, Award, AlertTriangle } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
-import { openConsultationModal } from "@/components/ConsultationModal";
 
 export default function TeamExpertiseSection() {
-  const handleQuoteClick = () => {
-    openConsultationModal({
-      title: "Talk to Our Stone Experts",
-      subtitle: "Our Melbourne team brings 10 years of natural stone restoration and protection experience.",
-    });
-  };
-
   return (
     <section
       id="team-expertise"
@@ -33,12 +25,6 @@ export default function TeamExpertiseSection() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="max-w-xl xl:max-w-2xl w-full"
             >
-              {/* Eyebrow badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#eaf3f1] border border-[#31847b]/25 text-[#31847b] text-xs font-semibold tracking-wider uppercase mb-5">
-                <Award className="w-3.5 h-3.5" />
-                <span>10 Years of Stone Heritage</span>
-              </div>
-
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-semibold leading-[1.12] tracking-tight text-[#1f242e]">
                 Developed by The Team Who Knows Natural Stone
               </h2>
@@ -64,24 +50,6 @@ export default function TeamExpertiseSection() {
                   You get advice from people who understand both the surface you want to preserve and the protection being applied.
                 </p>
               </div>
-
-              {/* CTA Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.35 }}
-                className="mt-9"
-              >
-                <button
-                  type="button"
-                  onClick={handleQuoteClick}
-                  className="group inline-flex cursor-pointer items-center justify-center gap-3 rounded-full bg-[#182526] px-8 py-4 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:bg-[#2c3e40] hover:scale-[1.02] active:scale-[0.98] shadow-sm hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#182526]"
-                >
-                  <span>Request a Quote</span>
-                  <ArrowRight size={17} className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
-                </button>
-              </motion.div>
             </motion.div>
           </div>
 
@@ -124,14 +92,9 @@ export default function TeamExpertiseSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.8 }}
-          className="p-8 sm:p-12 lg:p-14 rounded-3xl bg-[#fbf8f3] border border-stone-200/90 text-[#1f242e] shadow-[0_15px_40px_rgba(0,0,0,0.03)]"
+          className="py-4 text-[#1f242e]"
         >
           <div className="max-w-4xl mx-auto space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200/80 text-amber-900 text-xs font-semibold tracking-wider uppercase">
-              <AlertTriangle className="w-3.5 h-3.5 text-amber-700" />
-              <span>Adhesive &amp; Surface Safety Advisory</span>
-            </div>
-
             <h3 className="text-2xl sm:text-3xl lg:text-[40px] font-semibold leading-tight tracking-tight text-[#1f242e]">
               Don&apos;t Risk Damaging Your Marble With Inferior Films &amp; Adhesives
             </h3>

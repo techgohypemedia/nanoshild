@@ -1,18 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { openConsultationModal } from "@/components/ConsultationModal";
 
 export default function WhatChangesSection() {
-  const handleConsultationClick = () => {
-    openConsultationModal({
-      title: "Request a Free Quote & Assessment",
-      subtitle: "Protect your stone with our optical grade certified stone film. Guaranteed for 10 years.",
-    });
-  };
-
   return (
     <section
       id="what-changes-section"
@@ -118,24 +109,6 @@ export default function WhatChangesSection() {
             <div className="mt-3.5 px-4 py-3 rounded-xl bg-stone-100/80 border border-stone-200 text-stone-700 text-xs sm:text-sm font-medium leading-relaxed">
               Your stone&apos;s natural detail remains visible beneath the clear film. Choose from a honed or polished finish to suit the look of your surface.
             </div>
-
-            {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-5"
-            >
-              <button
-                type="button"
-                onClick={handleConsultationClick}
-                className="group inline-flex cursor-pointer items-center justify-center gap-3 rounded-full bg-[#31847b] px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#256a63] hover:scale-[1.02] active:scale-[0.98] shadow-sm hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#31847b]"
-              >
-                <span>Request a Quote</span>
-                <ArrowRight size={17} className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
-              </button>
-            </motion.div>
           </motion.div>
         </div>
       </div>

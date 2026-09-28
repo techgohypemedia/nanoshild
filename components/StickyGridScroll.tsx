@@ -19,6 +19,19 @@ export default function StickyGridScroll() {
       {/* SECTION 1: KITCHEN CONFIDENCE (With Luxury Marble Photo)       */}
       {/* ------------------------------------------------------------- */}
       <section className="w-full py-16 sm:py-24 lg:py-28 xl:py-32 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28">
+        {/* Full-Width Top Heading (Above Image & Content) */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full mb-8 lg:mb-12 max-w-5xl"
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] font-semibold leading-[1.12] tracking-tight text-[#1f242e]">
+            Enjoy your kitchen. Feel confident about your stone.
+          </h2>
+        </motion.div>
+
         <div className="w-full grid items-center gap-12 lg:gap-16 xl:gap-24 lg:grid-cols-2">
           {/* Left: Rounded Luxury Marble Visual */}
           <motion.div
@@ -47,11 +60,7 @@ export default function StickyGridScroll() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="max-w-xl xl:max-w-2xl w-full"
             >
-              <h2 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-semibold leading-[1.12] tracking-tight text-[#1f242e]">
-                Enjoy your kitchen. Feel confident about your stone.
-              </h2>
-
-              <div className="mt-5 space-y-3.5 text-base sm:text-lg leading-relaxed text-stone-600 font-normal">
+              <div className="space-y-3.5 text-base sm:text-lg leading-relaxed text-stone-600 font-normal">
                 <p>
                   You chose your stone for its character, its colour and the way it brings your home together. Give it the protection it deserves.
                 </p>
@@ -116,6 +125,19 @@ export default function StickyGridScroll() {
       {/* SECTION 2: BENCHTOP LIVING (With Family Marble Photo)          */}
       {/* ------------------------------------------------------------- */}
       <section className="w-full py-16 sm:py-24 lg:py-28 xl:py-32 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28 bg-white border-t border-stone-200/80">
+        {/* Full-Width Top Heading (Above Content & Image) */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full mb-8 lg:mb-12 max-w-5xl"
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] font-semibold leading-[1.12] tracking-tight text-[#1f242e]">
+            A Beautiful Benchtop Should Be a Pleasure to Live With
+          </h2>
+        </motion.div>
+
         <div className="w-full grid items-center gap-12 lg:gap-16 xl:gap-24 lg:grid-cols-2">
           {/* Left: Editorial Content */}
           <div className="w-full flex items-center justify-start order-2 lg:order-1">
@@ -126,11 +148,7 @@ export default function StickyGridScroll() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="max-w-xl xl:max-w-2xl w-full"
             >
-              <h2 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-semibold leading-[1.12] tracking-tight text-[#1f242e]">
-                A Beautiful Benchtop Should Be a Pleasure to Live With
-              </h2>
-
-              <div className="mt-5 space-y-3.5 text-base sm:text-lg leading-relaxed text-stone-600 font-normal">
+              <div className="space-y-3.5 text-base sm:text-lg leading-relaxed text-stone-600 font-normal">
                 <p>
                   Morning coffee at the island. Dinner preparation with the family. Friends gathered around the kitchen with a glass of wine.
                 </p>

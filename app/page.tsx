@@ -4,6 +4,7 @@ import HeroParallaxSequence from "@/components/HeroParallaxSequence";
 import StickyGridScroll from "@/components/StickyGridScroll";
 import WhatChangesSection from "@/components/WhatChangesSection";
 import TeamExpertiseSection from "@/components/TeamExpertiseSection";
+import Testimonial3DCarouselSection from "@/components/Testimonial3DCarouselSection";
 import MarbleCollectionsSection from "@/components/MarbleCollectionsSection";
 import OurShowroomSection from "@/components/OurShowroomSection";
 import StoneApplicationsSection from "@/components/StoneApplicationsSection";
@@ -27,6 +28,7 @@ export default function Home() {
       <StickyGridScroll />
       <WhatChangesSection />
       <TeamExpertiseSection />
+      <Testimonial3DCarouselSection />
       <MarbleCollectionsSection />
       <OurShowroomSection />
       <StoneApplicationsSection />

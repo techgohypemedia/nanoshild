@@ -25,16 +25,37 @@ export default function ContactSection() {
     >
       <div id="contact-section" />
       <div className="w-full max-w-[1560px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-20 items-center">
+        {/* ============================================================ */}
+        {/* TOP HEADER: STACKED END-TO-END ARCHITECTURAL HEADER          */}
+        {/* ============================================================ */}
+        <div className="flex flex-col gap-4 sm:gap-5 w-full max-w-5xl mb-10 sm:mb-14 pb-10 border-b border-stone-200/80">
+          <div>
+            <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-semibold text-[#1f242e] tracking-tight leading-[1.15]">
+              Give Your Stone a Place in Everyday Life
+            </h2>
+          </div>
+
+          <div className="space-y-2 leading-relaxed font-normal max-w-4xl">
+            <p className="text-stone-800 text-base sm:text-lg font-medium">
+              You have chosen a natural material that makes your home feel like yours. Take the next step towards protecting it.
+            </p>
+            <p className="text-stone-500 text-sm sm:text-base">
+              Tell us about your benchtop, kitchen island or other stone surface. We will help you understand what is suitable, what it will cost and how to book your NanoShield HD installation.
+            </p>
+          </div>
+        </div>
+
+        {/* ============================================================ */}
+        {/* MAIN CONTENT GRID: IMAGE & WHITE FORM CARD                   */}
+        {/* ============================================================ */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start">
           
-          {/* ============================================================ */}
-          {/* LEFT COLUMN: ARCHITECTURAL PHOTO & CONNECT BAR               */}
-          {/* ============================================================ */}
-          <div className="lg:col-span-6 flex flex-col">
+          {/* LEFT COLUMN: ARCHITECTURAL PHOTO & CONNECT BAR */}
+          <div className="lg:col-span-6 flex flex-col gap-4">
             {/* Framed Architectural Image */}
-            <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3.8] xl:aspect-[4/3.6] overflow-hidden rounded-2xl sm:rounded-3xl bg-stone-200 shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-stone-200/80">
+            <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3.5] overflow-hidden rounded-3xl bg-stone-200 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-stone-200/90">
               <Image
-                src="/contact-room.jpg"
+                src="/showroom-stock/calacatta-stock.jpg"
                 alt="Living space with protected marble surfaces"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -44,7 +65,7 @@ export default function ContactSection() {
             </div>
 
             {/* Social Channels directly below the photo */}
-            <div className="mt-4 flex items-center justify-between px-1">
+            <div className="flex items-center justify-between px-2 pt-1">
               <span className="text-xs text-stone-500 font-normal tracking-wide">
                 Connect with our studio & network
               </span>
@@ -99,27 +120,10 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* ============================================================ */}
-          {/* RIGHT COLUMN: REFINED EDITORIAL CONTACT FORM                 */}
-          {/* ============================================================ */}
-          <div className="lg:col-span-6 flex flex-col justify-center lg:pl-4 xl:pl-8">
-            {/* Headline */}
-            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-[#1f242e] tracking-tight leading-tight">
-              Give Your Stone a Place in Everyday Life
-            </h2>
-
-            {/* Narrative Paragraphs */}
-            <div className="mt-4 space-y-3 text-stone-600 text-sm sm:text-base leading-relaxed font-normal">
-              <p>
-                You have chosen a natural material that makes your home feel like yours. Take the next step towards protecting it.
-              </p>
-              <p>
-                Tell us about your benchtop, kitchen island or other stone surface. We will help you understand what is suitable, what it will cost and how to book your NanoShield HD installation.
-              </p>
-            </div>
-
+          {/* RIGHT COLUMN: REFINED EDITORIAL FORM CONTAINER */}
+          <div className="lg:col-span-6 bg-white p-6 sm:p-8 lg:p-10 rounded-3xl border border-stone-200/90 shadow-sm flex flex-col justify-between">
             {/* Response Time & Urgent Phone Callout */}
-            <div className="mt-5 p-4 rounded-2xl bg-[#eaf3f1] border border-[#31847b]/25 text-[#102c29] text-xs sm:text-sm font-medium leading-relaxed">
+            <div className="p-4 rounded-2xl bg-[#eaf3f1]/80 border border-[#31847b]/25 text-[#102c29] text-xs sm:text-sm font-medium leading-relaxed">
               Complete our form and our friendly team will be in touch within 24 hours. For urgent enquiries, call us on{" "}
               <a href="tel:1300375030" className="font-bold text-[#31847b] hover:underline">
                 1300 375 030
@@ -128,10 +132,10 @@ export default function ContactSection() {
 
             {/* Form Section */}
             {isSubmitted ? (
-              <div className="mt-8 p-6 sm:p-8 rounded-xl bg-stone-100/80 border border-stone-200/80 text-stone-900 space-y-3 animate-in fade-in duration-500">
+              <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-stone-50 border border-stone-200/80 text-stone-900 space-y-3 animate-in fade-in duration-500">
                 <div className="flex items-center gap-2.5 text-[#31847b]">
                   <CheckCircle2 className="w-5 h-5" />
-                  <h3 className="text-lg font-medium">Enquiry Received</h3>
+                  <h3 className="text-lg font-semibold">Enquiry Received</h3>
                 </div>
                 <p className="text-stone-600 text-sm leading-relaxed">
                   Thank you, {formData.firstName || "there"}. A licensed NanoShield HD installer specialist will be in touch with you shortly.
@@ -148,12 +152,12 @@ export default function ContactSection() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="mt-8 sm:mt-10 space-y-6 sm:space-y-7">
+              <form onSubmit={handleSubmit} className="mt-6 sm:mt-8 space-y-5 sm:space-y-6">
                 {/* First Name Field */}
                 <div className="group">
                   <label
                     htmlFor="contact-firstName"
-                    className="block text-xs font-medium uppercase tracking-wider text-stone-500 mb-1 group-focus-within:text-[#31847b] transition-colors"
+                    className="block text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1 group-focus-within:text-[#31847b] transition-colors"
                   >
                     First Name
                   </label>
@@ -166,7 +170,7 @@ export default function ContactSection() {
                       setFormData({ ...formData, firstName: e.target.value })
                     }
                     placeholder="Enter your name"
-                    className="w-full bg-transparent border-b border-stone-300 pb-2.5 text-stone-900 text-sm sm:text-base focus:outline-none focus:border-[#31847b] transition-colors placeholder:text-stone-400 font-normal"
+                    className="w-full bg-transparent border-b border-stone-200 pb-2.5 text-stone-900 text-sm sm:text-base focus:outline-none focus:border-[#31847b] transition-colors placeholder:text-stone-400 font-normal"
                   />
                 </div>
 
@@ -174,7 +178,7 @@ export default function ContactSection() {
                 <div className="group">
                   <label
                     htmlFor="contact-email"
-                    className="block text-xs font-medium uppercase tracking-wider text-stone-500 mb-1 group-focus-within:text-[#31847b] transition-colors"
+                    className="block text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1 group-focus-within:text-[#31847b] transition-colors"
                   >
                     Email
                   </label>
@@ -187,7 +191,7 @@ export default function ContactSection() {
                       setFormData({ ...formData, email: e.target.value })
                     }
                     placeholder="your.email@example.com"
-                    className="w-full bg-transparent border-b border-stone-300 pb-2.5 text-stone-900 text-sm sm:text-base focus:outline-none focus:border-[#31847b] transition-colors placeholder:text-stone-400 font-normal"
+                    className="w-full bg-transparent border-b border-stone-200 pb-2.5 text-stone-900 text-sm sm:text-base focus:outline-none focus:border-[#31847b] transition-colors placeholder:text-stone-400 font-normal"
                   />
                 </div>
 
@@ -195,7 +199,7 @@ export default function ContactSection() {
                 <div className="group">
                   <label
                     htmlFor="contact-subject"
-                    className="block text-xs font-medium uppercase tracking-wider text-stone-500 mb-1 group-focus-within:text-[#31847b] transition-colors"
+                    className="block text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1 group-focus-within:text-[#31847b] transition-colors"
                   >
                     Subject
                   </label>
@@ -207,7 +211,7 @@ export default function ContactSection() {
                       setFormData({ ...formData, subject: e.target.value })
                     }
                     placeholder="e.g. Kitchen marble benchtop installation"
-                    className="w-full bg-transparent border-b border-stone-300 pb-2.5 text-stone-900 text-sm sm:text-base focus:outline-none focus:border-[#31847b] transition-colors placeholder:text-stone-400 font-normal"
+                    className="w-full bg-transparent border-b border-stone-200 pb-2.5 text-stone-900 text-sm sm:text-base focus:outline-none focus:border-[#31847b] transition-colors placeholder:text-stone-400 font-normal"
                   />
                 </div>
 
@@ -215,7 +219,7 @@ export default function ContactSection() {
                 <div className="group">
                   <label
                     htmlFor="contact-message"
-                    className="block text-xs font-medium uppercase tracking-wider text-stone-500 mb-1 group-focus-within:text-[#31847b] transition-colors"
+                    className="block text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1 group-focus-within:text-[#31847b] transition-colors"
                   >
                     Message
                   </label>
@@ -228,18 +232,18 @@ export default function ContactSection() {
                       setFormData({ ...formData, message: e.target.value })
                     }
                     placeholder="Tell us about your stone type, space, or location..."
-                    className="w-full bg-transparent border-b border-stone-300 pb-2.5 text-stone-900 text-sm sm:text-base focus:outline-none focus:border-[#31847b] transition-colors resize-none placeholder:text-stone-400 font-normal"
+                    className="w-full bg-transparent border-b border-stone-200 pb-2.5 text-stone-900 text-sm sm:text-base focus:outline-none focus:border-[#31847b] transition-colors resize-none placeholder:text-stone-400 font-normal"
                   />
                 </div>
 
                 {/* Submit Button */}
-                <div className="pt-2">
+                <div className="pt-3">
                   <button
                     type="submit"
-                    className="bg-[#31847b] hover:bg-[#286f67] text-white px-8 py-3.5 text-sm font-medium tracking-wide inline-flex items-center gap-2.5 transition-all duration-200 shadow-md shadow-[#31847b]/20 hover:shadow-lg active:scale-98 group cursor-pointer rounded-xl"
+                    className="w-full sm:w-auto bg-[#31847b] hover:bg-[#286f67] text-white px-8 py-3.5 text-sm font-semibold tracking-wide inline-flex items-center justify-center gap-2.5 transition-all duration-200 shadow-md shadow-[#31847b]/20 hover:shadow-lg active:scale-98 group cursor-pointer rounded-xl"
                   >
                     <span>Begin Enquiry</span>
-                    <ArrowUpRight className="w-4 h-4 stroke-[2] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    <ArrowUpRight className="w-4 h-4 stroke-[2.5] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </button>
                 </div>
               </form>

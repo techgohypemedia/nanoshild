@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, Utensils, GlassWater, Sparkles, Table } from "lucide-react";
+import { ArrowRight, Utensils, GlassWater, Droplets, Table } from "lucide-react";
 import { motion } from "framer-motion";
 import { openConsultationModal } from "@/components/ConsultationModal";
 
@@ -33,7 +33,7 @@ const APPLICATIONS: ApplicationItem[] = [
     title: "Bathroom vanity tops",
     description: "Help protect natural stone around your daily skincare and grooming routine.",
     image: "/collections/space-master-bathroom.jpg",
-    icon: Sparkles,
+    icon: Droplets,
   },
   {
     id: "dining-tables",
@@ -71,8 +71,8 @@ export default function StoneApplicationsSection() {
           </h2>
         </motion.div>
 
-        {/* 2x2 Grid of Stone Applications with Visual Images */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+        {/* 2-Column Grid of Stone Applications */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {APPLICATIONS.map((item, index) => {
             const IconComponent = item.icon;
             return (
@@ -81,32 +81,32 @@ export default function StoneApplicationsSection() {
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.7, delay: index * 0.12 }}
+                transition={{ duration: 0.7, delay: index * 0.1 }}
                 className="group relative flex flex-col sm:flex-row items-stretch overflow-hidden rounded-3xl bg-white border border-stone-200/90 shadow-2xs hover:shadow-md transition-all duration-300"
               >
                 {/* Visual Image */}
-                <div className="relative w-full sm:w-2/5 aspect-[4/3] sm:aspect-auto shrink-0 overflow-hidden bg-stone-100">
+                <div className="relative w-full sm:w-2/5 min-h-[180px] sm:min-h-[200px] shrink-0 overflow-hidden bg-stone-100">
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, 30vw"
+                    sizes="(max-width: 1024px) 100vw, 300px"
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                 </div>
 
                 {/* Content */}
-                <div className="p-6 sm:p-7 flex flex-col justify-center w-full sm:w-3/5">
-                  <div className="flex items-center gap-2.5 mb-2.5">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#eaf3f1] text-[#31847b]">
+                <div className="p-5 sm:p-6 lg:p-7 flex flex-col justify-center w-full sm:w-3/5">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#eaf3f1] text-[#31847b] shrink-0">
                       <IconComponent className="w-4 h-4" />
                     </span>
-                    <h3 className="text-lg sm:text-xl font-semibold text-[#1f242e]">
+                    <h3 className="text-lg font-semibold text-[#1f242e] leading-snug">
                       {item.title}
                     </h3>
                   </div>
 
-                  <p className="text-stone-600 text-sm sm:text-base leading-relaxed font-normal">
+                  <p className="text-stone-600 text-sm leading-relaxed font-normal">
                     {item.description}
                   </p>
                 </div>
