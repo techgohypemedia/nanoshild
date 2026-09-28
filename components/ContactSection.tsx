@@ -52,14 +52,14 @@ export default function ContactSection() {
           
           {/* LEFT COLUMN: ARCHITECTURAL PHOTO & CONNECT BAR */}
           <div className="lg:col-span-6 flex flex-col gap-4">
-            {/* Framed Architectural Image */}
-            <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3.5] overflow-hidden rounded-3xl bg-stone-200 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-stone-200/90">
+            {/* Framed Architectural Image - Fully Responsive on Mobile & Desktop */}
+            <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3.5] min-h-[240px] sm:min-h-[280px] overflow-hidden rounded-xl bg-stone-200 shadow-sm border border-stone-200/90">
               <Image
                 src="/showroom-stock/calacatta-stock.jpg"
                 alt="Living space with protected marble surfaces"
                 fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover transition-transform duration-700 hover:scale-105"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                className="object-cover object-center transition-transform duration-700 hover:scale-105"
                 priority
               />
             </div>

@@ -82,7 +82,7 @@ export default function StoneApplicationsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.7, delay: index * 0.1 }}
-                className="group relative flex flex-col sm:flex-row items-stretch overflow-hidden rounded-3xl bg-white border border-stone-200/90 shadow-2xs hover:shadow-md transition-all duration-300"
+                className="group relative flex flex-col sm:flex-row items-stretch overflow-hidden rounded-xl bg-white border border-stone-200/90 shadow-2xs hover:shadow-md transition-all duration-300"
               >
                 {/* Visual Image */}
                 <div className="relative w-full sm:w-2/5 min-h-[180px] sm:min-h-[200px] shrink-0 overflow-hidden bg-stone-100">

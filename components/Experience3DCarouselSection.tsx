@@ -204,7 +204,7 @@ export default function Experience3DCarouselSection() {
                       setActiveIndex(index);
                     }
                   }}
-                  className={`absolute top-1/2 -translate-y-1/2 w-[260px] sm:w-[310px] md:w-[360px] lg:w-[400px] aspect-square rounded-sm overflow-hidden bg-stone-100 origin-center border border-stone-200/80 ${
+                  className={`absolute top-1/2 -translate-y-1/2 w-[260px] sm:w-[310px] md:w-[360px] lg:w-[400px] aspect-square rounded-xl overflow-hidden bg-stone-100 origin-center border border-stone-200/80 ${
                     isCurrentCenter ? "cursor-default" : "cursor-pointer"
                   }`}
                   style={{

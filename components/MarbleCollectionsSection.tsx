@@ -137,7 +137,7 @@ export default function MarbleCollectionsSection() {
             {displayItems.map((item, idx) => (
               <div
                 key={`${item.id}-${idx}`}
-                className="group relative w-[300px] sm:w-[360px] lg:w-[420px] shrink-0 aspect-[4/3] rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.06)] border border-stone-200/80 cursor-pointer bg-stone-100 transition-all duration-500 ease-out hover:shadow-[0_24px_48px_rgba(0,0,0,0.18)] hover:-translate-y-1.5"
+                className="group relative w-[300px] sm:w-[360px] lg:w-[420px] shrink-0 aspect-[4/3] rounded-xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.06)] border border-stone-200/80 cursor-pointer bg-stone-100 transition-all duration-500 ease-out hover:shadow-[0_24px_48px_rgba(0,0,0,0.18)] hover:-translate-y-1.5"
               >
                 {/* Full-Bleed Image Only */}
                 <Image

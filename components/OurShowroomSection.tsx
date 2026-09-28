@@ -47,14 +47,14 @@ export default function OurShowroomSection() {
         <motion.div
           style={{ scale, opacity }}
           onMouseLeave={() => setIsInteractive(false)}
-          className="relative w-full aspect-video rounded-2xl sm:rounded-3xl overflow-hidden border border-stone-200/90 bg-stone-900 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.18)] will-change-transform origin-center"
+          className="relative w-full aspect-video rounded-xl overflow-hidden border border-stone-200/90 bg-stone-900 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.18)] will-change-transform origin-center"
         >
           <iframe
             src="https://www.youtube.com/embed/ruvn13xDR2g?autoplay=1&mute=1&loop=1&playlist=ruvn13xDR2g&playsinline=1&controls=1&rel=0&modestbranding=1"
             title="NanoShield Surface Protection Demonstration"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
-            className="absolute inset-0 w-full h-full border-0 rounded-2xl sm:rounded-3xl scale-[1.02] origin-center"
+            className="absolute inset-0 w-full h-full border-0 rounded-xl scale-[1.02] origin-center"
           />
 
           {/* 
