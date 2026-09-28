@@ -69,18 +69,6 @@ export default function TeamExpertiseSection() {
               className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-105"
               priority
             />
-            {/* Overlay card inside visual */}
-            <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-black/60 backdrop-blur-md border border-white/20 text-white">
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#50b8ae] text-[#042422]">
-                  <ShieldCheck className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-sm font-semibold">Melbourne Team Craftsmanship</h4>
-                  <p className="text-xs text-white/80">10+ Years Dedicated Natural Stone Care &amp; Restoration</p>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </div>
 

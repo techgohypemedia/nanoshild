@@ -144,12 +144,12 @@ export default function Testimonial3DCarouselSection() {
     setCurrentIndex((prev) => (prev - 1 + REVIEWS.length) % REVIEWS.length);
   }, []);
 
-  // Autoplay functionality (3s)
+  // Autoplay functionality (2s)
   useEffect(() => {
     if (isHovered || selectedFullReview) return;
     const timer = setInterval(() => {
       handleNext();
-    }, 3000);
+    }, 2000);
     return () => clearInterval(timer);
   }, [isHovered, selectedFullReview, handleNext]);
 

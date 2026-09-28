@@ -18,28 +18,28 @@ export default function StickyGridScroll() {
       {/* ------------------------------------------------------------- */}
       {/* SECTION 1: KITCHEN CONFIDENCE (With Luxury Marble Photo)       */}
       {/* ------------------------------------------------------------- */}
-      <section className="w-full py-16 sm:py-24 lg:py-28 xl:py-32 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28">
+      <section className="w-full py-14 sm:py-20 lg:py-24 xl:py-28 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28">
         {/* Full-Width Top Heading (Above Image & Content) */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full mb-8 lg:mb-12 max-w-5xl"
+          className="w-full mb-6 lg:mb-8 max-w-full"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] font-semibold leading-[1.12] tracking-tight text-[#1f242e]">
+          <h2 className="text-2xl sm:text-3xl lg:text-[32px] xl:text-[38px] 2xl:text-[42px] font-semibold leading-[1.15] tracking-tight text-[#1f242e]">
             Enjoy your kitchen. Feel confident about your stone.
           </h2>
         </motion.div>
 
-        <div className="w-full grid items-center gap-12 lg:gap-16 xl:gap-24 lg:grid-cols-2">
+        <div className="w-full grid items-start gap-10 lg:gap-14 xl:gap-20 lg:grid-cols-2">
           {/* Left: Rounded Luxury Marble Visual */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full aspect-[4/3] xl:aspect-[16/11] overflow-hidden rounded-3xl bg-stone-100 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-stone-200/80 group"
+            className="relative w-full aspect-[4/3] xl:aspect-[16/11] overflow-hidden rounded-3xl bg-stone-100 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-stone-200/80 group lg:-mt-1"
           >
             <Image
               src="/marble-kitchen-island.jpg"
@@ -124,21 +124,21 @@ export default function StickyGridScroll() {
       {/* ------------------------------------------------------------- */}
       {/* SECTION 2: BENCHTOP LIVING (With Family Marble Photo)          */}
       {/* ------------------------------------------------------------- */}
-      <section className="w-full py-16 sm:py-24 lg:py-28 xl:py-32 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28 bg-white border-t border-stone-200/80">
+      <section className="w-full py-14 sm:py-20 lg:py-24 xl:py-28 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28 bg-white border-t border-stone-200/80">
         {/* Full-Width Top Heading (Above Content & Image) */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full mb-8 lg:mb-12 max-w-5xl"
+          className="w-full mb-6 lg:mb-8 max-w-full"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] font-semibold leading-[1.12] tracking-tight text-[#1f242e]">
+          <h2 className="text-2xl sm:text-3xl lg:text-[32px] xl:text-[38px] 2xl:text-[42px] font-semibold leading-[1.15] tracking-tight text-[#1f242e]">
             A Beautiful Benchtop Should Be a Pleasure to Live With
           </h2>
         </motion.div>
 
-        <div className="w-full grid items-center gap-12 lg:gap-16 xl:gap-24 lg:grid-cols-2">
+        <div className="w-full grid items-start gap-10 lg:gap-14 xl:gap-20 lg:grid-cols-2">
           {/* Left: Editorial Content */}
           <div className="w-full flex items-center justify-start order-2 lg:order-1">
             <motion.div

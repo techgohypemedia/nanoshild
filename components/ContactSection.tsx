@@ -120,8 +120,8 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* RIGHT COLUMN: REFINED EDITORIAL FORM CONTAINER */}
-          <div className="lg:col-span-6 bg-white p-6 sm:p-8 lg:p-10 rounded-3xl border border-stone-200/90 shadow-sm flex flex-col justify-between">
+          {/* RIGHT COLUMN: REFINED EDITORIAL CONTACT FORM */}
+          <div className="lg:col-span-6 flex flex-col justify-center lg:pl-4 xl:pl-8">
             {/* Response Time & Urgent Phone Callout */}
             <div className="p-4 rounded-2xl bg-[#eaf3f1]/80 border border-[#31847b]/25 text-[#102c29] text-xs sm:text-sm font-medium leading-relaxed">
               Complete our form and our friendly team will be in touch within 24 hours. For urgent enquiries, call us on{" "}
