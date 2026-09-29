@@ -187,13 +187,13 @@ export default function Testimonial3DCarouselSection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-[#31847b]/10 via-[#eaf3f1]/40 to-transparent blur-3xl pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 xl:px-20 relative z-10">
-        {/* Section Header */}
+        {/* Section Header (Slides from Left) */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 lg:mb-20"
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 lg:mb-20 overflow-hidden"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-semibold text-[#1f242e] tracking-tight leading-[1.14]">
             Here’s What Other Homeowners Say About NanoShield HD
@@ -201,7 +201,11 @@ export default function Testimonial3DCarouselSection() {
         </motion.div>
 
         {/* 3D Carousel Stage */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
           className="relative w-full h-[440px] sm:h-[460px] lg:h-[480px] flex items-center justify-center perspective-[1200px]"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -372,7 +376,7 @@ export default function Testimonial3DCarouselSection() {
               );
             })}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Full Review Modal */}

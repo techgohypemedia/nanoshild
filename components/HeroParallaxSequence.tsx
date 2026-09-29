@@ -2,6 +2,7 @@
 
 import { ArrowRight, Phone } from "lucide-react";
 import { openConsultationModal } from "@/components/ConsultationModal";
+import { motion } from "framer-motion";
 
 export default function HeroParallaxSequence() {
   const handleQuoteClick = () => {
@@ -32,21 +33,36 @@ export default function HeroParallaxSequence() {
 
       {/* Main Hero Content - Simple, Elegant, Light Font Weight */}
       <div className="relative z-20 mx-auto w-full max-w-4xl px-5 sm:px-8 text-center pt-16 sm:pt-20">
-        {/* Simple Headline */}
-        <h1 className="mx-auto text-[clamp(2.2rem,5vw,4.5rem)] font-light tracking-[-0.03em] text-white leading-[1.1] [text-shadow:0_2px_18px_rgba(0,0,0,0.8),0_1px_4px_rgba(0,0,0,0.9)] mb-6">
+        {/* Simple Headline (Reveals from Left) */}
+        <motion.h1
+          initial={{ opacity: 0, x: -60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="mx-auto text-[clamp(2.2rem,5vw,4.5rem)] font-light tracking-[-0.03em] text-white leading-[1.1] [text-shadow:0_2px_18px_rgba(0,0,0,0.8),0_1px_4px_rgba(0,0,0,0.9)] mb-6"
+        >
           <span className="block font-light">NanoShield HD is a Marble Protection Film</span>
           <span className="mt-2 block text-[0.8em] font-light text-white/95">
             for the <span className="font-serif italic text-[#50b8ae]">Stone You Love</span>
           </span>
-        </h1>
+        </motion.h1>
 
-        {/* Subtitle */}
-        <p className="mx-auto max-w-2xl text-sm sm:text-base md:text-lg text-white/90 font-light leading-relaxed text-balance [text-shadow:0_1px_8px_rgba(0,0,0,0.8)] mb-8 sm:mb-9">
+        {/* Subtitle (Reveals from Right) */}
+        <motion.p
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          className="mx-auto max-w-2xl text-sm sm:text-base md:text-lg text-white/90 font-light leading-relaxed text-balance [text-shadow:0_1px_8px_rgba(0,0,0,0.8)] mb-8 sm:mb-9"
+        >
           Invisible optical grade certified stone film engineered specifically for luxury marble, quartzite and natural stone. Complete defense against acid etching, wine stains, and daily wear.
-        </p>
+        </motion.p>
 
-        {/* Minimalist, Clean CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+        {/* Minimalist, Clean CTAs (Fades in) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
+        >
           <button
             type="button"
             onClick={handleQuoteClick}
@@ -63,7 +79,7 @@ export default function HeroParallaxSequence() {
             <Phone className="h-3.5 w-3.5 text-[#50b8ae]" />
             <span className="tracking-wide">1300 375 030</span>
           </a>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

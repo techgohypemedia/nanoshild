@@ -71,17 +71,18 @@ export default function StoneApplicationsSection() {
           </h2>
         </motion.div>
 
-        {/* 2-Column Grid of Stone Applications */}
+        {/* 2-Column Grid of Stone Applications (Left cards from Left, Right cards from Right) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {APPLICATIONS.map((item, index) => {
             const IconComponent = item.icon;
+            const fromLeft = index % 2 === 0;
             return (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: fromLeft ? -60 : 60 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.7, delay: index * 0.1 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: (index % 2) * 0.15 }}
                 className="group relative flex flex-col sm:flex-row items-stretch overflow-hidden rounded-xl bg-white border border-stone-200/90 shadow-2xs hover:shadow-md transition-all duration-300"
               >
                 {/* Visual Image */}

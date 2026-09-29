@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface BannerSlide {
   id: string;
@@ -90,14 +91,26 @@ export default function ArchitecturalBannerSlider() {
       {/* ============================================================= */}
       {/* SECTION HEADER: Clean Luxury Editorial Header                 */}
       {/* ============================================================= */}
-      <div className="flex flex-col items-center text-center mb-8 sm:mb-12 px-4 sm:px-6 max-w-4xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-[#1f242e] tracking-tight leading-tight">
+      <div className="flex flex-col items-center text-center mb-8 sm:mb-12 px-4 sm:px-6 max-w-4xl mx-auto overflow-hidden">
+        <motion.h2
+          initial={{ opacity: 0, x: -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-[#1f242e] tracking-tight leading-tight"
+        >
           Protected for Everyday Living
-        </h2>
+        </motion.h2>
 
-        <p className="text-stone-600 text-base sm:text-lg max-w-xl mx-auto mt-2.5 font-normal leading-relaxed">
+        <motion.p
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+          className="text-stone-600 text-base sm:text-lg max-w-xl mx-auto mt-2.5 font-normal leading-relaxed"
+        >
           Where timeless natural stone craftsmanship meets invisible, lasting protection.
-        </p>
+        </motion.p>
       </div>
 
       {/* ============================================================= */}

@@ -155,15 +155,15 @@ export default function FaqSection() {
   return (
     <section
       id="faq-section"
-      className="relative w-full bg-[#f8f9fa] text-[#1f242e] py-16 sm:py-24 lg:py-28 px-6 sm:px-12 lg:px-16 xl:px-20 border-t border-stone-200/90 select-none"
+      className="relative w-full overflow-hidden bg-[#f8f9fa] text-[#1f242e] py-16 sm:py-24 lg:py-28 px-6 sm:px-12 lg:px-16 xl:px-20 border-t border-stone-200/90 select-none"
     >
       <div className="w-full max-w-5xl mx-auto">
-        {/* Section Header */}
+        {/* Section Header (Slides from Left) */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, x: -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-[#1f242e] tracking-tight leading-tight">
@@ -171,14 +171,19 @@ export default function FaqSection() {
           </h2>
         </motion.div>
 
-        {/* Accordion List */}
+        {/* Accordion List (Alternating Left/Right on Scroll) */}
         <div className="w-full space-y-3.5">
-          {FAQ_ITEMS.map((item) => {
+          {FAQ_ITEMS.map((item, index) => {
             const isOpen = openId === item.id;
+            const fromLeft = index % 2 === 0;
 
             return (
-              <div
+              <motion.div
                 key={item.id}
+                initial={{ opacity: 0, x: fromLeft ? -40 : 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: (index % 4) * 0.08 }}
                 className={`rounded-2xl transition-all duration-200 border bg-white border-stone-200/90 ${
                   isOpen ? "shadow-xs border-stone-300" : "hover:border-stone-300"
                 }`}
@@ -248,7 +253,7 @@ export default function FaqSection() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

@@ -109,22 +109,28 @@ export default function MarbleCollectionsSection() {
       className="relative z-10 w-full bg-white text-[#1f242e] py-16 sm:py-24 lg:py-28 overflow-hidden border-t border-stone-200/90 select-none"
     >
       <div className="w-full">
-        {/* Simple, Centered Header without Tabs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col items-center text-center mb-10 sm:mb-14 px-6 sm:px-10"
-        >
-          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold text-[#1f242e] tracking-tight leading-tight">
+        {/* Simple, Centered Header with Directional Scroll Animations */}
+        <div className="flex flex-col items-center text-center mb-10 sm:mb-14 px-6 sm:px-10 overflow-hidden">
+          <motion.h2
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-3xl sm:text-4xl lg:text-[42px] font-semibold text-[#1f242e] tracking-tight leading-tight"
+          >
             The NanoShield Protective Film
-          </h2>
+          </motion.h2>
 
-          <p className="mt-3 text-base sm:text-lg text-stone-600 max-w-xl mx-auto font-normal leading-relaxed">
+          <motion.p
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+            className="mt-3 text-base sm:text-lg text-stone-600 max-w-xl mx-auto font-normal leading-relaxed"
+          >
             Optical grade certified stone film applied directly over natural marble to permanently eliminate acid etching, wine stains, and knife scratches.
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
         {/* Continuous Hardware-Accelerated Auto-Scrolling Marquee Track */}
         <div className="relative w-full overflow-hidden">

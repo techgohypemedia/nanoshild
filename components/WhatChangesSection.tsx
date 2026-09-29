@@ -2,112 +2,122 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Check, ArrowRight } from "lucide-react";
+import { openConsultationModal } from "@/components/ConsultationModal";
+
+const features = [
+  "Premium film engineered for natural stone",
+  "Supplied and installed from $300m²",
+  "More cost effective than restoration with less downtime",
+  "Backed by our 10 year guarantee*",
+];
 
 export default function WhatChangesSection() {
+  const handleRequestQuote = () => {
+    openConsultationModal({
+      title: "Request a Free Custom Quote",
+      subtitle:
+        "Tell us about your space and stone surfaces for an accurate, tailored estimate.",
+    });
+  };
+
   return (
     <section
       id="what-changes-section"
-      className="w-full overflow-hidden bg-[#f8f9fa] text-[#1f242e] py-10 sm:py-14 lg:py-16 xl:py-20 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28 border-t border-stone-200/90"
+      className="w-full overflow-hidden bg-[#f8f9fa] text-[#1f242e] py-16 sm:py-20 lg:py-24 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28 border-t border-stone-200/80"
     >
-      {/* Top Full-Width Heading (Above Image & Details) */}
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full mb-8 lg:mb-10 max-w-5xl"
-      >
-        <h2 className="text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-semibold leading-[1.14] tracking-tight text-[#1f242e]">
-          Enjoy 10 Years Protection Against Everyday Spills, Stains, Etching &amp; Damage to Your Stone
-        </h2>
-      </motion.div>
-
-      <div className="w-full grid items-start gap-8 lg:gap-12 xl:gap-16 lg:grid-cols-2">
-        {/* Left Column: Macro Marble Visual with rounded-3xl frame */}
+      <div className="max-w-7xl mx-auto w-full">
+        {/* Full-Width Heading (Slides from Left) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, x: -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full aspect-[4/3] xl:aspect-[16/11] overflow-hidden rounded-xl bg-stone-100 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-stone-200/80 group"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-10 sm:mb-12 w-full"
         >
-          <Image
-            src="/marble-calacatta-hd.jpg"
-            alt="Protected Calacatta Marble Surface Detail"
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-105"
-            priority
-          />
+          <h2 className="text-2xl sm:text-3xl md:text-[32px] lg:text-[36px] xl:text-[40px] font-semibold leading-tight tracking-tight text-[#1f242e] lg:whitespace-nowrap">
+            Enjoy your kitchen. Feel confident about your stone.
+          </h2>
         </motion.div>
 
-        {/* Right Column: Editorial Narrative with 3 Protection Features */}
-        <div className="w-full flex items-center justify-start">
+        {/* Balanced Two-Column Layout (Left Image comes from Left, Right Content from Right) */}
+        <div className="grid items-center gap-10 lg:gap-14 xl:gap-20 lg:grid-cols-2">
+          {/* Left Column: Kitchen Image (Slides from Left) */}
           <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-xl xl:max-w-2xl w-full"
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-stone-100 shadow-[0_12px_40px_rgba(0,0,0,0.08)] border border-stone-200/80"
           >
-            <p className="text-sm sm:text-base leading-relaxed text-stone-600 font-normal">
-              NanoShield HD covers the stone with a thin, transparent, stone safe film that helps protect against:
-            </p>
+            <Image
+              src="/marble-kitchen-island.jpg"
+              alt="Modern kitchen with protected marble countertop"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-center transition-transform duration-1000 ease-out hover:scale-105"
+              priority
+            />
+          </motion.div>
 
-            {/* 3 Detailed Protection Feature Cards */}
-            <div className="mt-4 space-y-2.5">
-              {/* Feature 1 */}
-              <motion.div
-                initial={{ opacity: 0, x: -16 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.15 }}
-                className="px-4 py-3 sm:px-5 sm:py-3.5 rounded-xl bg-white border border-stone-200/90 shadow-2xs"
-              >
-                <h3 className="text-sm sm:text-base font-semibold text-[#1f242e] mb-0.5">
-                  Stains from food and drinks
-                </h3>
-                <p className="text-stone-600 text-xs sm:text-sm leading-relaxed">
-                  Including coffee, red wine, cooking oils and strongly coloured ingredients.
-                </p>
-              </motion.div>
+          {/* Right Column: Editorial Narrative & Features (Slides from Right) */}
+          <motion.div
+            initial={{ opacity: 0, x: 80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+            className="w-full flex flex-col justify-center"
+          >
+            <div className="space-y-4 text-base sm:text-lg leading-[1.75] text-stone-600 font-normal">
+              <p>
+                You chose your stone for its character, its colour and the way it brings your home together. Give it the protection it deserves.
+              </p>
 
-              {/* Feature 2 */}
-              <motion.div
-                initial={{ opacity: 0, x: -16 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.25 }}
-                className="px-4 py-3 sm:px-5 sm:py-3.5 rounded-xl bg-[#eaf3f1] border border-[#31847b]/30 shadow-2xs"
-              >
-                <h3 className="text-sm sm:text-base font-semibold text-[#1f242e] mb-0.5">
-                  Acid etching
-                </h3>
-                <p className="text-stone-700 text-xs sm:text-sm leading-relaxed">
-                  The dull marks that lemon juice, vinegar and other acidic spills can leave on sensitive stone.
-                </p>
-              </motion.div>
+              <p>
+                NanoShield HD is a clear marble protection film that helps protect natural stone from stains, acid etching and everyday surface scratches.
+              </p>
 
-              {/* Feature 3 */}
-              <motion.div
-                initial={{ opacity: 0, x: -16 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.35 }}
-                className="px-4 py-3 sm:px-5 sm:py-3.5 rounded-xl bg-white border border-stone-200/90 shadow-2xs"
-              >
-                <h3 className="text-sm sm:text-base font-semibold text-[#1f242e] mb-0.5">
-                  Light scratches and scuffs
-                </h3>
-                <p className="text-stone-600 text-xs sm:text-sm leading-relaxed">
-                  From everyday contact with items around the home.
-                </p>
-              </motion.div>
+              <p className="text-stone-700 font-medium">
+                Developed through 10 years of stone care experience, it gives you greater confidence to cook, entertain and enjoy the surfaces you have invested in.
+              </p>
             </div>
 
-            {/* Honed / Polished Finish Note */}
-            <div className="mt-3.5 px-4 py-3 rounded-xl bg-stone-100/80 border border-stone-200 text-stone-700 text-xs sm:text-sm font-medium leading-relaxed">
-              Your stone&apos;s natural detail remains visible beneath the clear film. Choose from a honed or polished finish to suit the look of your surface.
+            {/* Checkmark Feature List (Staggered subtle slide from right) */}
+            <div className="mt-7 space-y-3">
+              {features.map((feature, i) => (
+                <motion.div
+                  key={feature}
+                  initial={{ opacity: 0, x: 25 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
+                  className="flex items-center gap-3"
+                >
+                  <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#31847b] text-white">
+                    <Check className="w-3 h-3" strokeWidth={3} />
+                  </div>
+                  <span className="text-[#1f242e] text-sm sm:text-base font-medium leading-snug">
+                    {feature}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Stone Types Note */}
+            <p className="mt-5 text-xs sm:text-sm text-stone-500 italic leading-relaxed">
+              For marble, travertine, quartzite, granite and other suitable natural stone.
+            </p>
+
+            {/* CTA Button */}
+            <div className="mt-7">
+              <button
+                type="button"
+                onClick={handleRequestQuote}
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#31847b] text-white text-sm sm:text-base font-semibold shadow-sm hover:bg-[#276b63] transition-all duration-300 hover:shadow-md hover:gap-3 cursor-pointer active:scale-[0.98]"
+              >
+                <span>Request a Quote</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
           </motion.div>
         </div>
