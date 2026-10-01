@@ -5,6 +5,7 @@ import WhatChangesSection from "@/components/WhatChangesSection";
 import TeamExpertiseSection from "@/components/TeamExpertiseSection";
 import VideoTestSection from "@/components/VideoTestSection";
 import MarbleProtectionSection from "@/components/MarbleProtectionSection";
+import NanoShieldFilmVideoSection from "@/components/NanoShieldFilmVideoSection";
 import Testimonial3DCarouselSection from "@/components/Testimonial3DCarouselSection";
 import MarbleCollectionsSection from "@/components/MarbleCollectionsSection";
 import StoneApplicationsSection from "@/components/StoneApplicationsSection";
@@ -29,6 +30,7 @@ export default function Home() {
       <TeamExpertiseSection />
       <VideoTestSection />
       <MarbleProtectionSection />
+      <NanoShieldFilmVideoSection />
       <Testimonial3DCarouselSection />
       <MarbleCollectionsSection />
       <StoneApplicationsSection />
