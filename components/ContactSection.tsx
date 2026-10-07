@@ -1,222 +1,148 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { Clock, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
+import GhlForm from "@/components/GhlForm";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
+
+const NEXT_STEPS = [
+  {
+    step: "01",
+    title: "Tell us about your stone",
+    text: "Share your benchtop, kitchen island or other stone surface. Photos help us understand its condition.",
+  },
+  {
+    step: "02",
+    title: "We'll be in touch within 24 hours",
+    text: "Our friendly team will contact you to talk through your surfaces and answer your questions.",
+  },
+  {
+    step: "03",
+    title: "Get your quote and book",
+    text: "Understand what is suitable, what it will cost and when your NanoShield HD installation can take place.",
+  },
+];
+
+const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function ContactSection() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    firstName: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-  };
-
   return (
     <section
       id="contact"
-      className="relative w-full bg-[#fbf9f5] text-[#1c1917] py-16 sm:py-24 lg:py-28 px-4 sm:px-8 lg:px-12 xl:px-16 border-t border-stone-200/80 overflow-hidden"
+      className="relative w-full overflow-hidden bg-gradient-to-b from-[#fbf9f5] via-[#f7f5f0] to-[#f4f1ea] text-[#1c1917] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-t border-stone-200/90"
     >
-      <div id="contact-section" />
-      <div className="w-full max-w-[1560px] mx-auto">
-        {/* ============================================================ */}
-        {/* TOP HEADER: Clean Editorial Header                            */}
-        {/* ============================================================ */}
-        <div className="flex flex-col gap-4 sm:gap-5 w-full max-w-5xl mb-10 sm:mb-14 pb-8 border-b border-stone-200/80 overflow-hidden">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-[#1f242e] tracking-tight leading-[1.15]">
-              Give Your Stone a Place in Everyday Life
-            </h2>
-          </motion.div>
+      {/* Subtle ambient lighting */}
+      <div
+        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-[450px] w-full max-w-5xl rounded-full bg-[#31847b]/5 blur-[120px]"
+        aria-hidden="true"
+      />
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-            className="space-y-2 leading-relaxed font-normal max-w-4xl"
-          >
-            <p className="text-stone-800 text-base sm:text-lg font-medium">
-              You have chosen a natural material that makes your home feel like yours. Take the next step towards protecting it.
-            </p>
-            <p className="text-stone-500 text-sm sm:text-base">
-              Tell us about your benchtop, kitchen island or other natural stone surface. We will help you understand what is suitable, what it will cost and how to book your NanoShield HD installation.
-            </p>
-          </motion.div>
-        </div>
+      <div className="relative mx-auto w-full max-w-5xl">
+        {/* ============================================================ */}
+        {/* TOP: Clean Title, Font & Bit Information                       */}
+        {/* ============================================================ */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, ease }}
+          className="text-center max-w-3xl mx-auto space-y-4"
+        >
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-[#31847b]/25 bg-white/80 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#2c776f] shadow-2xs backdrop-blur-sm">
+            <ShieldCheck className="h-3.5 w-3.5 text-[#31847b]" />
+            Request a Quote
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl md:text-[44px] font-semibold tracking-tight text-[#191e28] leading-[1.15]">
+            Give Your Stone a Place in Everyday Life
+          </h2>
+
+          <p className="text-base sm:text-lg font-medium text-stone-800 leading-relaxed max-w-2xl mx-auto">
+            You have chosen a natural material that makes your home feel like yours. Take the next step towards protecting it.
+          </p>
+
+          <p className="text-sm sm:text-[15px] text-stone-600 leading-relaxed max-w-2xl mx-auto">
+            Tell us about your benchtop, kitchen island or other stone surface. We will help you understand what is suitable, what it will cost and how to book your NanoShield HD installation.
+          </p>
+        </motion.div>
 
         {/* ============================================================ */}
-        {/* MAIN CONTENT GRID: IMAGE & SIMPLE EDITORIAL FORM              */}
+        {/* DOWNWARDS: 3 Steps (What Happens Next)                        */}
         {/* ============================================================ */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start overflow-hidden">
-          {/* LEFT COLUMN: Clean Natural Marble Interior Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 flex flex-col gap-4"
-          >
-            <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] overflow-hidden rounded-2xl bg-stone-100 shadow-[0_10px_35px_rgba(0,0,0,0.06)] border border-stone-200/90">
-              <Image
-                src="/showroom-stock/contact-living-marble.jpg"
-                alt="Luxury Australian home with protected Calacatta marble waterfall island"
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 700px"
-                className="object-cover object-center transition-transform duration-1000 ease-out hover:scale-105"
-                priority
-              />
-            </div>
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, ease, delay: 0.1 }}
+          className="mt-12 sm:mt-14"
+        >
+          <div className="flex items-center justify-between mb-4 px-1">
+            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[#31847b]">
+              What happens next
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-xs text-stone-500 font-medium">
+              <Clock className="h-3.5 w-3.5 text-[#31847b]" />
+              Response within 24 hours
+            </span>
+          </div>
 
-          {/* RIGHT COLUMN: Clean, Lightweight Editorial Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-            className="lg:col-span-6 flex flex-col justify-center lg:pl-4 xl:pl-8"
-          >
-            {/* Lightweight Response Time Note */}
-            <div className="p-4 rounded-xl bg-[#eaf3f1]/70 border border-[#31847b]/20 text-[#102c29] text-xs sm:text-sm font-medium leading-relaxed">
-              Complete our form and our friendly team will be in touch within 24 hours. For urgent enquiries, call us on{" "}
-              <a href="tel:1300375030" className="font-bold text-[#31847b] hover:underline">
-                1300 375 030
-              </a>.
-            </div>
-
-            {/* Form Section */}
-            {isSubmitted ? (
-              <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-white border border-stone-200/80 text-stone-900 space-y-3 animate-in fade-in duration-500 shadow-2xs">
-                <div className="flex items-center gap-2.5 text-[#31847b]">
-                  <CheckCircle2 className="w-5 h-5" />
-                  <h3 className="text-lg font-semibold">Enquiry Received</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+            {NEXT_STEPS.map((step) => (
+              <div
+                key={step.step}
+                className="relative rounded-2xl border border-stone-200/90 bg-white/90 p-5 sm:p-6 shadow-2xs backdrop-blur-xs transition-colors hover:border-[#31847b]/40 hover:bg-white"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#31847b] text-xs font-bold text-white shadow-2xs">
+                    {step.step}
+                  </span>
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-stone-400">
+                    Step {step.step}
+                  </span>
                 </div>
-                <p className="text-stone-600 text-sm leading-relaxed">
-                  Thank you, {formData.firstName || "there"}. A licensed NanoShield HD specialist will be in touch with you shortly.
+                <h3 className="font-semibold text-sm sm:text-base text-[#1f242e] leading-snug">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-xs sm:text-[13px] leading-relaxed text-stone-600">
+                  {step.text}
                 </p>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setIsSubmitted(false);
-                    setFormData({ firstName: "", email: "", subject: "", message: "" });
-                  }}
-                  className="mt-2 text-xs font-semibold underline underline-offset-4 text-stone-800 hover:text-black cursor-pointer"
-                >
-                  Submit another message
-                </button>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="mt-6 sm:mt-8 space-y-5 sm:space-y-6">
-                {/* First Name Field */}
-                <div className="group">
-                  <label
-                    htmlFor="contact-firstName"
-                    className="block text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1 group-focus-within:text-[#31847b] transition-colors"
-                  >
-                    First Name
-                  </label>
-                  <input
-                    id="contact-firstName"
-                    type="text"
-                    required
-                    value={formData.firstName}
-                    onChange={(e) =>
-                      setFormData({ ...formData, firstName: e.target.value })
-                    }
-                    placeholder="Enter your name"
-                    className="w-full bg-transparent border-b border-stone-300 pb-2.5 text-stone-900 text-sm sm:text-base focus:outline-none focus:border-[#31847b] transition-colors placeholder:text-stone-400 font-normal"
-                  />
-                </div>
+            ))}
+          </div>
+        </motion.div>
 
-                {/* Email Field */}
-                <div className="group">
-                  <label
-                    htmlFor="contact-email"
-                    className="block text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1 group-focus-within:text-[#31847b] transition-colors"
-                  >
-                    Email
-                  </label>
-                  <input
-                    id="contact-email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    placeholder="your.email@example.com"
-                    className="w-full bg-transparent border-b border-stone-300 pb-2.5 text-stone-900 text-sm sm:text-base focus:outline-none focus:border-[#31847b] transition-colors placeholder:text-stone-400 font-normal"
-                  />
-                </div>
+        {/* ============================================================ */}
+        {/* Simple Clean Form Card (Single phone reference)               */}
+        {/* ============================================================ */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, ease, delay: 0.15 }}
+          className="mt-8 sm:mt-10 max-w-3xl mx-auto rounded-3xl bg-white p-5 sm:p-8 pb-4 sm:pb-6 shadow-xs overflow-hidden"
+        >
+          {/* Simple form header */}
+          <div className="mb-4 sm:mb-6">
+            <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-[#1a1f2c]">
+              Request your free quote
+            </h3>
+            <p className="mt-1 text-sm text-stone-600 leading-relaxed">
+              Complete our form and our friendly team will be in touch within 24 hours. For urgent enquiries, call us on{" "}
+              <a
+                href={PHONE_HREF}
+                className="font-semibold text-[#31847b] underline underline-offset-2 hover:text-[#256e66] whitespace-nowrap"
+              >
+                {PHONE_DISPLAY}
+              </a>
+              .
+            </p>
+          </div>
 
-                {/* Subject Field */}
-                <div className="group">
-                  <label
-                    htmlFor="contact-subject"
-                    className="block text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1 group-focus-within:text-[#31847b] transition-colors"
-                  >
-                    Subject
-                  </label>
-                  <input
-                    id="contact-subject"
-                    type="text"
-                    value={formData.subject}
-                    onChange={(e) =>
-                      setFormData({ ...formData, subject: e.target.value })
-                    }
-                    placeholder="e.g. Kitchen marble benchtop installation"
-                    className="w-full bg-transparent border-b border-stone-300 pb-2.5 text-stone-900 text-sm sm:text-base focus:outline-none focus:border-[#31847b] transition-colors placeholder:text-stone-400 font-normal"
-                  />
-                </div>
-
-                {/* Message Field */}
-                <div className="group">
-                  <label
-                    htmlFor="contact-message"
-                    className="block text-xs font-semibold uppercase tracking-wider text-stone-500 mb-1 group-focus-within:text-[#31847b] transition-colors"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="contact-message"
-                    rows={3}
-                    required
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    placeholder="Tell us about your stone type, space, or location..."
-                    className="w-full bg-transparent border-b border-stone-300 pb-2.5 text-stone-900 text-sm sm:text-base focus:outline-none focus:border-[#31847b] transition-colors resize-none placeholder:text-stone-400 font-normal"
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <div className="pt-3">
-                  <button
-                    type="submit"
-                    className="w-full sm:w-auto bg-[#31847b] hover:bg-[#286f67] text-white px-8 py-3.5 text-sm font-semibold tracking-wide inline-flex items-center justify-center gap-2.5 transition-all duration-200 shadow-md shadow-[#31847b]/20 hover:shadow-lg active:scale-98 group cursor-pointer rounded-xl"
-                  >
-                    <span>Begin Enquiry</span>
-                    <ArrowUpRight className="w-4 h-4 stroke-[2.5] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </button>
-                </div>
-              </form>
-            )}
-          </motion.div>
-        </div>
+          {/* Form */}
+          <div className="w-full">
+            <GhlForm />
+          </div>
+        </motion.div>
       </div>
     </section>
   );

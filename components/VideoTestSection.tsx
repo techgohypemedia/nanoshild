@@ -3,7 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-export default function OurShowroomSection() {
+export default function VideoTestSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [isInteractive, setIsInteractive] = useState(false);
 
@@ -28,7 +28,7 @@ export default function OurShowroomSection() {
   return (
     <section
       ref={sectionRef}
-      id="our-showroom"
+      id="product-test"
       className="relative z-10 w-full bg-[#f8f9fa] text-[#1f242e] py-16 sm:py-24 lg:py-28 px-4 sm:px-8 lg:px-12 xl:px-16 overflow-hidden border-t border-stone-200/90"
     >
       <div className="max-w-6xl mx-auto w-full">

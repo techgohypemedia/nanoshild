@@ -15,13 +15,12 @@ const nextConfig: NextConfig = {
     ],
   },
   async redirects() {
-    return [
-      {
-        source: "/protective-wrap",
-        destination: "/protective-film",
-        permanent: true,
-      },
-    ];
+    // Pages removed at the client's request redirect to the homepage
+    return ["/technology", "/protective-film", "/protective-wrap", "/guarantee"].map((source) => ({
+      source,
+      destination: "/",
+      permanent: false,
+    }));
   },
 };
 

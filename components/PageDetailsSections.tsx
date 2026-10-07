@@ -23,23 +23,6 @@ export default function PageDetailsSections({ slug }: { slug: SitePageSlug }) {
         </div>
       </section>
 
-      {slug === "technology" && <section className="mx-auto max-w-7xl px-6 py-20 sm:px-10">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#31847b]">Two different approaches</p>
-        <h2 className="mb-10 text-3xl font-semibold tracking-tight sm:text-4xl">Sealing and surface protection.</h2>
-        <div className="overflow-x-auto rounded-2xl border border-stone-200 bg-white">
-          <table className="w-full min-w-[540px] text-left text-sm leading-relaxed">
-            <caption className="sr-only">Comparison of a penetrating sealer and NanoShield HD protective film</caption>
-            <thead className="bg-[#eaf3f1]"><tr>{["How it works", "Penetrating sealer", "NanoShield HD"].map((label) => <th key={label} scope="col" className="p-5 font-semibold">{label}</th>)}</tr></thead>
-            <tbody>{[
-              ["Position", "Works within the stone", "Sits above the stone"],
-              ["Approach", "Slows absorption", "Creates physical separation"],
-              ["Daily contact", "The stone remains the exposed surface", "The protective film takes contact"],
-              ["Long-term care", "Follow the sealer’s maintenance guidance", "Follow film care and replacement guidance"],
-            ].map(([label, sealer, film]) => <tr key={label} className="border-t border-stone-200"><th scope="row" className="p-5 font-medium">{label}</th><td className="p-5 text-stone-600">{sealer}</td><td className="p-5 text-stone-600">{film}</td></tr>)}</tbody>
-          </table>
-        </div>
-      </section>}
-
       {slug === "pricing" && <section className="mx-auto max-w-7xl px-6 pt-20 sm:px-10">
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#31847b]">For initial planning</p>
         <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">A little measurement goes a long way.</h2>

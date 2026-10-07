@@ -1,42 +1,16 @@
 export const sitePages = {
-  technology: {
-    label: "Technology", title: "Invisible protection.\nA visible difference.",
-    description: "Discover the physical barrier that keeps everyday spills, acids and wear away from your natural stone.",
-    image: "/marble-kitchen-island.jpg", imageAlt: "Natural marble kitchen island",
-    eyebrow: "The science of surface protection", heading: "Protection that sits above the stone.",
-    intro: "Unlike a penetrating sealer, NanoShield HD creates a clear separation between your marble and everyday life. The character of your stone stays in view, while the protective film takes the wear.",
+  "about-us": {
+    label: "About Us", title: "The team who\nknows natural stone.",
+    description: "For 10 years, our Melbourne team has cleaned, honed, polished and sealed marble and other natural stone. That experience led us to develop NanoShield HD.",
+    image: "/marble-lifestyle-island.jpg", imageAlt: "Family gathered around a natural marble kitchen island",
+    eyebrow: "About NanoShield HD", heading: "Protection developed from stone care experience.",
+    intro: "We understand the care these surfaces need. We have also seen how frustrating it can be for homeowners to restore a beautiful benchtop, then worry about the next spill. NanoShield HD gives you greater confidence to cook, entertain and enjoy the surfaces you have invested in.",
     details: [
-      ["Optically clear", "An extremely thin, transparent film lets the natural colour and veining of your stone remain the focus."],
-      ["A physical barrier", "Spilt food, drinks and acidic ingredients meet the protective surface before they reach your marble."],
-      ["Made to be replaced", "A specialised primer supports adhesion during use and clean removal when the film needs replacing."],
+      ["Your stone comes first", "We look at its condition, finish and any existing marks before recommending the work."],
+      ["One team, start to finish", "If your stone needs cleaning, polishing or restoration first, you can discuss that with the same team."],
+      ["Developed for stone", "An adhesive system designed for secure protection and professional removal when replacement is needed."],
     ],
-    cta: "See the technology in action", next: "protective-film",
-  },
-  "protective-film": {
-    label: "Protective Film", title: "Your marble.\nReady for real life.",
-    description: "A clear protective film for the surfaces you use every day. Enjoy the stone you love with less worry about what lands on it.",
-    image: "/marble-family-freedom.jpg", imageAlt: "Marble surfaces in a welcoming home",
-    eyebrow: "Made for everyday living", heading: "Keep the beauty. Enjoy the surface.",
-    intro: "From a morning coffee to a shared family meal, natural stone should be part of your home. NanoShield HD protects against staining, acid etching and everyday wear without hiding the marble beneath.",
-    details: [
-      ["Kitchen benchtops", "Protect the busiest surface in your home from everyday food and drink spills."],
-      ["Tables and vanities", "Bring the same considered protection to the stone surfaces throughout your space. Ask our team about suitability."],
-      ["Professionally installed", "Our team assesses your stone and its edges, seams and cut-outs to plan the installation around your surface."],
-    ],
-    cta: "Discuss your surfaces", next: "our-showroom",
-  },
-  "protective-wrap": {
-    label: "Protective Film", title: "Your marble.\nReady for real life.",
-    description: "A clear protective film for the surfaces you use every day. Enjoy the stone you love with less worry about what lands on it.",
-    image: "/marble-family-freedom.jpg", imageAlt: "Marble surfaces in a welcoming home",
-    eyebrow: "Made for everyday living", heading: "Keep the beauty. Enjoy the surface.",
-    intro: "From a morning coffee to a shared family meal, natural stone should be part of your home. NanoShield HD protects against staining, acid etching and everyday wear without hiding the marble beneath.",
-    details: [
-      ["Kitchen benchtops", "Protect the busiest surface in your home from everyday food and drink spills."],
-      ["Tables and vanities", "Bring the same considered protection to the stone surfaces throughout your space. Ask our team about suitability."],
-      ["Professionally installed", "Our team assesses your stone and its edges, seams and cut-outs to plan the installation around your surface."],
-    ],
-    cta: "Discuss your surfaces", next: "our-showroom",
+    cta: "Request a Consultation", next: "our-showroom",
   },
   "our-showroom": {
     label: "Our Showroom", title: "See the stone.\nFeel the difference.",
@@ -49,20 +23,7 @@ export const sitePages = {
       ["See a demonstration", "Discover how the barrier separates your stone from everyday spills and acidic ingredients."],
       ["Bring your project", "Share photos, approximate measurements and your stone type so the team can advise on the next steps."],
     ],
-    cta: "Arrange a consultation & demo", next: "guarantee",
-  },
-  guarantee: {
-    label: "10-Year Guarantee", title: "Beautiful today.\nProtected for years.",
-    description: "Long-term confidence for the stone you have invested in, with protection designed to last up to 10 years in residential settings.",
-    image: "/marble-peace.png", imageAlt: "Elegant marble interior",
-    eyebrow: "Confidence in your surface", heading: "Understand your protection from day one.",
-    intro: "The NanoShield HD website describes protection against cracking, peeling, bubbling, staining, etching and discolouration for up to 10 years. Ask the team for the written guarantee applicable to your installation.",
-    details: [
-      ["Your installation", "Confirm the guarantee period and coverage for your stone, intended use and installation before proceeding."],
-      ["Everyday care", "Follow the care guidance provided by your installer. Reasonable care is still recommended with extremely hot cookware."],
-      ["Support over time", "If you notice a change in your film, contact the team to discuss assessment, care or replacement options."],
-    ],
-    cta: "Ask about the guarantee", next: "pricing",
+    cta: "Arrange a consultation & demo", next: "pricing",
   },
   pricing: {
     label: "Pricing", title: "Exceptional stone.\nConsidered protection.",
@@ -75,7 +36,7 @@ export const sitePages = {
       ["Stone and condition", "Tell us your stone type and share photos of its current finish, including any existing damage."],
       ["Details and location", "Include edges, joins, sinks and cut-outs, along with your project location, for a more informed quote."],
     ],
-    cta: "Request a custom quote", next: "technology",
+    cta: "Request a custom quote", next: "about-us",
   },
 } as const;
 

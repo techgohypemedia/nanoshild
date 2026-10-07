@@ -7,15 +7,8 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { openConsultationModal } from "@/components/ConsultationModal";
-
-const NAV_ITEMS = [
-  { label: "Home", href: "/" },
-  { label: "Technology", href: "/technology" },
-  { label: "Protective Film", href: "/protective-film", match: ["/protective-film", "/protective-wrap"] },
-  { label: "Our Showroom", href: "/our-showroom" },
-  { label: "10-Year Guarantee", href: "/guarantee" },
-  { label: "Pricing", href: "/pricing" },
-];
+import { NAV_ITEMS } from "@/lib/navigation";
+import { PHONE_DISPLAY, PHONE_HREF, SERVICE_AREAS } from "@/lib/contact";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -89,9 +82,7 @@ export default function Navbar() {
           {/* Desktop Navigation Links - Perfectly centered, strictly single-line whitespace-nowrap */}
           <nav className="hidden lg:flex items-center gap-6 xl:gap-9 text-sm xl:text-[15px] whitespace-nowrap">
             {NAV_ITEMS.map((item) => {
-              const isActive = item.match
-                ? item.match.includes(pathname)
-                : pathname === item.href;
+              const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
@@ -177,9 +168,7 @@ export default function Navbar() {
             {/* Navigation Links - Large, bold luxury typography filling the view */}
             <div className="flex-1 flex flex-col justify-center px-6 sm:px-10 py-6 sm:py-8 space-y-4 sm:space-y-6">
               {NAV_ITEMS.map((item, idx) => {
-                const isActive = item.match
-                  ? item.match.includes(pathname)
-                  : pathname === item.href;
+                const isActive = pathname === item.href;
 
                 return (
                   <motion.div
@@ -234,10 +223,10 @@ export default function Navbar() {
               </button>
 
               <div className="flex items-center justify-between text-xs text-stone-500 pt-1">
-                <a href="tel:1300375030" className="text-zinc-800 font-medium hover:text-[#50b8ae] transition-colors">
-                  📞 1300 375 030
+                <a href={PHONE_HREF} className="text-zinc-800 font-medium hover:text-[#50b8ae] transition-colors">
+                  📞 {PHONE_DISPLAY}
                 </a>
-                <span>Sydney · Melbourne · Brisbane</span>
+                <span>{SERVICE_AREAS}</span>
               </div>
             </motion.div>
           </motion.div>

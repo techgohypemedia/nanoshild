@@ -1,18 +1,15 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Star, Quote, X } from "lucide-react";
+import { Star, Quote, X, ArrowUpRight } from "lucide-react";
+import { GOOGLE_REVIEWS_URL } from "@/lib/contact";
 
 interface Review {
   id: number;
   name: string;
   role: string;
-  location: string;
-  avatar: string;
   rating: number;
-  stoneType: string;
   text: string;
   verified: boolean;
 }
@@ -22,10 +19,7 @@ const REVIEWS: Review[] = [
     id: 1,
     name: "Maria Leuzzi",
     role: "Verified Google Review",
-    location: "Melbourne, VIC",
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=250&auto=format&fit=crop",
     rating: 5,
-    stoneType: "Marble Benchtop Protection",
     verified: true,
     text: "The experience from start to finish was an easy process. The Nanoshield looks amazing, so happy with the finished product. Thank you Aaron and Dennis.",
   },
@@ -33,10 +27,7 @@ const REVIEWS: Review[] = [
     id: 2,
     name: "Duncan Andrews",
     role: "Verified Google Review",
-    location: "Melbourne, VIC",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=250&auto=format&fit=crop",
     rating: 5,
-    stoneType: "Marble Benchtop Protection",
     verified: true,
     text: "We recently had NanoShield HD applied to our marble benchtops, and couldn’t be happier. Great product and even better service. Highly recommend!",
   },
@@ -44,10 +35,7 @@ const REVIEWS: Review[] = [
     id: 3,
     name: "Mariam Hanna",
     role: "Local Guide • 27 Reviews",
-    location: "Melbourne, VIC",
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=250&auto=format&fit=crop",
     rating: 5,
-    stoneType: "Marble Kitchen Benchtop",
     verified: true,
     text: "We couldn’t be happier with the installation of our nanoshield on our marble kitchen bench. It’s invisible on and now we don’t need to worry about any heat or stain damage. Can’t recommend Aaron and the team enough for their amazing and professional service.",
   },
@@ -55,10 +43,7 @@ const REVIEWS: Review[] = [
     id: 4,
     name: "Carmel McConnell",
     role: "Verified Google Review • 8 Reviews",
-    location: "Melbourne, VIC",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=250&auto=format&fit=crop",
     rating: 5,
-    stoneType: "Marble Benchtop Protection",
     verified: true,
     text: "We love our new bench top and are delighted with the smooth finish. The nanoshield HD was worth every cent and we are happy to have a clean bench top and have confidence that we will experience no more stains.",
   },
@@ -66,10 +51,7 @@ const REVIEWS: Review[] = [
     id: 5,
     name: "Harsh Patel",
     role: "Verified Google Review",
-    location: "Melbourne, VIC",
-    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=250&auto=format&fit=crop",
     rating: 5,
-    stoneType: "High-End Marble & Stone",
     verified: true,
     text: "Flawless!! Top grade film with flawless service. Highly recommend for high end marble/stone.",
   },
@@ -77,10 +59,7 @@ const REVIEWS: Review[] = [
     id: 6,
     name: "Yufeng Hong",
     role: "Verified Google Review • 1 Photo",
-    location: "Melbourne, VIC",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=250&auto=format&fit=crop",
     rating: 5,
-    stoneType: "Marble Surface Protection",
     verified: true,
     text: "6 stars for Aaron! Well done!",
   },
@@ -88,10 +67,7 @@ const REVIEWS: Review[] = [
     id: 7,
     name: "Sak Y",
     role: "Verified Google Review • 6 Reviews",
-    location: "Melbourne, VIC",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=250&auto=format&fit=crop",
     rating: 5,
-    stoneType: "Natural Stone Protection",
     verified: true,
     text: "Great people, timely service and all at very reasonable pricing. They do what they say they are going to do and more. Looking forward to many years of low to no maintenance usage. Very happy clients...",
   },
@@ -99,10 +75,7 @@ const REVIEWS: Review[] = [
     id: 8,
     name: "Fiona Monagle",
     role: "Verified Google Review • 4 Reviews",
-    location: "Brighton Renovation, VIC",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=250&auto=format&fit=crop",
     rating: 5,
-    stoneType: "Kitchen Benches & Dressing Table",
     verified: true,
     text: "After a difficult experience keeping marble free of marks at a previous house, in my recent Brighton renovation I was determined to find a solution. I love marble but don’t want the stress. After some investigation I had Nanoshield applied to my kitchen benches and dressing room table. I could not have been happier with the service and expertise of Aaron and Denis first in rectifying some damage to the marble from installation scratches. Then they applied the nanoshield and I really can’t tell any difference in appearance (even from the bench to the splashback, the splashback having only regular sealant applied). I have tested the product with wine spills and soya sauce. No issues. I could not be happier to recommend others to look into the product, get a sample and test it for yourself. I am confident you will be as happy as I am with my beautiful but stress free marble kitchen.",
   },
@@ -110,10 +83,7 @@ const REVIEWS: Review[] = [
     id: 9,
     name: "Felicity Stretch",
     role: "Verified Google Review",
-    location: "Melbourne, VIC",
-    avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=250&auto=format&fit=crop",
     rating: 5,
-    stoneType: "Entire Home Marble Protection",
     verified: true,
     text: "We had NanoShield applied throughout our new home in late May, protecting all of our marble surfaces across the kitchen, three bathrooms, bar and utility area, and powder room. With such a significant amount of marble in the house, getting the protection right was incredibly important to us — and we honestly could not be happier with the result. The entire experience with NanoShield was exceptional. The service was first-class from beginning to end — professional, meticulous, knowledgeable and genuinely passionate. Several months on, the product has been fantastic and gives us enormous peace of mind!",
   },
@@ -121,14 +91,30 @@ const REVIEWS: Review[] = [
     id: 10,
     name: "Hello Beautiful",
     role: "Verified Google Review",
-    location: "Melbourne, VIC",
-    avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=250&auto=format&fit=crop",
     rating: 5,
-    stoneType: "Marble Kitchen Protection",
     verified: true,
     text: "We are thrilled with the film in our marble kitchen. Great product and even better service!",
   },
 ];
+
+const getInitials = (name: string) =>
+  name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+
+function GoogleIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z" />
+      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z" />
+      <path fill="#FBBC05" d="M5.84 14.1A6.6 6.6 0 0 1 5.5 12c0-.73.13-1.43.34-2.1V7.06H2.18A11 11 0 0 0 1 12c0 1.77.43 3.45 1.18 4.94l3.66-2.84z" />
+      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15A10.96 10.96 0 0 0 12 1 11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z" />
+    </svg>
+  );
+}
 
 export default function Testimonial3DCarouselSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -181,7 +167,7 @@ export default function Testimonial3DCarouselSection() {
   return (
     <section
       id="customer-reviews"
-      className="w-full relative overflow-hidden bg-[#f8f9fa] text-[#1f242e] py-16 sm:py-24 lg:py-28 xl:py-32 border-t border-stone-200/90"
+      className="w-full relative overflow-hidden bg-white text-[#1f242e] py-16 sm:py-24 lg:py-28 xl:py-32 border-t border-stone-200/90"
     >
       {/* Subtle ambient luxury backdrop glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-[#31847b]/10 via-[#eaf3f1]/40 to-transparent blur-3xl pointer-events-none rounded-full" />
@@ -334,15 +320,8 @@ export default function Testimonial3DCarouselSection() {
                     {/* Bottom Row: Customer Info & Stone Tag */}
                     <div className="pt-4 sm:pt-5 border-t border-stone-100 flex items-center justify-between gap-4 shrink-0">
                       <div className="flex items-center gap-3.5 sm:gap-4">
-                        <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden shrink-0 border border-stone-200 bg-stone-100 shadow-2xs">
-                          <Image
-                            src={review.avatar}
-                            alt={review.name}
-                            fill
-                            sizes="48px"
-                            unoptimized
-                            className="object-cover"
-                          />
+                        <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full shrink-0 bg-[#31847b] text-white flex items-center justify-center text-sm sm:text-base font-semibold" aria-hidden="true">
+                          {getInitials(review.name)}
                         </div>
                         <div>
                           <div className="flex items-center gap-2">
@@ -356,20 +335,12 @@ export default function Testimonial3DCarouselSection() {
                             )}
                           </div>
                           <p className="text-xs text-stone-500 font-normal">
-                            {review.role} • {review.location}
+                            {review.role}
                           </p>
                         </div>
                       </div>
 
-                      {/* Stone Type Badge (Desktop) */}
-                      <div className="hidden md:block text-right shrink-0">
-                        <span className="text-[10px] font-medium text-stone-500 uppercase tracking-wider block">
-                          Protected Surface
-                        </span>
-                        <span className="text-xs sm:text-sm font-semibold text-[#31847b] block">
-                          {review.stoneType}
-                        </span>
-                      </div>
+                      <GoogleIcon className="w-6 h-6 shrink-0" />
                     </div>
                   </div>
                 </motion.div>
@@ -377,6 +348,20 @@ export default function Testimonial3DCarouselSection() {
             })}
           </div>
         </motion.div>
+
+        {/* Link to all reviews on the Google Business Profile */}
+        <div className="mt-10 sm:mt-12 flex justify-center">
+          <a
+            href={GOOGLE_REVIEWS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 rounded-full border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-[#1f242e] shadow-2xs transition-colors hover:border-[#31847b] hover:text-[#31847b]"
+          >
+            <GoogleIcon className="w-5 h-5" />
+            <span>Read all our reviews on Google</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </a>
+        </div>
       </div>
 
       {/* Full Review Modal */}
@@ -411,15 +396,8 @@ export default function Testimonial3DCarouselSection() {
 
               <div className="pt-5 border-t border-stone-100 flex items-center justify-between gap-4">
                 <div className="flex items-center gap-4">
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 border border-stone-200 bg-stone-100">
-                    <Image
-                      src={selectedFullReview.avatar}
-                      alt={selectedFullReview.name}
-                      fill
-                      sizes="48px"
-                      unoptimized
-                      className="object-cover"
-                    />
+                  <div className="w-12 h-12 rounded-full shrink-0 bg-[#31847b] text-white flex items-center justify-center text-base font-semibold" aria-hidden="true">
+                    {getInitials(selectedFullReview.name)}
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
@@ -433,19 +411,12 @@ export default function Testimonial3DCarouselSection() {
                       )}
                     </div>
                     <p className="text-xs sm:text-sm text-stone-500 font-normal">
-                      {selectedFullReview.role} • {selectedFullReview.location}
+                      {selectedFullReview.role}
                     </p>
                   </div>
                 </div>
 
-                <div className="text-right shrink-0">
-                  <span className="text-[11px] font-medium text-stone-500 uppercase tracking-wider block">
-                    Protected Surface
-                  </span>
-                  <span className="text-xs sm:text-sm font-semibold text-[#31847b] block">
-                    {selectedFullReview.stoneType}
-                  </span>
-                </div>
+                <GoogleIcon className="w-7 h-7 shrink-0" />
               </div>
             </motion.div>
           </div>

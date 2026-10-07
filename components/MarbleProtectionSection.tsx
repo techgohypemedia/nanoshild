@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 
 export default function MarbleProtectionSection() {
   return (
-    <section className="w-full overflow-hidden bg-white text-[#1f242e] py-16 sm:py-24 lg:py-28 xl:py-32 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28 border-t border-stone-200/90">
+    <section id="film-adhesives" className="w-full overflow-hidden bg-[#f8f9fa] text-[#1f242e] py-16 sm:py-24 lg:py-28 xl:py-32 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28 border-t border-stone-200/90">
       <div className="max-w-7xl mx-auto w-full">
         <div className="py-4 text-[#1f242e]">
           <div className="max-w-4xl mx-auto space-y-6">
             {/* Heading slides from Left */}
-            <motion.h3
+            <motion.h2
               initial={{ opacity: 0, x: -60 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-80px" }}
@@ -18,7 +18,7 @@ export default function MarbleProtectionSection() {
               className="text-2xl sm:text-3xl lg:text-[40px] font-semibold leading-tight tracking-tight text-[#1f242e]"
             >
               Don&apos;t Risk Damaging Your Marble With Inferior Films &amp; Adhesives
-            </motion.h3>
+            </motion.h2>
 
             {/* Paragraphs slide from Right */}
             <motion.div

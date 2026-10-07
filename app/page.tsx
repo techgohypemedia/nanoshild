@@ -2,14 +2,13 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import HeroParallaxSequence from "@/components/HeroParallaxSequence";
 import WhatChangesSection from "@/components/WhatChangesSection";
-import TeamExpertiseSection from "@/components/TeamExpertiseSection";
+import BenchtopLifestyleSection from "@/components/BenchtopLifestyleSection";
+import ProtectionBenefitsSection from "@/components/ProtectionBenefitsSection";
+import StoneTeamSection from "@/components/StoneTeamSection";
 import VideoTestSection from "@/components/VideoTestSection";
-import MarbleProtectionSection from "@/components/MarbleProtectionSection";
-import NanoShieldFilmVideoSection from "@/components/NanoShieldFilmVideoSection";
-import Testimonial3DCarouselSection from "@/components/Testimonial3DCarouselSection";
-import MarbleCollectionsSection from "@/components/MarbleCollectionsSection";
 import StoneApplicationsSection from "@/components/StoneApplicationsSection";
-import ArchitecturalBannerSlider from "@/components/ArchitecturalBannerSlider";
+import MarbleProtectionSection from "@/components/MarbleProtectionSection";
+import Testimonial3DCarouselSection from "@/components/Testimonial3DCarouselSection";
 import FaqSection from "@/components/FaqSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -21,20 +20,20 @@ export const metadata: Metadata = {
     "Protect your natural stone with NanoShield HD marble protection film. Installation in Melbourne, Sydney and Brisbane. Get your benchtop protection quote.",
 };
 
+// Section order follows the client's homepage copy document
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white relative">
       <Navbar />
       <HeroParallaxSequence />
       <WhatChangesSection />
-      <TeamExpertiseSection />
+      <BenchtopLifestyleSection />
+      <ProtectionBenefitsSection />
+      <StoneTeamSection />
       <VideoTestSection />
-      <MarbleProtectionSection />
-      <NanoShieldFilmVideoSection />
-      <Testimonial3DCarouselSection />
-      <MarbleCollectionsSection />
       <StoneApplicationsSection />
-      <ArchitecturalBannerSlider />
+      <MarbleProtectionSection />
+      <Testimonial3DCarouselSection />
       <FaqSection />
       <ContactSection />
       <Footer />

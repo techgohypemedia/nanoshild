@@ -3,10 +3,10 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-export default function TeamExpertiseSection() {
+export default function BenchtopLifestyleSection() {
   return (
     <section
-      id="team-expertise"
+      id="benchtop-lifestyle"
       className="w-full overflow-hidden bg-white text-[#1f242e] py-16 sm:py-20 lg:py-24 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28 border-t border-stone-200/80"
     >
       <div className="max-w-7xl mx-auto w-full">
@@ -45,11 +45,8 @@ export default function TeamExpertiseSection() {
               <p>
                 If you find yourself watching every glass or worrying about each splash, NanoShield HD adds a layer of protection between your stone and daily life.
               </p>
-            </div>
 
-            {/* Subtle, Lightweight Callout */}
-            <div className="mt-8 p-5 sm:p-6 rounded-xl bg-[#f8faf9] border border-[#31847b]/20">
-              <p className="text-sm sm:text-[15px] text-stone-700 leading-relaxed font-normal">
+              <p>
                 Whether your kitchen is newly finished or your marble has been part of the home for years, we can assess the surface and help you plan its protection.
               </p>
             </div>

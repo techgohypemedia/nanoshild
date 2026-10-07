@@ -55,7 +55,7 @@ export default function StoneApplicationsSection() {
   return (
     <section
       id="stone-applications"
-      className="w-full overflow-hidden bg-[#f8f9fa] text-[#1f242e] py-16 sm:py-24 lg:py-28 xl:py-32 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28 border-t border-stone-200/90"
+      className="w-full overflow-hidden bg-white text-[#1f242e] py-16 sm:py-24 lg:py-28 xl:py-32 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28 border-t border-stone-200/90"
     >
       <div className="max-w-7xl mx-auto w-full">
         {/* Section Header */}

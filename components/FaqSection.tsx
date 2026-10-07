@@ -1,25 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import { Plus, HelpCircle, Sparkles } from "lucide-react";
+import { Plus } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface FaqItem {
   id: number;
   question: string;
-  isFeatured?: boolean;
   paragraphs?: string[];
   lead?: string;
   sublead?: string;
   bullets?: string[];
-  outro?: string;
 }
 
+// Questions and order follow the client's homepage copy document
 const FAQ_ITEMS: FaqItem[] = [
   {
     id: 1,
     question: "Who is NanoShield HD best suited for?",
-    isFeatured: true,
     lead: "NanoShield HD is designed for people and spaces that want to enjoy marble without restriction or constant management.",
     sublead: "IT'S WELL SUITED FOR:",
     bullets: [
@@ -38,109 +36,80 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     id: 3,
-    question: "Will NanoShield HD change the feel of my stone benchtops?",
-    paragraphs: [
-      "No. The surface feels smooth and natural, just like the stone itself. There's no rubbery or coated feel, and nothing that changes how the benchtop is used day to day.",
-    ],
-  },
-  {
-    id: 4,
     question: "Is NanoShield HD the same as a sealer?",
-    isFeatured: true,
     paragraphs: [
       "No. Sealers and coatings work within the stone to slow absorption.",
       "NanoShield HD is a physical separation system that sits on top of the surface, preventing direct contact in the first place. It's designed to stop damage — not manage it.",
     ],
   },
   {
-    id: 5,
-    question: "What does NanoShield actually protect against?",
-    lead: "NanoShield HD protects against:",
-    bullets: [
-      "Staining from spilt foods and drinks (coffee, wine, oils, turmeric)",
-      "Etching from acidic foods and drinks (citrus, vinegar, tomatoes)",
-      "Everyday wear, scuffs and surface scratching",
-    ],
-    outro: "All without changing the natural appearance or texture of the stone.",
-  },
-  {
-    id: 6,
+    id: 4,
     question: "Can you install film over existing stains or etching?",
     paragraphs: [
       "We assess existing damage first. Because the film is clear, marks can remain visible underneath, so cleaning or restoration may be needed before installation. We will complete this for you prior to installation.",
     ],
   },
   {
-    id: 7,
+    id: 5,
     question: "How do I clean a protected benchtop?",
     paragraphs: [
       "Use our Crystal Clear Film Cleaner and the approved soft microfibre cloth we give you with every installation. Wipe up spills promptly and follow your aftercare instructions.",
     ],
   },
   {
-    id: 8,
+    id: 6,
     question: "Can I cut food or put hot pans directly on the film?",
     paragraphs: [
       "Use a chopping board when cutting to avoid damage to the film. Our film has been tested to withstand heat up to 200°C, however, we recommend placing hot cookware on a trivet or heat mat.",
     ],
   },
   {
-    id: 9,
+    id: 7,
     question: "Is NanoShield HD safe for my family and pets?",
     paragraphs: [
       "NanoShield HD contains no VOCs, and does not off-gas when installed. It is designed for real homes, including homes with pets and children.",
     ],
   },
   {
-    id: 10,
+    id: 8,
     question: "Will applying NanoShield HD damage the stone underneath?",
-    isFeatured: true,
     paragraphs: [
       "No. Protecting the stone long-term is the entire point of the system. NanoShield HD has been tested across thousands of installations with no stone damage underneath.",
     ],
   },
   {
-    id: 11,
+    id: 9,
     question: "How long does NanoShield HD last?",
-    isFeatured: true,
     paragraphs: [
       "NanoShield HD is designed to last up to 10 years in residential settings. Over time, the film may wear — but the stone underneath remains protected. When replacement is needed, it's straightforward and handled without risk to the stone.",
     ],
   },
   {
-    id: 12,
-    question: "What happens when NanoShield HD is removed or replaced?",
-    paragraphs: [
-      "The system is designed for clean, safe removal. A specialised primer allows strong adhesion during use while ensuring the stone is not damaged when the film is removed or replaced.",
-    ],
-  },
-  {
-    id: 13,
+    id: 10,
     question: "Is installation of NanoShield HD disruptive?",
-    isFeatured: true,
     paragraphs: [
       "Not at all. Installation is typically completed within a day. There are no chemical smells, no mess and your benchtop is fully functional the next morning.",
     ],
   },
   {
-    id: 14,
+    id: 11,
+    question: "Can I arrange protection before my new kitchen is finished?",
+    paragraphs: [
+      "Yes. Contact us while your kitchen is being planned or installed. We can discuss the stone and arrange assessment and film installation around the completion of the other work.",
+    ],
+  },
+  {
+    id: 12,
     question: "Do you offer a discount for larger installations?",
     paragraphs: [
       "Yes. We offer lower rates for larger installations. Include all the surfaces you would like protected so we can confirm the rate for your project.",
     ],
   },
   {
-    id: 15,
+    id: 13,
     question: "Can I have the film removed or replaced?",
     paragraphs: [
       "Yes. Arrange professional removal and replacement through your NanoShield HD installer. Avoid lifting or peeling the edges yourself. Our system is designed for a clean, safe removal. We use a specialised primer for strong adhesion during use while ensuring the stone is not damaged when the film is removed or replaced.",
-    ],
-  },
-  {
-    id: 16,
-    question: "Can I arrange protection before my new kitchen is finished?",
-    paragraphs: [
-      "Yes. Contact us while your kitchen is being planned or installed. We can discuss the stone and arrange assessment and film installation around the completion of the other work.",
     ],
   },
 ];
@@ -245,11 +214,6 @@ export default function FaqSection() {
                           <p key={pIdx}>{para}</p>
                         ))}
 
-                      {item.outro && (
-                        <p className="text-stone-800 font-medium pt-1">
-                          {item.outro}
-                        </p>
-                      )}
                     </div>
                   </div>
                 </div>

@@ -76,7 +76,7 @@ export default function ShowroomBentoGridSection() {
             {/* Verified Installation Nameplate */}
             <div className="relative z-10 text-white">
               <h4 className="text-base sm:text-lg lg:text-xl font-bold tracking-widest uppercase font-sans drop-shadow-md leading-tight">
-                NANOSHIELD HD™
+                NANOSHIELD HD
               </h4>
               <p className="text-[11px] sm:text-xs tracking-[0.2em] text-[#72d4ca] uppercase font-semibold mt-1">
                 THE INVISIBLE MARBLE FILM
