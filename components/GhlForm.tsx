@@ -2,12 +2,15 @@ import Script from "next/script";
 import { GHL_FORM } from "@/lib/contact";
 
 // Embeds the GoHighLevel enquiry form. form_embed.js resizes the iframe to fit its content.
-export default function GhlForm({ instance = "inline", className = "" }: { instance?: string; className?: string }) {
+// `params` are appended to the form URL and picked up by hidden fields in GHL that share the same query parameter names.
+export default function GhlForm({ instance = "inline", className = "", params }: { instance?: string; className?: string; params?: Record<string, string> }) {
   const iframeId = `${instance}-${GHL_FORM.id}`;
+  const query = params ? new URLSearchParams(params).toString() : "";
+  const src = query ? `${GHL_FORM.src}${GHL_FORM.src.includes("?") ? "&" : "?"}${query}` : GHL_FORM.src;
   return (
     <div className="w-full overflow-hidden">
       <iframe
-        src={GHL_FORM.src}
+        src={src}
         id={iframeId}
         title={GHL_FORM.name}
         style={{

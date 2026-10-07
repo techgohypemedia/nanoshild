@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Check, Plus } from "lucide-react";
+import PricingCalculator from "@/components/PricingCalculator";
 import { pageDetails } from "@/lib/page-details";
 import type { SitePageSlug } from "@/lib/site-pages";
 
@@ -23,11 +24,11 @@ export default function PageDetailsSections({ slug }: { slug: SitePageSlug }) {
         </div>
       </section>
 
-      {slug === "pricing" && <section className="mx-auto max-w-7xl px-6 pt-20 sm:px-10">
+      {slug === "pricing" && <section id="estimate" className="mx-auto max-w-7xl scroll-mt-28 px-6 pt-20 sm:px-10">
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#31847b]">For initial planning</p>
-        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">A little measurement goes a long way.</h2>
-        <p className="mt-5 max-w-2xl leading-relaxed text-stone-600">These examples multiply surface area by the advertised starting rate of $300/m². They are planning examples; your tailored quote confirms the final price and scope.</p>
-        <div className="mt-8 grid gap-5 sm:grid-cols-3">{[["2 m²", "$600"], ["4 m²", "$1,200"], ["6 m²", "$1,800"]].map(([area, price]) => <div key={area} className="rounded-2xl border border-stone-200 bg-white p-7"><p className="text-sm text-stone-600">{area} of surface</p><p className="mt-4 text-4xl font-semibold tracking-tight">{price}</p><p className="mt-3 text-xs text-[#31847b]">At the starting rate of $300/m²</p></div>)}</div>
+        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Estimate your film costs.</h2>
+        <p className="mt-5 max-w-2xl leading-relaxed text-stone-600">Measure the length and width of each surface and enter it below. Your estimate updates as you type, and larger installations attract a lower rate per square metre.</p>
+        <div className="mt-10"><PricingCalculator /></div>
       </section>}
 
       <section className="mx-auto max-w-7xl px-6 py-20 sm:px-10 sm:py-24">

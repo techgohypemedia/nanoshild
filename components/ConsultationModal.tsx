@@ -8,6 +8,8 @@ import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 export interface ConsultationModalOptions {
   title?: string;
   subtitle?: string;
+  /** Query parameters attached to the GoHighLevel form URL (e.g. a calculator estimate). */
+  formParams?: Record<string, string>;
 }
 
 const DEFAULT_TITLE = "Request a Quote";
@@ -26,6 +28,7 @@ export default function ConsultationModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [modalTitle, setModalTitle] = useState(DEFAULT_TITLE);
   const [modalSubtitle, setModalSubtitle] = useState(DEFAULT_SUBTITLE);
+  const [formParams, setFormParams] = useState<Record<string, string> | undefined>(undefined);
 
   const closeModal = useCallback(() => setIsOpen(false), []);
 
@@ -35,6 +38,7 @@ export default function ConsultationModal() {
       const { detail } = e as CustomEvent<ConsultationModalOptions | undefined>;
       setModalTitle(detail?.title ?? DEFAULT_TITLE);
       setModalSubtitle(detail?.subtitle ?? DEFAULT_SUBTITLE);
+      setFormParams(detail?.formParams);
       setIsOpen(true);
     };
 
@@ -115,7 +119,7 @@ export default function ConsultationModal() {
 
         {/* GoHighLevel Form */}
         <div className="px-3 sm:px-5 pb-5">
-          <GhlForm instance="modal" />
+          <GhlForm instance="modal" params={formParams} />
         </div>
       </div>
     </div>
