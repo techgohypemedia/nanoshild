@@ -3,6 +3,14 @@ export const PHONE_HREF = "tel:1300375030";
 export const EMAIL = "support@nanoshield.com.au";
 export const SERVICE_AREAS = "Melbourne · Sydney · Brisbane";
 
+// Showroom address (Moorabbin, VIC)
+export const SHOWROOM_ADDRESS_LINES = ["Factory 5", "83-85 Keys Rd", "Moorabbin VIC 3189"];
+export const SHOWROOM_ADDRESS = SHOWROOM_ADDRESS_LINES.join(", ");
+const SHOWROOM_QUERY = encodeURIComponent(SHOWROOM_ADDRESS);
+// Keyless Google Maps embed, so no API key is needed
+export const SHOWROOM_MAP_EMBED_URL = `https://www.google.com/maps?q=${SHOWROOM_QUERY}&z=16&iwloc=&output=embed`;
+export const SHOWROOM_MAP_LINK = `https://www.google.com/maps/search/?api=1&query=${SHOWROOM_QUERY}`;
+
 export const SOCIAL_LINKS = {
   facebook: "https://www.facebook.com/profile.php?id=61575366062309",
   instagram: "https://www.instagram.com/nanoshield.hd/",

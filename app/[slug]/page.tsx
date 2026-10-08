@@ -9,6 +9,7 @@ import PageHero from "@/components/PageHero";
 import PageCtaBand from "@/components/PageCtaBand";
 import NanoShieldFilmVideoSection from "@/components/NanoShieldFilmVideoSection";
 import OurShowroomSection from "@/components/OurShowroomSection";
+import ShowroomMap from "@/components/ShowroomMap";
 import PageDetailsSections from "@/components/PageDetailsSections";
 import { sitePages, type SitePageSlug } from "@/lib/site-pages";
 
@@ -55,7 +56,12 @@ export default async function DetailPage({ params }: { params: Promise<{ slug: s
         </section>
 
         {slug === "about-us" && <NanoShieldFilmVideoSection />}
-        {slug === "our-showroom" && <OurShowroomSection />}
+        {slug === "our-showroom" && (
+          <>
+            <OurShowroomSection />
+            <ShowroomMap />
+          </>
+        )}
 
         <PageDetailsSections slug={slug as SitePageSlug} />
 

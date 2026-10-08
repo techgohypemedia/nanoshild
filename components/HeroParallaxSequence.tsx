@@ -51,7 +51,7 @@ export default function HeroParallaxSequence() {
           initial={{ opacity: 0, x: 60 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="mx-auto max-w-2xl text-sm sm:text-base md:text-lg text-white/90 font-light leading-relaxed text-balance [text-shadow:0_1px_8px_rgba(0,0,0,0.8)] mb-8 sm:mb-9"
+          className="mx-auto max-w-2xl text-sm sm:text-base md:text-lg text-[#e6f7f4] font-normal leading-relaxed text-balance [text-shadow:0_2px_14px_rgba(0,0,0,0.95),0_1px_3px_rgba(0,0,0,0.9)] mb-8 sm:mb-9"
         >
           Invisible optical grade certified stone film engineered specifically for luxury marble, quartzite and natural stone. Complete defense against acid etching, wine stains, and daily wear.
         </motion.p>
