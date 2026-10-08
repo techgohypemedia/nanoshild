@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { ArrowRight, Check } from "lucide-react";
-import { motion } from "framer-motion";
 import { openConsultationModal } from "@/components/ConsultationModal";
 
 export default function StickyGridScroll() {
@@ -20,27 +19,15 @@ export default function StickyGridScroll() {
       {/* ------------------------------------------------------------- */}
       <section className="w-full py-14 sm:py-20 lg:py-24 xl:py-28 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28">
         {/* Full-Width Top Heading (Above Image & Content) */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full mb-6 lg:mb-8 max-w-full"
-        >
+        <div className="w-full mb-6 lg:mb-8 max-w-full">
           <h2 className="text-2xl sm:text-3xl lg:text-[32px] xl:text-[38px] 2xl:text-[42px] font-semibold leading-[1.15] tracking-tight text-[#1f242e]">
             Enjoy your kitchen. Feel confident about your stone.
           </h2>
-        </motion.div>
+        </div>
 
         <div className="w-full grid items-start gap-10 lg:gap-14 xl:gap-20 lg:grid-cols-2">
           {/* Left: Rounded Luxury Marble Visual */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full aspect-[4/3] xl:aspect-[16/11] overflow-hidden rounded-xl bg-stone-100 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-stone-200/80 group lg:-mt-1"
-          >
+          <div className="relative w-full aspect-[4/3] xl:aspect-[16/11] overflow-hidden rounded-xl bg-stone-100 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-stone-200/80 group lg:-mt-1">
             <Image
               src="/marble-kitchen-island.jpg"
               alt="Luxury Calacatta Gold Marble Island Countertop"
@@ -49,17 +36,11 @@ export default function StickyGridScroll() {
               className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-105"
               priority
             />
-          </motion.div>
+          </div>
 
           {/* Right: Editorial Narrative Content */}
           <div className="w-full flex items-center justify-start">
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="max-w-xl xl:max-w-2xl w-full"
-            >
+            <div className="max-w-xl xl:max-w-2xl w-full">
               <div className="space-y-3.5 text-base sm:text-lg leading-relaxed text-stone-600 font-normal">
                 <p>
                   You chose your stone for its character, its colour and the way it brings your home together. Give it the protection it deserves.
@@ -79,20 +60,16 @@ export default function StickyGridScroll() {
                   "Supplied and installed from $300m²",
                   "More cost effective than restoration with less downtime",
                   "Backed by our 10 year guarantee*",
-                ].map((point, idx) => (
-                  <motion.li
+                ].map((point) => (
+                  <li
                     key={point}
-                    initial={{ opacity: 0, x: -16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.15 + idx * 0.1 }}
                     className="flex items-start gap-3.5 text-sm sm:text-base font-medium leading-relaxed text-[#1f242e]"
                   >
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#31847b]/10 text-[#31847b] mt-0.5">
                       <Check size={14} className="stroke-[2.5]" aria-hidden="true" />
                     </span>
                     <span>{point}</span>
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
 
@@ -100,13 +77,7 @@ export default function StickyGridScroll() {
                 For marble, travertine, quartzite, granite and other suitable natural stone.
               </p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="mt-8"
-              >
+              <div className="mt-8">
                 <button
                   type="button"
                   onClick={handleQuoteClick}
@@ -115,8 +86,8 @@ export default function StickyGridScroll() {
                   <span>Request a Quote</span>
                   <ArrowRight size={17} className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
                 </button>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -126,28 +97,16 @@ export default function StickyGridScroll() {
       {/* ------------------------------------------------------------- */}
       <section className="w-full py-14 sm:py-20 lg:py-24 xl:py-28 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28 bg-white border-t border-stone-200/80">
         {/* Full-Width Top Heading (Above Content & Image) */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full mb-6 lg:mb-8 max-w-full"
-        >
+        <div className="w-full mb-6 lg:mb-8 max-w-full">
           <h2 className="text-2xl sm:text-3xl lg:text-[32px] xl:text-[38px] 2xl:text-[42px] font-semibold leading-[1.15] tracking-tight text-[#1f242e]">
             A Beautiful Benchtop Should Be a Pleasure to Live With
           </h2>
-        </motion.div>
+        </div>
 
         <div className="w-full grid items-start gap-10 lg:gap-14 xl:gap-20 lg:grid-cols-2">
           {/* Left: Editorial Content */}
           <div className="w-full flex items-center justify-start order-2 lg:order-1">
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="max-w-xl xl:max-w-2xl w-full"
-            >
+            <div className="max-w-xl xl:max-w-2xl w-full">
               <div className="space-y-3.5 text-base sm:text-lg leading-relaxed text-stone-600 font-normal">
                 <p>
                   Morning coffee at the island. Dinner preparation with the family. Friends gathered around the kitchen with a glass of wine.
@@ -166,17 +125,11 @@ export default function StickyGridScroll() {
                   Whether your kitchen is newly finished or your marble has been part of the home for years, we can assess the surface and help you plan its protection.
                 </p>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Right: Rounded Visual Frame with Gap */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full aspect-[4/3] xl:aspect-[16/11] overflow-hidden rounded-xl bg-stone-100 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-stone-200/80 group order-1 lg:order-2"
-          >
+          <div className="relative w-full aspect-[4/3] xl:aspect-[16/11] overflow-hidden rounded-xl bg-stone-100 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-stone-200/80 group order-1 lg:order-2">
             <Image
               src="/marble-family-freedom.jpg"
               alt="Joyful Family Living and Dining on Protected Marble Island"
@@ -184,7 +137,7 @@ export default function StickyGridScroll() {
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-105"
             />
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>

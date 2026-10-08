@@ -1,20 +1,9 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function VideoTestSection() {
-  const sectionRef = useRef<HTMLElement>(null);
   const [isInteractive, setIsInteractive] = useState(false);
-
-  // Smooth scroll sync with viewport without heavy spring lag fighting Lenis
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "center center"],
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 1], [0.92, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.4], [0.75, 1]);
 
   // Re-enable scroll pass-through as soon as user scrolls the page
   useEffect(() => {
@@ -27,39 +16,25 @@ export default function VideoTestSection() {
 
   return (
     <section
-      ref={sectionRef}
       id="product-test"
       className="relative z-10 w-full bg-[#f8f9fa] text-[#1f242e] py-16 sm:py-24 lg:py-28 px-4 sm:px-8 lg:px-12 xl:px-16 overflow-hidden border-t border-stone-200/90"
     >
       <div className="max-w-6xl mx-auto w-full">
-        {/* Simple, Clean Centered Header with Directional Scroll Animations */}
+        {/* Centered header */}
         <div className="flex flex-col items-center text-center mb-10 sm:mb-14 px-4 overflow-hidden">
-          <motion.h2
-            initial={{ opacity: 0, x: -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-[#1f242e] tracking-tight leading-tight"
-          >
+          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-[#1f242e] tracking-tight leading-tight">
             Watch us put NanoShield HD to the test
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            initial={{ opacity: 0, x: 60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-            className="mt-4 text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-normal leading-relaxed"
-          >
+          <p className="mt-4 text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-normal leading-relaxed">
             Watch us put NanoShield HD to the test with freshly brewed espresso, cab merlot poured straight from the bottle and a freshly cut lemon squeezed straight onto the surface.
-          </motion.p>
+          </p>
         </div>
 
-        {/* Full Video Theater: Original clean design */}
-        <motion.div
-          style={{ scale, opacity }}
+        {/* Video */}
+        <div
           onMouseLeave={() => setIsInteractive(false)}
-          className="relative w-full aspect-video rounded-xl overflow-hidden border border-stone-200/90 bg-stone-900 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.18)] will-change-transform origin-center"
+          className="relative w-full aspect-video rounded-xl overflow-hidden border border-stone-200/90 bg-stone-900 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.18)]"
         >
           <iframe
             src="https://www.youtube.com/embed/ruvn13xDR2g?autoplay=1&mute=1&loop=1&playlist=ruvn13xDR2g&playsinline=1&controls=1&rel=0&modestbranding=1"
@@ -81,7 +56,7 @@ export default function VideoTestSection() {
               className="absolute inset-0 z-10 cursor-pointer bg-transparent"
             />
           )}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

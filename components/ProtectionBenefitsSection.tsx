@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { Wine, Citrus, ShieldCheck } from "lucide-react";
 
 const BENEFITS = [
@@ -35,41 +34,25 @@ export default function ProtectionBenefitsSection() {
       className="w-full overflow-hidden bg-[#f8f9fa] text-[#1f242e] py-16 sm:py-20 lg:py-24 px-6 sm:px-12 lg:px-16 xl:px-20 2xl:px-28 border-t border-stone-200/80"
     >
       <div className="max-w-7xl mx-auto w-full">
-        {/* Heading (Slides from Left) */}
-        <motion.div
-          initial={{ opacity: 0, x: -60 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-4xl mb-6 sm:mb-8"
-        >
+        {/* Heading */}
+        <div className="max-w-4xl mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl md:text-[32px] lg:text-[36px] xl:text-[40px] font-semibold leading-tight tracking-tight text-[#1f242e]">
             Enjoy 10 Years Protection Against Everyday Spills, Stains, Etching &amp; Damage to Your Stone
           </h2>
-        </motion.div>
+        </div>
 
-        {/* Intro (Slides from Right) */}
-        <motion.p
-          initial={{ opacity: 0, x: 60 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-          className="max-w-3xl text-base sm:text-lg leading-[1.75] text-stone-600 mb-10 sm:mb-12"
-        >
+        {/* Intro */}
+        <p className="max-w-3xl text-base sm:text-lg leading-[1.75] text-stone-600 mb-10 sm:mb-12">
           NanoShield HD covers the stone with a thin, transparent, stone safe film that helps protect against:
-        </motion.p>
+        </p>
 
         {/* Protection Cards */}
         <div className="grid gap-6 sm:gap-8 md:grid-cols-3">
-          {BENEFITS.map((item, index) => {
+          {BENEFITS.map((item) => {
             const IconComponent = item.icon;
             return (
-              <motion.article
+              <article
                 key={item.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: index * 0.1 }}
                 className="group overflow-hidden rounded-2xl bg-white border border-stone-200/90 shadow-2xs hover:shadow-md transition-shadow duration-300"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
@@ -90,21 +73,15 @@ export default function ProtectionBenefitsSection() {
                   </div>
                   <p className="text-stone-600 text-sm sm:text-base leading-relaxed">{item.description}</p>
                 </div>
-              </motion.article>
+              </article>
             );
           })}
         </div>
 
         {/* Closing Note */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-10 sm:mt-12 max-w-3xl text-base sm:text-lg leading-[1.75] text-stone-700 font-medium"
-        >
+        <p className="mt-10 sm:mt-12 max-w-3xl text-base sm:text-lg leading-[1.75] text-stone-700 font-medium">
           Your stone&apos;s natural detail remains visible beneath the clear film. Choose from a honed or polished finish to suit the look of your surface.
-        </motion.p>
+        </p>
       </div>
     </section>
   );

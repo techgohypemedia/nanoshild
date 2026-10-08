@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -54,7 +53,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       )}
     >
       <body className="min-h-screen flex flex-col bg-black text-white">
-        <SmoothScroll />
         {children}
       </body>
     </html>

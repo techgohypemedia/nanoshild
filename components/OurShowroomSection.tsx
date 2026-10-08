@@ -1,20 +1,9 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function OurShowroomSection() {
-  const sectionRef = useRef<HTMLElement>(null);
   const [isInteractive, setIsInteractive] = useState(false);
-
-  // Smooth scroll sync with viewport without heavy spring lag fighting Lenis
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "center center"],
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 1], [0.92, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.4], [0.75, 1]);
 
   // Re-enable scroll pass-through as soon as user scrolls the page
   useEffect(() => {
@@ -27,7 +16,6 @@ export default function OurShowroomSection() {
 
   return (
     <section
-      ref={sectionRef}
       id="our-showroom"
       className="relative z-10 w-full bg-[#f8f9fa] text-[#1f242e] py-16 sm:py-24 lg:py-28 px-4 sm:px-8 lg:px-12 xl:px-16 overflow-hidden border-t border-stone-200/90"
     >
@@ -43,11 +31,10 @@ export default function OurShowroomSection() {
           </p>
         </div>
 
-        {/* Full Video Theater: Original clean design */}
-        <motion.div
-          style={{ scale, opacity }}
+        {/* Video */}
+        <div
           onMouseLeave={() => setIsInteractive(false)}
-          className="relative w-full aspect-video rounded-xl overflow-hidden border border-stone-200/90 bg-stone-900 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.18)] will-change-transform origin-center"
+          className="relative w-full aspect-video rounded-xl overflow-hidden border border-stone-200/90 bg-stone-900 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.18)]"
         >
           <iframe
             src="https://www.youtube.com/embed/ruvn13xDR2g?autoplay=1&mute=1&loop=1&playlist=ruvn13xDR2g&playsinline=1&controls=1&rel=0&modestbranding=1"
@@ -69,7 +56,7 @@ export default function OurShowroomSection() {
               className="absolute inset-0 z-10 cursor-pointer bg-transparent"
             />
           )}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

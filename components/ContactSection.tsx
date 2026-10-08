@@ -1,7 +1,6 @@
 "use client";
 
 import { Clock, ShieldCheck } from "lucide-react";
-import { motion } from "framer-motion";
 import GhlForm from "@/components/GhlForm";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 
@@ -23,8 +22,6 @@ const NEXT_STEPS = [
   },
 ];
 
-const ease = [0.16, 1, 0.3, 1] as const;
-
 export default function ContactSection() {
   return (
     <section
@@ -41,13 +38,7 @@ export default function ContactSection() {
         {/* ============================================================ */}
         {/* TOP: Clean Title, Font & Bit Information                       */}
         {/* ============================================================ */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7, ease }}
-          className="text-center max-w-3xl mx-auto space-y-4"
-        >
+        <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-[#31847b]/25 bg-white/80 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#2c776f] shadow-2xs backdrop-blur-sm">
             <ShieldCheck className="h-3.5 w-3.5 text-[#31847b]" />
             Request a Quote
@@ -64,18 +55,12 @@ export default function ContactSection() {
           <p className="text-sm sm:text-[15px] text-stone-600 leading-relaxed max-w-2xl mx-auto">
             Tell us about your benchtop, kitchen island or other stone surface. We will help you understand what is suitable, what it will cost and how to book your NanoShield HD installation.
           </p>
-        </motion.div>
+        </div>
 
         {/* ============================================================ */}
         {/* DOWNWARDS: 3 Steps (What Happens Next)                        */}
         {/* ============================================================ */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7, ease, delay: 0.1 }}
-          className="mt-12 sm:mt-14"
-        >
+        <div className="mt-12 sm:mt-14">
           <div className="flex items-center justify-between mb-4 px-1">
             <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[#31847b]">
               What happens next
@@ -109,18 +94,12 @@ export default function ContactSection() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* ============================================================ */}
         {/* Simple Clean Form Card (Single phone reference)               */}
         {/* ============================================================ */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7, ease, delay: 0.15 }}
-          className="mt-8 sm:mt-10 max-w-3xl mx-auto rounded-3xl bg-white p-5 sm:p-8 pb-4 sm:pb-6 shadow-xs overflow-hidden"
-        >
+        <div className="mt-8 sm:mt-10 max-w-3xl mx-auto rounded-3xl bg-white p-5 sm:p-8 pb-4 sm:pb-6 shadow-xs overflow-hidden">
           {/* Simple form header */}
           <div className="mb-4 sm:mb-6">
             <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-[#1a1f2c]">
@@ -142,7 +121,7 @@ export default function ContactSection() {
           <div className="w-full">
             <GhlForm />
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -72,7 +72,6 @@ export default function ConsultationModal() {
       role="dialog"
       aria-modal="true"
       aria-labelledby="consultation-modal-title"
-      data-lenis-prevent
       className="fixed inset-0 z-[9999] flex items-start sm:items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/70 backdrop-blur-sm animate-in fade-in duration-200"
       onClick={(e) => {
         if (e.target === e.currentTarget) closeModal();

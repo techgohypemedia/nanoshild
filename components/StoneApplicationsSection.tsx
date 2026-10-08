@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { ArrowRight, Utensils, GlassWater, Droplets, Table } from "lucide-react";
-import { motion } from "framer-motion";
 import { openConsultationModal } from "@/components/ConsultationModal";
 
 interface ApplicationItem {
@@ -59,30 +58,19 @@ export default function StoneApplicationsSection() {
     >
       <div className="max-w-7xl mx-auto w-full">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col items-center text-center mb-12 sm:mb-16"
-        >
+        <div className="flex flex-col items-center text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-[#1f242e] tracking-tight leading-tight">
             Protect the Natural Stone You Use Most
           </h2>
-        </motion.div>
+        </div>
 
-        {/* 2-Column Grid of Stone Applications (Left cards from Left, Right cards from Right) */}
+        {/* 2-Column Grid of Stone Applications */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-          {APPLICATIONS.map((item, index) => {
+          {APPLICATIONS.map((item) => {
             const IconComponent = item.icon;
-            const fromLeft = index % 2 === 0;
             return (
-              <motion.div
+              <div
                 key={item.id}
-                initial={{ opacity: 0, x: fromLeft ? -60 : 60 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: (index % 2) * 0.15 }}
                 className="group relative flex flex-col sm:flex-row items-stretch overflow-hidden rounded-xl bg-white border border-stone-200/90 shadow-2xs hover:shadow-md transition-all duration-300"
               >
                 {/* Visual Image */}
@@ -111,19 +99,13 @@ export default function StoneApplicationsSection() {
                     {item.description}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
         {/* Bottom Call-To-Action Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 sm:mt-16 flex justify-center"
-        >
+        <div className="mt-12 sm:mt-16 flex justify-center">
           <button
             type="button"
             onClick={handleConsultationClick}
@@ -132,7 +114,7 @@ export default function StoneApplicationsSection() {
             <span>Request a Consultation</span>
             <ArrowRight size={17} className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
           </button>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,139 +1,29 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Search, ChevronUp } from "lucide-react";
 import MarbleThreeCanvas from "./MarbleThreeCanvas";
 
 export default function MarbleTensionSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const leftColRef = useRef<HTMLDivElement>(null);
-  const rightColRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const stanzasRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      // 1. Image container entrance animation with 3D feel
-      gsap.fromTo(
-        leftColRef.current,
-        {
-          opacity: 0,
-          x: -50,
-          scale: 0.96,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          scale: 1,
-          duration: 1.1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 75%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      // 2. Heading entrance animation
-      gsap.fromTo(
-        titleRef.current,
-        {
-          opacity: 0,
-          y: 35,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.0,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: titleRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      // 3. Stanzas sequential staggered reveal
-      const stanzaElements = stanzasRef.current?.querySelectorAll(".narrative-stanza");
-      if (stanzaElements && stanzaElements.length > 0) {
-        gsap.fromTo(
-          stanzaElements,
-          {
-            opacity: 0,
-            y: 22,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            stagger: 0.14,
-            duration: 0.85,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: stanzasRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      }
-
-      // 4. CTA Button Entrance with slight bounce
-      gsap.fromTo(
-        buttonRef.current,
-        {
-          opacity: 0,
-          y: 20,
-          scale: 0.95,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.7,
-          delay: 0.35,
-          ease: "back.out(1.5)",
-          scrollTrigger: {
-            trigger: buttonRef.current,
-            start: "top 92%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <section
-      ref={sectionRef}
       id="marble-tension"
       className="relative w-full min-h-screen bg-white text-[#20252e] py-20 sm:py-28 px-6 sm:px-12 md:px-16 lg:px-24 flex items-center justify-center overflow-hidden"
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Interactive Three.js 3D Canvas */}
-          <div ref={leftColRef} className="lg:col-span-6 flex justify-center w-full">
+          <div className="lg:col-span-6 flex justify-center w-full">
             <MarbleThreeCanvas />
           </div>
 
           {/* Right Column: Typography & Narrative */}
-          <div ref={rightColRef} className="lg:col-span-6 flex flex-col justify-center">
+          <div className="lg:col-span-6 flex flex-col justify-center">
             {/* Main Headline */}
             <h2
-              ref={titleRef}
               className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-[#20252e] leading-[1.18] tracking-tight mb-8"
             >
               You Didn’t Choose Marble
@@ -143,7 +33,6 @@ export default function MarbleTensionSection() {
 
             {/* Stanzas Container */}
             <div
-              ref={stanzasRef}
               className="space-y-6 text-[16px] sm:text-[17px] text-[#4b5563] leading-[1.65]"
             >
               {/* Stanza 1 */}
@@ -185,7 +74,6 @@ export default function MarbleTensionSection() {
             {/* CTA Button */}
             <div className="mt-9">
               <button
-                ref={buttonRef}
                 type="button"
                 className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg bg-[#50b8ae] hover:bg-[#3ea399] text-white font-medium text-[15px] sm:text-[16px] shadow-md shadow-[#50b8ae]/30 hover:shadow-lg transition-all duration-200 active:scale-[0.98] cursor-pointer"
               >
