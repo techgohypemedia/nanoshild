@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Check, ArrowRight } from "lucide-react";
-import { openConsultationModal } from "@/components/ConsultationModal";
+import QuoteLink from "@/components/QuoteLink";
 
 const features = [
   "Premium film engineered for natural stone",
@@ -12,13 +12,6 @@ const features = [
 ];
 
 export default function WhatChangesSection() {
-  const handleRequestQuote = () => {
-    openConsultationModal({
-      title: "Request a Free Custom Quote",
-      subtitle:
-        "Tell us about your space and stone surfaces for an accurate, tailored estimate.",
-    });
-  };
 
   return (
     <section
@@ -87,14 +80,12 @@ export default function WhatChangesSection() {
 
             {/* CTA Button */}
             <div className="mt-7">
-              <button
-                type="button"
-                onClick={handleRequestQuote}
+              <QuoteLink
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#31847b] text-white text-sm sm:text-base font-semibold shadow-sm hover:bg-[#276b63] transition-all duration-300 hover:shadow-md hover:gap-3 cursor-pointer active:scale-[0.98]"
               >
                 <span>Request a Quote</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </QuoteLink>
             </div>
           </div>
         </div>

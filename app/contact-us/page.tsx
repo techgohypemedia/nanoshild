@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { Mail, MapPin, Phone, Store } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ConsultationModal from "@/components/ConsultationModal";
 import PageHero from "@/components/PageHero";
 import ContactSection from "@/components/ContactSection";
 import ShowroomMap from "@/components/ShowroomMap";
 import { EMAIL, PHONE_DISPLAY, PHONE_HREF, SERVICE_AREAS, SHOWROOM_ADDRESS_LINES, SHOWROOM_MAP_LINK } from "@/lib/contact";
+import { estimateNote, estimateParamsFrom } from "@/lib/estimate";
 
 const description = "Speak with our team about protecting your benchtop, kitchen island or other natural stone surface. Installation in Melbourne, Sydney and Brisbane.";
 
@@ -22,7 +22,9 @@ const CONTACT_METHODS = [
   { icon: MapPin, label: "Installation areas", lines: [SERVICE_AREAS], note: "Professional installation" },
 ];
 
-export default function ContactUsPage() {
+export default async function ContactUsPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
+  // The pricing calculator links here with its estimate in the query string; it is passed on to the form's hidden fields.
+  const formParams = estimateParamsFrom(await searchParams);
   return (
     <div className="bg-[#f8f9fa] text-[#1f242e]">
       <Navbar />
@@ -63,12 +65,11 @@ export default function ContactUsPage() {
           </ul>
         </section>
 
-        <ContactSection />
+        <ContactSection formParams={formParams} note={estimateNote(formParams)} />
 
         <ShowroomMap />
       </main>
       <Footer />
-      <ConsultationModal />
     </div>
   );
 }

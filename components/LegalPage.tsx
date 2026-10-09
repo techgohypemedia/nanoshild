@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ConsultationModal from "@/components/ConsultationModal";
 import { EMAIL, PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 
 export type LegalSection = { id?: string; heading: string; paragraphs?: string[]; list?: string[] };
@@ -53,7 +52,6 @@ export default function LegalPage({ title, updated, intro, sections }: LegalPage
         </article>
       </main>
       <Footer />
-      <ConsultationModal />
     </div>
   );
 }

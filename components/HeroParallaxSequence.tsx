@@ -1,16 +1,10 @@
 "use client";
 
 import { ArrowRight, Phone } from "lucide-react";
-import { openConsultationModal } from "@/components/ConsultationModal";
+import QuoteLink from "@/components/QuoteLink";
 import { motion } from "framer-motion";
 
 export default function HeroParallaxSequence() {
-  const handleQuoteClick = () => {
-    openConsultationModal({
-      title: "Request a Free Quote & Assessment",
-      subtitle: "Protect your stone with our optical grade certified stone film. Guaranteed for 10 years.",
-    });
-  };
 
   return (
     <div
@@ -63,14 +57,12 @@ export default function HeroParallaxSequence() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
         >
-          <button
-            type="button"
-            onClick={handleQuoteClick}
+          <QuoteLink
             className="group inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2.5 rounded-full bg-[#50b8ae] hover:bg-[#61cac0] px-7 text-[#042422] font-medium text-sm transition-all duration-200 shadow-lg cursor-pointer"
           >
             <span>Request a Quote</span>
             <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-          </button>
+          </QuoteLink>
 
           <a
             href="tel:1300375030"

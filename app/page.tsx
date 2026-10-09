@@ -12,7 +12,6 @@ import Testimonial3DCarouselSection from "@/components/Testimonial3DCarouselSect
 import FaqSection from "@/components/FaqSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import ConsultationModal from "@/components/ConsultationModal";
 
 export const metadata: Metadata = {
   title: "Australia's Leading Marble Protection Film | NanoShield HD",
@@ -37,7 +36,6 @@ export default function Home() {
       <FaqSection />
       <ContactSection />
       <Footer />
-      <ConsultationModal />
     </main>
   );
 }

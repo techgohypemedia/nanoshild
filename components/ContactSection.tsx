@@ -22,11 +22,11 @@ const NEXT_STEPS = [
   },
 ];
 
-export default function ContactSection() {
+export default function ContactSection({ formParams, note }: { formParams?: Record<string, string>; note?: string }) {
   return (
     <section
       id="contact"
-      className="relative w-full overflow-hidden bg-gradient-to-b from-[#fbf9f5] via-[#f7f5f0] to-[#f4f1ea] text-[#1c1917] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-t border-stone-200/90"
+      className="scroll-mt-16 relative w-full overflow-hidden bg-gradient-to-b from-[#fbf9f5] via-[#f7f5f0] to-[#f4f1ea] text-[#1c1917] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 border-t border-stone-200/90"
     >
       {/* Subtle ambient lighting */}
       <div
@@ -115,11 +115,14 @@ export default function ContactSection() {
               </a>
               .
             </p>
+            {note && (
+              <p className="mt-3 rounded-xl border border-[#31847b]/25 bg-[#eaf3f1] px-4 py-2.5 text-sm font-medium text-[#1f6b63]">{note}</p>
+            )}
           </div>
 
           {/* Form */}
           <div className="w-full">
-            <GhlForm />
+            <GhlForm params={formParams} />
           </div>
         </div>
       </div>

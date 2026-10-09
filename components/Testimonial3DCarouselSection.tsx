@@ -1,8 +1,12 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Star, Quote, X, ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { Star, Quote, ArrowUpRight } from "lucide-react";
+
+// Autoplay delay between reviews. Phones get longer so each review can be read before it moves on.
+const AUTOPLAY_MS = 2000;
+const MOBILE_AUTOPLAY_MS = 7000;
 import { GOOGLE_REVIEWS_URL } from "@/lib/contact";
 
 interface Review {
@@ -119,25 +123,41 @@ function GoogleIcon({ className = "" }: { className?: string }) {
 export default function Testimonial3DCarouselSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const [selectedFullReview, setSelectedFullReview] = useState<Review | null>(null);
+  // id of the review whose full text is shown inline on its card
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const touchStartX = useRef<number | null>(null);
+  // When the visitor last swiped or tapped; autoplay waits a full delay after that before moving on.
+  const lastInteraction = useRef(0);
 
   const handleNext = useCallback(() => {
+    setExpandedId(null);
     setCurrentIndex((prev) => (prev + 1) % REVIEWS.length);
   }, []);
 
   const handlePrev = useCallback(() => {
+    setExpandedId(null);
     setCurrentIndex((prev) => (prev - 1 + REVIEWS.length) % REVIEWS.length);
   }, []);
 
-  // Autoplay functionality (2s)
   useEffect(() => {
-    if (isHovered || selectedFullReview) return;
+    const query = window.matchMedia("(max-width: 639px)");
+    const update = () => setIsMobile(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+
+  // Autoplay; paused on hover, while a review is expanded, and for one delay after a swipe or tap
+  useEffect(() => {
+    if (isHovered || expandedId !== null) return;
+    const delay = isMobile ? MOBILE_AUTOPLAY_MS : AUTOPLAY_MS;
     const timer = setInterval(() => {
+      if (Date.now() - lastInteraction.current < delay) return;
       handleNext();
-    }, 2000);
+    }, delay);
     return () => clearInterval(timer);
-  }, [isHovered, selectedFullReview, handleNext]);
+  }, [isHovered, expandedId, isMobile, handleNext]);
 
   // Touch Swipe support
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -146,6 +166,7 @@ export default function Testimonial3DCarouselSection() {
 
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (touchStartX.current === null) return;
+    lastInteraction.current = Date.now();
     const touchEndX = e.changedTouches[0].clientX;
     const diff = touchStartX.current - touchEndX;
     if (Math.abs(diff) > 40) {
@@ -237,9 +258,8 @@ export default function Testimonial3DCarouselSection() {
               }
 
               const isLongText = review.text.length > 175;
-              const displayText = isLongText
-                ? `${review.text.slice(0, 168)}...`
-                : review.text;
+              const isExpanded = expandedId === review.id;
+              const displayText = isLongText && !isExpanded ? `${review.text.slice(0, 168)}...` : review.text;
 
               return (
                 <motion.div
@@ -262,6 +282,7 @@ export default function Testimonial3DCarouselSection() {
                     transformStyle: "preserve-3d",
                   }}
                   onClick={() => {
+                    lastInteraction.current = Date.now();
                     if (isLeft || isFarLeft) handlePrev();
                     if (isRight || isFarRight) handleNext();
                   }}
@@ -288,8 +309,8 @@ export default function Testimonial3DCarouselSection() {
                       </div>
                     </div>
 
-                    {/* Short Truncated Review Text */}
-                    <div className="flex-1 flex flex-col justify-center my-3 overflow-hidden">
+                    {/* Review text; long reviews expand in place instead of opening a pop-up */}
+                    <div className={`flex-1 flex flex-col my-3 ${isExpanded ? "justify-start overflow-y-auto pr-1" : "justify-center overflow-hidden"}`}>
                       <p className="text-stone-700 text-sm sm:text-base lg:text-lg font-normal leading-relaxed italic">
                         &ldquo;{displayText}&rdquo;
                         {isLongText && (
@@ -297,11 +318,11 @@ export default function Testimonial3DCarouselSection() {
                             type="button"
                             onClick={(e) => {
                               e.stopPropagation();
-                              setSelectedFullReview(review);
+                              setExpandedId(isExpanded ? null : review.id);
                             }}
                             className="ml-2 inline-flex items-center text-xs sm:text-sm font-semibold text-[#31847b] hover:underline cursor-pointer not-italic"
                           >
-                            Read More
+                            {isExpanded ? "Show less" : "Read more"}
                           </button>
                         )}
                       </p>
@@ -353,65 +374,6 @@ export default function Testimonial3DCarouselSection() {
           </a>
         </div>
       </div>
-
-      {/* Full Review Modal */}
-      <AnimatePresence>
-        {selectedFullReview && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 15 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 15 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              className="relative w-full max-w-2xl bg-white rounded-3xl p-7 sm:p-9 lg:p-10 shadow-2xl border border-stone-200 max-h-[85vh] overflow-y-auto"
-            >
-              <button
-                type="button"
-                onClick={() => setSelectedFullReview(null)}
-                aria-label="Close review modal"
-                className="absolute top-5 right-5 h-9 w-9 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 flex items-center justify-center transition-colors cursor-pointer"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              <div className="flex items-center gap-1 mb-4">
-                {Array.from({ length: selectedFullReview.rating }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-[#f59e0b] text-[#f59e0b]" />
-                ))}
-              </div>
-
-              <p className="text-stone-800 text-base sm:text-lg leading-relaxed font-normal italic mb-8">
-                &ldquo;{selectedFullReview.text}&rdquo;
-              </p>
-
-              <div className="pt-5 border-t border-stone-100 flex items-center justify-between gap-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full shrink-0 bg-[#31847b] text-white flex items-center justify-center text-base font-semibold" aria-hidden="true">
-                    {getInitials(selectedFullReview.name)}
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <h4 className="text-base sm:text-lg font-semibold text-[#1f242e]">
-                        {selectedFullReview.name}
-                      </h4>
-                      {selectedFullReview.verified && (
-                        <span className="inline-flex items-center text-[10px] font-semibold text-[#31847b] bg-[#eaf3f1] px-2 py-0.5 rounded-full">
-                          Verified
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-xs sm:text-sm text-stone-500 font-normal">
-                      {selectedFullReview.role}
-                    </p>
-                  </div>
-                </div>
-
-                <GoogleIcon className="w-7 h-7 shrink-0" />
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }

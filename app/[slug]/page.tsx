@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { ArrowRight, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ConsultationModal from "@/components/ConsultationModal";
 import PageHero from "@/components/PageHero";
 import PageCtaBand from "@/components/PageCtaBand";
 import NanoShieldFilmVideoSection from "@/components/NanoShieldFilmVideoSection";
@@ -69,7 +68,6 @@ export default async function DetailPage({ params }: { params: Promise<{ slug: s
         <div className="mx-auto flex max-w-7xl justify-end px-6 py-8 sm:px-10"><Link href={`/${page.next}`} className="inline-flex items-center gap-3 py-2 font-semibold hover:text-[#31847b]">Explore {sitePages[page.next].label}<ArrowRight size={18} /></Link></div>
       </main>
       <Footer />
-      <ConsultationModal />
     </div>
   );
 }

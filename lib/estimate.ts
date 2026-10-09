@@ -120,3 +120,21 @@ export function estimateParams(e: Estimate): Record<string, string> {
     [p.surfaces]: e.breakdown,
   };
 }
+
+/** Picks the calculator's estimate fields out of a page's search params, when the visitor arrived from the pricing calculator. */
+export function estimateParamsFrom(query: Record<string, string | string[] | undefined>): Record<string, string> | undefined {
+  const out: Record<string, string> = {};
+  for (const key of Object.values(ESTIMATE_CONFIG.params)) {
+    const value = query[key];
+    if (typeof value === "string" && value) out[key] = value;
+  }
+  return Object.keys(out).length ? out : undefined;
+}
+
+/** One-line summary shown above the enquiry form when an estimate is attached. */
+export function estimateNote(params?: Record<string, string>): string | undefined {
+  const total = Number(params?.[ESTIMATE_CONFIG.params.estimate]);
+  const area = params?.[ESTIMATE_CONFIG.params.area];
+  if (!Number.isFinite(total) || total <= 0) return undefined;
+  return `Your estimate of ${money(total)}${area ? ` (${area} m²)` : ""} is attached to this enquiry.`;
+}

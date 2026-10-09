@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { openConsultationModal } from "@/components/ConsultationModal";
+import QuoteLink from "@/components/QuoteLink";
 import { NAV_ITEMS } from "@/lib/navigation";
 import { PHONE_DISPLAY, PHONE_HREF, SERVICE_AREAS } from "@/lib/contact";
 
@@ -98,19 +98,12 @@ export default function Navbar() {
 
           {/* Action CTA Button */}
           <div className="hidden lg:flex items-center shrink-0">
-            <button
-              type="button"
-              onClick={() =>
-                openConsultationModal({
-                  title: "Request a Custom Quote",
-                  subtitle: "Speak directly with our certified NanoShield HD protection team.",
-                })
-              }
+            <QuoteLink
               className="inline-flex items-center gap-2 px-6 py-2.5 xl:px-7 xl:py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-[#50b8ae] hover:bg-[#3ea399] text-white shadow-md shadow-[#50b8ae]/30 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap shrink-0 cursor-pointer"
             >
               <span>Get a Quote</span>
               <ArrowRight className="w-3.5 h-3.5 shrink-0" />
-            </button>
+            </QuoteLink>
           </div>
 
           {/* Mobile / Tablet Hamburger Toggle */}
@@ -207,20 +200,13 @@ export default function Navbar() {
               transition={{ duration: 0.35, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="p-6 sm:p-8 border-t border-stone-200/80 shrink-0 space-y-4 bg-stone-50/80"
             >
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  openConsultationModal({
-                    title: "Request a Custom Quote",
-                    subtitle: "Speak directly with our certified NanoShield HD protection team.",
-                  });
-                }}
+              <QuoteLink
+                onClick={() => setMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 py-4 rounded-full text-xs font-bold uppercase tracking-wider bg-[#50b8ae] hover:bg-[#3ea399] active:scale-[0.98] text-white shadow-lg shadow-[#50b8ae]/25 transition-all cursor-pointer"
               >
                 <span>Get a Quote</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </QuoteLink>
 
               <div className="flex items-center justify-between text-xs text-stone-500 pt-1">
                 <a href={PHONE_HREF} className="text-zinc-800 font-medium hover:text-[#50b8ae] transition-colors">

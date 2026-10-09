@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Clock, Images, Store, Tag } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ConsultationModal from "@/components/ConsultationModal";
 import PageHero from "@/components/PageHero";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
 
@@ -97,7 +96,6 @@ export default function ThankYouPage() {
         </section>
       </main>
       <Footer />
-      <ConsultationModal />
     </div>
   );
 }

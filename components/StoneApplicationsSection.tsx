@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ArrowRight, Utensils, GlassWater, Droplets, Table } from "lucide-react";
-import { openConsultationModal } from "@/components/ConsultationModal";
+import QuoteLink from "@/components/QuoteLink";
 
 interface ApplicationItem {
   id: string;
@@ -44,12 +44,6 @@ const APPLICATIONS: ApplicationItem[] = [
 ];
 
 export default function StoneApplicationsSection() {
-  const handleConsultationClick = () => {
-    openConsultationModal({
-      title: "Request a Consultation",
-      subtitle: "Discuss your stone surfaces—from kitchen benchtops to vanities and dining tables.",
-    });
-  };
 
   return (
     <section
@@ -106,14 +100,12 @@ export default function StoneApplicationsSection() {
 
         {/* Bottom Call-To-Action Button */}
         <div className="mt-12 sm:mt-16 flex justify-center">
-          <button
-            type="button"
-            onClick={handleConsultationClick}
+          <QuoteLink
             className="group inline-flex cursor-pointer items-center justify-center gap-3 rounded-full bg-[#31847b] px-9 py-4 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:bg-[#256a63] hover:scale-[1.02] active:scale-[0.98] shadow-sm hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#31847b]"
           >
             <span>Request a Consultation</span>
             <ArrowRight size={17} className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
-          </button>
+          </QuoteLink>
         </div>
       </div>
     </section>

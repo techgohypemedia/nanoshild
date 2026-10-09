@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ConsultationModal from "@/components/ConsultationModal";
 import PageHero from "@/components/PageHero";
 import PageCtaBand from "@/components/PageCtaBand";
 import ProjectGalleryGrid from "@/components/ProjectGalleryGrid";
@@ -36,7 +35,6 @@ export default function ProjectGalleryPage() {
         <PageCtaBand cta="Request a Quote" />
       </main>
       <Footer />
-      <ConsultationModal />
     </div>
   );
 }

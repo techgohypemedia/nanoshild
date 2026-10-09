@@ -2,7 +2,8 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { ArrowRight, Plus, X } from "lucide-react";
-import { openConsultationModal } from "@/components/ConsultationModal";
+import { useRouter } from "next/navigation";
+import { quoteHref } from "@/components/QuoteLink";
 import {
   ESTIMATE_CONFIG,
   SURFACE_TYPES,
@@ -91,13 +92,10 @@ export default function PricingCalculator() {
     setUnit(next);
   };
 
+  const router = useRouter();
   const book = () => {
     if (result.area <= 0) return;
-    openConsultationModal({
-      title: ESTIMATE_CONFIG.ctaText,
-      subtitle: `Your estimate of ${money(result.total)} (${result.area.toFixed(2)} m² across ${surfaces.length} ${surfaceWord}) is attached to this enquiry.`,
-      formParams: estimateParams(result),
-    });
+    router.push(quoteHref(null, estimateParams(result)));
   };
 
   return (

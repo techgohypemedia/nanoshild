@@ -2,15 +2,9 @@
 
 import Image from "next/image";
 import { ArrowRight, Check } from "lucide-react";
-import { openConsultationModal } from "@/components/ConsultationModal";
+import QuoteLink from "@/components/QuoteLink";
 
 export default function StickyGridScroll() {
-  const handleQuoteClick = () => {
-    openConsultationModal({
-      title: "Request a Free Custom Quote",
-      subtitle: "Tell us about your space and stone surfaces for an accurate, tailored estimate.",
-    });
-  };
 
   return (
     <div id="narrative-story" className="w-full overflow-hidden bg-[#f8f9fa] text-[#1f242e]">
@@ -78,14 +72,12 @@ export default function StickyGridScroll() {
               </p>
 
               <div className="mt-8">
-                <button
-                  type="button"
-                  onClick={handleQuoteClick}
+                <QuoteLink
                   className="group inline-flex cursor-pointer items-center justify-center gap-3 rounded-full bg-[#50b8ae] px-8 py-4 text-sm sm:text-base font-semibold text-[#102c29] transition-all duration-300 hover:bg-[#79cec5] hover:scale-[1.02] active:scale-[0.98] shadow-sm hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#50b8ae]"
                 >
                   <span>Request a Quote</span>
                   <ArrowRight size={17} className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
-                </button>
+                </QuoteLink>
               </div>
             </div>
           </div>

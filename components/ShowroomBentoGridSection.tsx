@@ -3,15 +3,9 @@
 import React from "react";
 import Image from "next/image";
 import { ArrowUpRight, ShieldCheck } from "lucide-react";
-import { openConsultationModal } from "@/components/ConsultationModal";
+import QuoteLink from "@/components/QuoteLink";
 
 export default function ShowroomBentoGridSection() {
-  const handleDemoClick = () => {
-    openConsultationModal({
-      title: "Book a Live Film Demo",
-      subtitle: "See wine, lemon, and acid tested live on protected marble samples in your kitchen.",
-    });
-  };
 
   return (
     <section
@@ -130,14 +124,12 @@ export default function ShowroomBentoGridSection() {
 
             {/* Action Button */}
             <div className="relative z-10">
-              <button
-                type="button"
-                onClick={handleDemoClick}
+              <QuoteLink
                 className="inline-flex items-center gap-2 px-4 py-2 border border-white/90 bg-white/20 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider hover:bg-white hover:text-[#258277] transition-all duration-300 shadow-md rounded-none cursor-pointer"
               >
                 <span>Free Film Demo</span>
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
+              </QuoteLink>
             </div>
 
             {/* Description */}
