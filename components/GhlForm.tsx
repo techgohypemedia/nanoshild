@@ -1,29 +1,39 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Script from "next/script";
 import { GHL_FORM } from "@/lib/contact";
 
 // Embeds the GoHighLevel enquiry form. form_embed.js resizes the iframe to fit its content.
 // `params` are appended to the form URL and picked up by hidden fields in GHL that share the same query parameter names.
-// After a successful submission GHL redirects (configured in the GHL form settings, "On Submit") to the thank-you page.
-// If GHL redirects only the iframe rather than the whole window, the second `load` event below sends the visitor to /thank-you.
+// After a successful submission the GHL form posts `["set-sticky-contacts", "embedded_iframe_<id>", ...]` to the parent
+// window (form_embed.js uses it to mark the lead as collected). On load it posts the same action with a `_ud` key and a
+// cookie payload, which is NOT a submission, so only the `embedded_iframe_` key triggers the redirect to /thank-you.
+// The iframe is sandboxed without `allow-top-navigation` so GHL's own "On Submit" redirect (configured in the GHL form
+// settings and still pointing at the old domain) cannot take the visitor away from this site.
+const FORM_ORIGIN = new URL(GHL_FORM.src).origin;
+const LEAD_COLLECTED_KEY_PREFIX = "embedded_iframe_";
+
 export default function GhlForm({ instance = "inline", className = "", params }: { instance?: string; className?: string; params?: Record<string, string> }) {
   const iframeId = `${instance}-${GHL_FORM.id}`;
   const query = params ? new URLSearchParams(params).toString() : "";
   const src = query ? `${GHL_FORM.src}${GHL_FORM.src.includes("?") ? "&" : "?"}${query}` : GHL_FORM.src;
   const router = useRouter();
-  const loads = useRef(0);
 
   useEffect(() => {
     router.prefetch("/thank-you");
-  }, [router]);
 
-  const handleLoad = () => {
-    loads.current += 1;
-    if (loads.current > 1) router.push("/thank-you");
-  };
+    const onMessage = (event: MessageEvent) => {
+      if (event.origin !== FORM_ORIGIN) return;
+      if (!Array.isArray(event.data) || event.data[0] !== "set-sticky-contacts") return;
+      const userDataKey = event.data[1];
+      if (typeof userDataKey === "string" && userDataKey.startsWith(LEAD_COLLECTED_KEY_PREFIX)) router.push("/thank-you");
+    };
+
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, [router]);
 
   return (
     <div className="w-full overflow-hidden">
@@ -31,7 +41,7 @@ export default function GhlForm({ instance = "inline", className = "", params }:
         src={src}
         id={iframeId}
         title={GHL_FORM.name}
-        onLoad={handleLoad}
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
         style={{
           width: "100%",
           height: GHL_FORM.height,
