@@ -21,8 +21,8 @@ export default function ProjectGalleryPage() {
         <PageHero
           title={"Stone you love.\nProtected for everyday life."}
           description={description}
-          image="/slider/slide-4.jpg"
-          imageAlt="Marble waterfall island in a light-filled kitchen"
+          image="/ADS/nanolandingpics-12.jpg"
+          imageAlt="Luxury bookmatched Calacatta marble waterfall island protected with NanoShield HD"
           cta="Request a Quote"
         />
 

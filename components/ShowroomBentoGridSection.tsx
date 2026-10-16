@@ -47,7 +47,7 @@ export default function ShowroomBentoGridSection() {
             {/* Architectural Stone Interior Background */}
             <div className="absolute inset-0 z-0 rounded-none">
               <Image
-                src="/contact-room.jpg"
+                src="/ADS/nanolandingpics-6.jpg"
                 alt="NanoShield Certified Protection"
                 fill
                 className="object-cover object-center brightness-110 contrast-105 rounded-none"
@@ -87,7 +87,7 @@ export default function ShowroomBentoGridSection() {
             {/* Real Luxury Calacatta Kitchen Image */}
             <div className="absolute inset-0 z-0 rounded-none">
               <Image
-                src="/marble-peace.png"
+                src="/ADS/nanolandingpics-11.jpg"
                 alt="10-Year Protected Calacatta Kitchen"
                 fill
                 className="object-cover object-center rounded-none"
@@ -148,19 +148,19 @@ export default function ShowroomBentoGridSection() {
             {/* Multi-Colored Vertical Slabs */}
             <div className="absolute inset-0 z-0 flex rounded-none">
               <div className="w-1/5 h-full relative border-r border-black/20">
-                <Image src="/collections/onyx-2.jpg" alt="Emerald Onyx" fill className="object-cover" />
+                <Image src="/ADS/nanolandingpics-7.jpg" alt="Emerald Green Quartzite" fill className="object-cover" />
               </div>
               <div className="w-1/5 h-full relative border-r border-black/20">
-                <Image src="/collections/black-marquina-1.jpg" alt="Nero Marquina" fill className="object-cover brightness-110" />
+                <Image src="/ADS/nanolandingpics-3.jpg" alt="Nero Marquina Marble" fill className="object-cover brightness-110" />
               </div>
               <div className="w-1/5 h-full relative border-r border-black/20">
-                <Image src="/marble-calacatta-hd.jpg" alt="Calacatta Gold" fill className="object-cover brightness-105" />
+                <Image src="/ADS/nanolandingpics-12.jpg" alt="Calacatta Arabescato Marble" fill className="object-cover brightness-105" />
               </div>
               <div className="w-1/5 h-full relative border-r border-black/20">
-                <Image src="/collections/onyx-1.jpg" alt="Amber Onyx" fill className="object-cover brightness-110" />
+                <Image src="/ADS/nanolandingpics-8.jpg" alt="Veined Travertine" fill className="object-cover brightness-110" />
               </div>
               <div className="w-1/5 h-full relative">
-                <Image src="/collections/travertine-1.jpg" alt="Italian Travertine" fill className="object-cover" />
+                <Image src="/ADS/nanolandingpics-10.jpg" alt="Custom Ogee Marble Edge" fill className="object-cover" />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent rounded-none" />
             </div>

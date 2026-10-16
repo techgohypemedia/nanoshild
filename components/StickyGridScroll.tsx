@@ -23,8 +23,8 @@ export default function StickyGridScroll() {
           {/* Left: Rounded Luxury Marble Visual */}
           <div className="relative w-full aspect-[4/3] xl:aspect-[16/11] overflow-hidden rounded-xl bg-stone-100 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-stone-200/80 group lg:-mt-1">
             <Image
-              src="/marble-kitchen-island.jpg"
-              alt="Luxury Calacatta Gold Marble Island Countertop"
+              src="/ADS/nanolandingpics-1.jpg"
+              alt="Luxury Marble Island Countertop with NanoShield HD"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-105"
@@ -123,8 +123,8 @@ export default function StickyGridScroll() {
           {/* Right: Rounded Visual Frame with Gap */}
           <div className="relative w-full aspect-[4/3] xl:aspect-[16/11] overflow-hidden rounded-xl bg-stone-100 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-stone-200/80 group order-1 lg:order-2">
             <Image
-              src="/marble-family-freedom.jpg"
-              alt="Joyful Family Living and Dining on Protected Marble Island"
+              src="/ADS/nanolandingpics-12.jpg"
+              alt="Living and Entertaining on Protected Calacatta Marble Island"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-105"

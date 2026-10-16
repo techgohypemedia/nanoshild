@@ -61,7 +61,7 @@ export default function MarbleThreeCanvas() {
 
     // Texture Loader
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load("/marble-living.png", (tex) => {
+    const texture = textureLoader.load("/ADS/nanolandingpics-12.jpg", (tex) => {
       tex.colorSpace = THREE.SRGBColorSpace;
       tex.minFilter = THREE.LinearFilter;
       tex.magFilter = THREE.LinearFilter;
