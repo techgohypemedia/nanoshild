@@ -32,8 +32,8 @@ export default async function ContactUsPage({ searchParams }: { searchParams: Pr
         <PageHero
           title={"Let’s talk about\nyour stone."}
           description={description}
-          image="/showroom-stock/contact-living-marble.jpg"
-          imageAlt="Marble island in an open-plan living space"
+          image="/ADS/nanolandingpics-11.webp"
+          imageAlt="Luxury kitchen with protected marble benchtop and splashback"
         />
 
         <section className="border-b border-stone-200 bg-white px-6 py-12 sm:px-10 sm:py-14">

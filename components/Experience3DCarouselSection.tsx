@@ -14,37 +14,37 @@ const CARDS: StoneCard[] = [
   {
     id: "white-statuario",
     title: "Protected Statuario & Calacatta",
-    image: "/marble-calacatta-hd.jpg",
+    image: "/ADS/nanolandingpics-12.webp",
   },
   {
     id: "fusion-series",
     title: "Protected Chef Benchtops",
-    image: "/marble-kitchen-island.jpg",
+    image: "/ADS/nanolandingpics-1.webp",
   },
   {
     id: "quartzo-islands",
-    title: "Protected Quartzite Islands",
-    image: "/marble-travertine-texture.jpg",
+    title: "Protected Travertine & Quartzite",
+    image: "/ADS/nanolandingpics-8.webp",
   },
   {
     id: "ratna-gemstones",
-    title: "Protected Translucent Onyx",
-    image: "/collections/onyx-2.jpg",
+    title: "Protected Exotic Green Quartzite",
+    image: "/ADS/nanolandingpics-7.webp",
   },
   {
     id: "granito-quartzite",
     title: "Protected Nero Marquina",
-    image: "/collections/black-marquina-1.jpg",
+    image: "/ADS/nanolandingpics-3.webp",
   },
   {
     id: "embossed-series",
-    title: "Protected Fluted Marble",
-    image: "/collections/calacatta-1.jpg",
+    title: "Protected Custom Edge Profiles",
+    image: "/ADS/nanolandingpics-10.webp",
   },
   {
     id: "onyx-lumina",
-    title: "Protected Backlit Onyx",
-    image: "/collections/onyx-1.jpg",
+    title: "Protected Fluted Marble Islands",
+    image: "/ADS/nanolandingpics-6.webp",
   },
 ];
 

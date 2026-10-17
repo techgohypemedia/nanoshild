@@ -2,7 +2,7 @@ export const sitePages = {
   "about-us": {
     label: "About Us", title: "The team who\nknows natural stone.",
     description: "For 10 years, our Melbourne team has cleaned, honed, polished and sealed marble and other natural stone. That experience led us to develop NanoShield HD.",
-    image: "/marble-lifestyle-island.jpg", imageAlt: "Family gathered around a natural marble kitchen island",
+    image: "/ADS/nanolandingpics-4.webp", imageAlt: "Clean Seal certified technicians installing NanoShield HD marble protection film",
     eyebrow: "About NanoShield HD", heading: "Protection developed from stone care experience.",
     intro: "We understand the care these surfaces need. We have also seen how frustrating it can be for homeowners to restore a beautiful benchtop, then worry about the next spill. NanoShield HD gives you greater confidence to cook, entertain and enjoy the surfaces you have invested in.",
     details: [
@@ -15,7 +15,7 @@ export const sitePages = {
   "our-showroom": {
     label: "Our Showroom", title: "See the stone.\nFeel the difference.",
     description: "Get a closer look at NanoShield HD and explore how protected marble fits into your home.",
-    image: "/contact-room.jpg", imageAlt: "Refined interior with natural stone finishes",
+    image: "/ADS/nanolandingpics-6.webp", imageAlt: "Designer architectural space featuring protected natural stone benchtops",
     eyebrow: "Experience NanoShield HD", heading: "Some things are better seen in person.",
     intro: "Explore the finish, ask questions about your own stone and see surface protection in action. Arrange a consultation with the team to discuss a demonstration and the available visit options.",
     details: [
@@ -28,7 +28,7 @@ export const sitePages = {
   pricing: {
     label: "Pricing", title: "Exceptional stone.\nConsidered protection.",
     description: "Professional surface protection, fully installed from $300 per square metre. Get a quote tailored to your stone and your space.",
-    image: "/marble-living.png", imageAlt: "Living space with luxurious natural stone",
+    image: "/ADS/nanolandingpics-1.webp", imageAlt: "Luxury kitchen with marble island protected with NanoShield HD",
     eyebrow: "A quote for your project", heading: "From $300 / m². Fully installed.",
     intro: "Every surface is different. Share a few details about your project so the team can confirm suitability, installation requirements and the final price before you book.",
     details: [

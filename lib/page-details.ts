@@ -12,7 +12,7 @@ export const pageDetails: Record<SitePageSlug, PageDetails> = {
     feature: {
       eyebrow: "Protect the natural stone you use most", title: "Made for the surfaces that bring your home together.",
       text: "NanoShield HD is a clear marble protection film that helps protect natural stone from stains, acid etching and everyday surface scratches. Your stone's natural detail remains visible beneath the clear film.",
-      image: "/marble-kitchen-island.jpg", alt: "Natural marble kitchen island",
+      image: "/ADS/nanolandingpics-12.webp", alt: "Bookmatched Calacatta marble waterfall island",
       points: ["Kitchen benchtops and islands", "Home bars and bathroom vanity tops", "Dining tables and other natural stone furniture"],
     },
     processTitle: "How we look after your stone.",
@@ -33,7 +33,7 @@ export const pageDetails: Record<SitePageSlug, PageDetails> = {
     feature: {
       eyebrow: "Make your visit useful", title: "Bring your ideas. Leave with a clearer plan.",
       text: "Whether you are choosing marble for a new kitchen or protecting a surface you already own, a consultation lets you connect what you see in a demonstration to the details of your own project.",
-      image: "/marble-living.png", alt: "Interior inspiration with natural stone finishes",
+      image: "/ADS/nanolandingpics-10.webp", alt: "Detailed custom bullnose marble edge profile on protected benchtop",
       points: ["Photos or drawings of your space", "Approximate dimensions and stone details", "Questions about finish, daily use and care"],
     },
     processTitle: "Your consultation, step by step.",
@@ -54,7 +54,7 @@ export const pageDetails: Record<SitePageSlug, PageDetails> = {
     feature: {
       eyebrow: "Understand your quote", title: "The details make the difference.",
       text: "The starting rate is a useful planning reference. Your final quote needs to reflect the actual surfaces, their condition and the installation scope, so a few clear photos and measurements are a helpful place to start.",
-      image: "/contact-room.jpg", alt: "Interior with carefully detailed natural stone surfaces",
+      image: "/ADS/nanolandingpics-13.webp", alt: "Architectural bookmatched marble island with curved pedestals",
       points: ["Dimensions and number of separate surfaces", "Edge profiles, joins and sink or hob cut-outs", "Existing condition, project location and access"],
     },
     processTitle: "From first enquiry to a clear price.",

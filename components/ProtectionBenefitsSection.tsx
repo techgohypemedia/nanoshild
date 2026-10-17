@@ -7,22 +7,22 @@ const BENEFITS = [
   {
     title: "Stains from food and drinks",
     description: "Including coffee, red wine, cooking oils and strongly coloured ingredients.",
-    image: "/grid/wine-glass.jpg",
-    alt: "Glass of red wine on a marble kitchen island",
+    image: "/ADS/landindg7.webp",
+    alt: "Real marble surface undergoing treatment against liquid stains and spills",
     icon: Wine,
   },
   {
     title: "Acid etching",
     description: "The dull marks that lemon juice, vinegar and other acidic spills can leave on sensitive stone.",
-    image: "/grid/lemon-cutting.jpg",
-    alt: "Freshly cut lemon on a marble benchtop",
+    image: "/ADS/landing%20page1.webp",
+    alt: "Marble kitchen island restored and protected from acid etching",
     icon: Citrus,
   },
   {
     title: "Light scratches and scuffs",
     description: "From everyday contact with items around the home.",
-    image: "/grid/food-prep.jpg",
-    alt: "Bread and serving board on a marble benchtop",
+    image: "/ADS/lamding4.webp",
+    alt: "Precision marble surface finishing to eliminate light scratches and scuffs",
     icon: ShieldCheck,
   },
 ];

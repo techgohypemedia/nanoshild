@@ -44,8 +44,8 @@ export default function ThankYouPage() {
         <PageHero
           title={"Thank you.\nWe’ve received your enquiry."}
           description={description}
-          image="/marble-kitchen-island.jpg"
-          imageAlt="Protected marble kitchen island"
+          image="/ADS/nanolandingpics-1.webp"
+          imageAlt="Luxury marble kitchen island protected with NanoShield HD"
         />
 
         <section className="mx-auto max-w-7xl px-6 py-20 sm:px-10 sm:py-28">

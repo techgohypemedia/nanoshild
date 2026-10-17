@@ -31,8 +31,8 @@ export default function WhatChangesSection() {
           {/* Left Column: Kitchen Image */}
           <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-stone-100 shadow-[0_12px_40px_rgba(0,0,0,0.08)] border border-stone-200/80">
             <Image
-              src="/marble-kitchen-island.jpg"
-              alt="Modern kitchen with protected marble countertop"
+              src="/ADS/nanolandingpics-1.webp"
+              alt="Luxury modern kitchen with marble island benchtop protected with NanoShield HD"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover object-center transition-transform duration-1000 ease-out hover:scale-105"

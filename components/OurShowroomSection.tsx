@@ -1,19 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-
 export default function OurShowroomSection() {
-  const [isInteractive, setIsInteractive] = useState(false);
-
-  // Re-enable scroll pass-through as soon as user scrolls the page
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsInteractive(false);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <section
       id="our-showroom"
@@ -31,31 +18,14 @@ export default function OurShowroomSection() {
           </p>
         </div>
 
-        {/* Video */}
-        <div
-          onMouseLeave={() => setIsInteractive(false)}
-          className="relative w-full aspect-video rounded-xl overflow-hidden border border-stone-200/90 bg-stone-900 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.18)]"
-        >
+        {/* Video: Autoplay, loop continuously, muted, no hover pause */}
+        <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-stone-200/90 bg-stone-900 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.18)]">
           <iframe
-            src="https://www.youtube.com/embed/ruvn13xDR2g?autoplay=1&mute=1&loop=1&playlist=ruvn13xDR2g&playsinline=1&controls=1&rel=0&modestbranding=1"
+            src="https://www.youtube.com/embed/ruvn13xDR2g?autoplay=1&mute=1&loop=1&playlist=ruvn13xDR2g&playsinline=1&controls=0&rel=0&modestbranding=1&enablejsapi=1"
             title="NanoShield Surface Protection Demonstration"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            className="absolute inset-0 w-full h-full border-0 rounded-xl scale-[1.02] origin-center"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            className="absolute inset-0 w-full h-full border-0 rounded-xl scale-[1.02] origin-center pointer-events-none"
           />
-
-          {/* 
-            Invisible scroll pass-through overlay:
-            Lets mouse wheel events scroll the page smoothly without being swallowed by the iframe.
-            Clicking it activates direct interaction with native YouTube controls.
-            Scrolling or moving mouse away immediately restores smooth page scrolling.
-          */}
-          {!isInteractive && (
-            <div
-              onClick={() => setIsInteractive(true)}
-              className="absolute inset-0 z-10 cursor-pointer bg-transparent"
-            />
-          )}
         </div>
       </div>
     </section>
