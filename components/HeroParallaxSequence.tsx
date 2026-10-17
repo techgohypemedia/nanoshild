@@ -18,7 +18,7 @@ export default function HeroParallaxSequence() {
         loop
         playsInline
         preload="auto"
-        poster="/nanoshild_parallax_frames_web/frames/frame_0001.webp"
+        poster="/nanoshield_parallax_frames_web/frames/frame_0001.webp"
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
       >

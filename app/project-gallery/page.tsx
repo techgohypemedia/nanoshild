@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/PageHero";
 import PageCtaBand from "@/components/PageCtaBand";
 import ProjectGalleryGrid from "@/components/ProjectGalleryGrid";
+import ProjectVideos from "@/components/ProjectVideos";
 import { galleryItems } from "@/lib/gallery";
 
 const description = "Kitchen benchtops, islands, home bars and vanity tops. See natural stone surfaces protected with NanoShield HD marble protection film.";
@@ -30,6 +31,12 @@ export default function ProjectGalleryPage() {
           <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#31847b]">Project Gallery</p>
           <h2 className="mb-12 max-w-2xl text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">Protect the natural stone you use most.</h2>
           <ProjectGalleryGrid items={galleryItems} />
+        </section>
+
+        <section id="project-videos" className="mx-auto max-w-7xl scroll-mt-24 px-6 pb-20 sm:px-10 sm:pb-28">
+          <h2 className="mb-6 text-3xl font-semibold tracking-tight sm:text-5xl">Our projects in motion.</h2>
+          <p className="mb-10 max-w-2xl text-stone-600">Watch installation details, surface demonstrations and finished NanoShield HD projects.</p>
+          <ProjectVideos />
         </section>
 
         <PageCtaBand cta="Request a Quote" />

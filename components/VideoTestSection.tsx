@@ -1,4 +1,5 @@
-"use client";
+import Link from "next/link";
+import ProjectVideos from "@/components/ProjectVideos";
 
 export default function VideoTestSection() {
   return (
@@ -10,22 +11,19 @@ export default function VideoTestSection() {
         {/* Centered header */}
         <div className="flex flex-col items-center text-center mb-10 sm:mb-14 px-4 overflow-hidden">
           <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-semibold text-[#1f242e] tracking-tight leading-tight">
-            Watch us put NanoShield HD to the test
+            See NanoShield HD in action
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-stone-600 max-w-2xl mx-auto font-normal leading-relaxed">
-            Watch us put NanoShield HD to the test with freshly brewed espresso, cab merlot poured straight from the bottle and a freshly cut lemon squeezed straight onto the surface.
+            Explore our finished projects, watch a surface protection demonstration and see how our team installs NanoShield HD.
           </p>
         </div>
 
-        {/* Video: Autoplay, loop continuously, muted, no hover pause */}
-        <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-stone-200/90 bg-stone-900 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.18)]">
-          <iframe
-            src="https://www.youtube.com/embed/ruvn13xDR2g?autoplay=1&mute=1&loop=1&playlist=ruvn13xDR2g&playsinline=1&controls=0&rel=0&modestbranding=1&enablejsapi=1"
-            title="NanoShield Surface Protection Demonstration"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            className="absolute inset-0 w-full h-full border-0 rounded-xl scale-[1.02] origin-center pointer-events-none"
-          />
+        <ProjectVideos featured />
+        <div className="mt-10 text-center">
+          <Link href="/project-gallery#project-videos" className="font-semibold text-[#31847b] underline underline-offset-4">
+            Watch more project videos
+          </Link>
         </div>
       </div>
     </section>
