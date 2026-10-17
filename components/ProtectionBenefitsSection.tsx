@@ -7,7 +7,7 @@ const BENEFITS = [
   {
     title: "Stains from food and drinks",
     description: "Including coffee, red wine, cooking oils and strongly coloured ingredients.",
-    image: "/ADS/landindg7.webp",
+    image: "/ADS/lamding3.webp",
     alt: "Real marble surface undergoing treatment against liquid stains and spills",
     icon: Wine,
   },

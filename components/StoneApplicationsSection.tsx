@@ -17,7 +17,7 @@ const APPLICATIONS: ApplicationItem[] = [
     id: "kitchen-islands",
     title: "Kitchen benchtops and islands",
     description: "Protect the surfaces where you prepare meals, serve food and gather with family.",
-    image: "/ADS/nanolandingpics-12.webp",
+    image: "/ADS/nanolandingpics-13.webp",
     icon: Utensils,
   },
   {
